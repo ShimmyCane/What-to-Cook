@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What to Cook</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>🍳 What to Cook</h1>
+  <span id="statusPill" class="pill">this device only</span>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <button class="tab on" data-tab="pantry" type="button">🥫 Pantry</button>
+  <button class="tab" data-tab="capture" type="button">🎙️ Add</button>
+</nav>
+
+<main>
+  <section id="tab-pantry" class="view">
+    <div class="row wrap">
+      <label class="grow">Who is checking?
+        <select id="member"></select>
+      </label>
+      <label>Show
+        <select id="placeFilter">
+          <option value="">All places</option>
+          <option value="fridge">Fridge</option>
+          <option value="pantry">Pantry</option>
+          <option value="freezer">Freezer</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+    </div>
+    <p class="hint">Swipe left: ate or tossed. Swipe right: remain. Tap: ⭐ favourite. Open <em>Details</em> to change the quantity.</p>
+
+    <section class="panel" data-panel="cleanup" id="cleanupPanel">
+      <button class="panelHead" type="button" aria-expanded="true"><span>🧹</span><span class="grow">Use soon (<span id="cleanCount">0</span>)</span><span class="mark">▾</span></button>
+      <div class="panelBody">
+        <p class="hint">About to expire, or past the date. Use these first.</p>
+        <ul id="cleanup" class="cards"></ul>
+        <p id="cleanEmpty" class="empty" hidden>Nothing needs using up today. 🎉</p>
+        <p id="cleanHint" class="hint" hidden></p>
+      </div>
+    </section>
+
+    <section class="panel" data-panel="stock">
+      <button class="panelHead" type="button" aria-expanded="true"><span>🥫</span><span class="grow">Pantry, fridge and freezer</span><span class="mark">▾</span></button>
+      <div class="panelBody">
+        <ul id="stock" class="cards" aria-live="polite"></ul>
+        <p id="stockEmpty" class="empty" hidden>Nothing else in stock here. Use 🎙️ Add.</p>
+      </div>
+    </section>
+
+    <section class="panel" data-panel="low" data-open="false">
+      <button class="panelHead" type="button" aria-expanded="false"><span>🗂️</span><span class="grow">Lower priority (<span id="lowCount">0</span>)</span><span class="mark">▸</span></button>
+      <div class="panelBody">
+        <p class="hint">Tracked loosely, like eggs, bread and wines. Revisit now and then.</p>
+        <ul id="lowStock" class="cards"></ul>
+        <p id="lowEmpty" class="empty" hidden>Nothing on the lower list.</p>
+      </div>
+    </section>
+  </section>
+
+  <section id="tab-capture" class="view" hidden>
+    <h2>Add from a memo or a list</h2>
+    <label>Where did it come from?
+      <select id="source">
+        <option value="apple_memo">🍎 Apple Voice Memo transcript</option>
+        <option value="raw">Typed or spoken here</option>
+      </select>
+    </label>
+    <p class="hint">Paste the memo's transcript, one item per line or separated by commas. The full text is archived in ⚙️ → Transcript archive.</p>
+    <textarea id="transcript" rows="5" placeholder="Paste or type…"></textarea>
+    <div class="row wrap">
+      <button id="listen" type="button" class="big">🎤 Speak</button>
+      <button id="parse" type="button" class="big primary">Sort into items</button>
+    </div>
+    <p id="listenNote" class="hint" hidden></p>
+    <div id="review" hidden>
+      <h3>Check the draft</h3>
+      <p class="hint">Same name, same expiry date and same place updates the line already in the pantry. A new expiry date makes a new line. Untick to drop an item.</p>
+      <ul id="draft" class="cards"></ul>
+      <button id="save" type="button" class="big primary">Save to pantry</button>
+    </div>
+    <p id="saveNote" class="hint" hidden></p>
+  </section>
+</main>
+
+<button id="gear" class="gear" type="button" aria-label="Settings" aria-expanded="false" aria-controls="drawer">⚙️</button>
+<aside id="drawer" class="drawer" hidden>
+  <h2>⚙️ Settings</h2>
+  <section class="panel" data-panel="database" data-open="true">
+    <button class="panelHead" type="button" aria-expanded="true"><span>☁️</span><span class="grow">Family database</span><span class="mark">▾</span></button>
+    <div class="panelBody">
+      <p class="hint">Sign in with the family login to share the pantry with everyone. Without it, this device keeps its own copy. The password is sent only to the database and is not kept.</p>
+      <label>Family email<input type="email" id="dbEmail" autocomplete="username"></label>
+      <label>Password<input type="password" id="dbPassword" autocomplete="current-password"></label>
+      <div class="row wrap"><button id="signIn" type="button" class="primary">Sign in</button><button id="signOut" type="button">Sign out</button></div>
+      <p id="dbStatus" class="hint"></p>
+      <button id="dbCheck" type="button">Check database</button>
+      <pre id="dbResult" class="hint"></pre>
+    </div>
+  </section>
+
+
+  <section class="panel" data-panel="pages" data-open="false">
+    <button class="panelHead" type="button" aria-expanded="false"><span>🗂️</span><span class="grow">Pages</span><span class="mark">▸</span></button>
+    <div class="panelBody">
+      <ul id="pageLinks" class="plain"></ul>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="members" data-open="false">
+    <button class="panelHead" type="button" aria-expanded="false"><span>👪</span><span class="grow">Family members (this device)</span><span class="mark">▸</span></button>
+    <div class="panelBody">
+      <p class="hint">Names only, one per line. Stored on this device until the family sign-in is added.</p>
+      <textarea id="memberList" rows="4"></textarea>
+      <button id="saveMembers" type="button">Save names</button>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="guess" data-open="false">
+    <button class="panelHead" type="button" aria-expanded="false"><span>🔮</span><span class="grow">How the guess works</span><span class="mark">▸</span></button>
+    <div class="panelBody">
+      <p class="hint">For things eaten over time (eggs, milk). Remaining = the quantity when it was last counted, minus the eats-per-day rate times the days since. Example: 60 counted a week ago, 5 a day, so about 25 (42%) left.</p>
+      <p class="hint">Feedback: <strong>ate more</strong> lowers the guess (rate up 25%), <strong>ate less</strong> raises it (rate down 20%), <strong>about right</strong> keeps it. Each one resets the count to the guess.</p>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="archive" data-open="false">
+    <button class="panelHead" type="button" aria-expanded="false"><span>🗃️</span><span class="grow">Transcript archive</span><span class="mark">▸</span></button>
+    <div class="panelBody">
+      <ul id="archiveList" class="plain"></ul>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="versions" data-open="false">
+    <button class="panelHead" type="button" aria-expanded="false"><span>🏷️</span><span class="grow">Version log</span><span class="mark">▸</span></button>
+    <div class="panelBody">
+      <ul id="versionList" class="plain"></ul>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="notes" data-open="false">
+    <button class="panelHead" type="button" aria-expanded="false"><span>📝</span><span class="grow">Notes log (for improvement)</span><span class="mark">▸</span></button>
+    <div class="panelBody">
+      <textarea id="noteText" rows="3" placeholder="What would make this better?"></textarea>
+      <button id="noteSave" type="button">Save note</button>
+      <ul id="noteList" class="plain"></ul>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="todo" data-open="false">
+    <button class="panelHead" type="button" aria-expanded="false"><span>📋</span><span class="grow">To do</span><span class="mark">▸</span></button>
+    <div class="panelBody">
+      <p class="hint">✅ built, ⬜ still to do.</p>
+      <ul id="todoList" class="plain"></ul>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="errors" data-open="false">
+    <button class="panelHead" type="button" aria-expanded="false"><span>🛠️</span><span class="grow">Show errors</span><span class="mark">▸</span></button>
+    <div class="panelBody">
+      <label class="check"><input id="showErrors" type="checkbox"> Show problems at the bottom of the page</label>
+    </div>
+  </section>
+
+  <button id="closeDrawer" type="button" class="big">Close</button>
+</aside>
+
+<div id="errorPanel" class="errors" hidden aria-live="polite"></div>
+
+<datalist id="units">
+  <option value="g"></option><option value="kg"></option><option value="ml"></option><option value="l"></option>
+  <option value="each"></option><option value="tin"></option><option value="bag"></option><option value="box"></option>
+  <option value="pack"></option><option value="bottle"></option><option value="loaf"></option><option value="bunch"></option>
+  <option value="clove"></option><option value="slice"></option><option value="pot"></option><option value="tub"></option>
+  <option value="cup"></option>
+</datalist>
+
+<script src="js/config.js"></script>
+<script src="js/store.js"></script>
+<script src="js/util.js"></script>
+<script src="js/errors.js"></script>
+<script src="js/db.js"></script>
+<script src="js/parse.js"></script>
+<script src="js/core.js"></script>
+<script src="js/content.js"></script>
+<script src="js/sync.js"></script>
+<script src="js/pantry.js"></script>
+<script src="js/capture.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1446 @@
+{
+  "title": "Recipe book: exploring (starter 50)",
+  "updated": "2026-11-07",
+  "note": "Starter ideas from what the family buys. Each card is a version to explore: Family is the starting point. Not started until someone taps 'start'. Steps are short starters, shown once a recipe is started; look up versions for more.",
+  "recipes": [
+    {
+      "id": "kimchi-fried-rice",
+      "name": "Kimchi fried rice",
+      "cuisine": "Korean",
+      "minutes": 20,
+      "description": "Crispy rice with kimchi and an egg on top.",
+      "ingredients": [
+        {
+          "name": "rice",
+          "match": "rice"
+        },
+        {
+          "name": "kimchi",
+          "match": "kimchi"
+        },
+        {
+          "name": "egg",
+          "match": "egg"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        }
+      ],
+      "steps": [
+        "Fry chopped kimchi in a little oil for 2 minutes.",
+        "Add cold cooked rice and a splash of soy sauce; stir-fry until hot and a little crisp.",
+        "Top with a fried egg."
+      ]
+    },
+    {
+      "id": "bibimbap",
+      "name": "Bibimbap",
+      "cuisine": "Korean",
+      "minutes": 30,
+      "description": "Rice bowl with vegetables, egg and chili paste.",
+      "ingredients": [
+        {
+          "name": "rice",
+          "match": "rice"
+        },
+        {
+          "name": "spinach",
+          "match": "spinach"
+        },
+        {
+          "name": "carrots",
+          "match": "carrot"
+        },
+        {
+          "name": "egg",
+          "match": "egg"
+        },
+        {
+          "name": "gochujang",
+          "match": "gochujang"
+        }
+      ],
+      "steps": [
+        "Cook rice. Blanch the spinach; cut carrots into thin sticks and soften them in a pan.",
+        "Fry an egg.",
+        "Put rice in a bowl, arrange the vegetables and the egg on top.",
+        "Add gochujang to taste and mix at the table."
+      ]
+    },
+    {
+      "id": "bulgogi-bowls",
+      "name": "Bulgogi beef bowls",
+      "cuisine": "Korean",
+      "minutes": 25,
+      "description": "Sweet, savoury marinated beef over rice.",
+      "ingredients": [
+        {
+          "name": "beef",
+          "match": "beef"
+        },
+        {
+          "name": "bulgogi marinade",
+          "match": "bbq"
+        },
+        {
+          "name": "rice",
+          "match": "rice"
+        },
+        {
+          "name": "lettuce",
+          "match": "lettuce"
+        }
+      ],
+      "steps": [
+        "Slice the beef thinly and soak it in the bulgogi marinade for 15 minutes.",
+        "Cook it in a very hot pan for 2 to 3 minutes, in batches.",
+        "Serve over rice, with lettuce leaves to wrap."
+      ]
+    },
+    {
+      "id": "korean-chicken-stir-fry",
+      "name": "Spicy Korean chicken stir-fry",
+      "cuisine": "Korean",
+      "minutes": 25,
+      "description": "Chicken, cabbage and gochujang in one pan.",
+      "ingredients": [
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "cabbage",
+          "match": "cabbage"
+        },
+        {
+          "name": "gochujang",
+          "match": "gochujang"
+        },
+        {
+          "name": "carrots",
+          "match": "carrot"
+        }
+      ],
+      "steps": [
+        "Mix gochujang with a little soy sauce and water.",
+        "Brown bite-size chicken in a hot pan.",
+        "Add cabbage and carrots, then the sauce; cook until the chicken is cooked through."
+      ]
+    },
+    {
+      "id": "oyakodon",
+      "name": "Oyakodon",
+      "cuisine": "Japanese",
+      "minutes": 20,
+      "description": "Chicken and egg over rice in a sweet soy broth.",
+      "ingredients": [
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "egg",
+          "match": "egg"
+        },
+        {
+          "name": "rice",
+          "match": "rice"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        }
+      ],
+      "steps": [
+        "Simmer soy sauce with a little water and sugar.",
+        "Add sliced chicken and cook until done.",
+        "Pour beaten egg over, cover, and cook until just set.",
+        "Slide onto a bowl of rice."
+      ]
+    },
+    {
+      "id": "teriyaki-chicken",
+      "name": "Teriyaki chicken",
+      "cuisine": "Japanese",
+      "minutes": 25,
+      "description": "Glossy sweet-salty chicken with rice.",
+      "ingredients": [
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        },
+        {
+          "name": "rice",
+          "match": "rice"
+        }
+      ],
+      "steps": [
+        "Mix soy sauce with a little sugar and water.",
+        "Pan-fry the chicken until browned and cooked through.",
+        "Add the sauce and let it bubble until glossy. Serve with rice."
+      ]
+    },
+    {
+      "id": "okonomiyaki",
+      "name": "Okonomiyaki",
+      "cuisine": "Japanese",
+      "minutes": 25,
+      "description": "Savoury cabbage pancake with a sweet sauce.",
+      "ingredients": [
+        {
+          "name": "cabbage",
+          "match": "cabbage"
+        },
+        {
+          "name": "eggs",
+          "match": "egg"
+        },
+        {
+          "name": "flour",
+          "match": "flour"
+        },
+        {
+          "name": "mayonnaise",
+          "match": "mayo"
+        }
+      ],
+      "steps": [
+        "Mix flour, eggs and a little water into a thick batter.",
+        "Stir in finely shredded cabbage.",
+        "Fry as thick pancakes, about 4 minutes a side.",
+        "Top with mayonnaise and a sweet sauce."
+      ]
+    },
+    {
+      "id": "ramen-egg-spinach",
+      "name": "Ramen with egg and spinach",
+      "cuisine": "Japanese",
+      "minutes": 12,
+      "description": "Ramen with a soft egg and greens.",
+      "ingredients": [
+        {
+          "name": "ramen",
+          "match": "ramen"
+        },
+        {
+          "name": "eggs",
+          "match": "egg"
+        },
+        {
+          "name": "spinach",
+          "match": "spinach"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        }
+      ],
+      "steps": [
+        "Cook the ramen as the packet says.",
+        "Add spinach for the last minute.",
+        "Drop in an egg, or add a soft-boiled egg, and a splash of soy sauce."
+      ]
+    },
+    {
+      "id": "quick-pho",
+      "name": "Quick pho",
+      "cuisine": "Vietnamese",
+      "minutes": 15,
+      "description": "Pho from a cup, with spinach and an egg.",
+      "ingredients": [
+        {
+          "name": "pho",
+          "match": "pho"
+        },
+        {
+          "name": "spinach",
+          "match": "spinach"
+        },
+        {
+          "name": "egg",
+          "match": "egg"
+        }
+      ],
+      "steps": [
+        "Make the pho cup with boiling water.",
+        "Add a handful of spinach.",
+        "Top with a soft-boiled egg."
+      ]
+    },
+    {
+      "id": "pad-see-ew",
+      "name": "Pad see ew",
+      "cuisine": "Thai",
+      "minutes": 20,
+      "description": "Wide noodles in soy and a little oyster sauce.",
+      "ingredients": [
+        {
+          "name": "noodles",
+          "match": "noodle"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        },
+        {
+          "name": "oyster sauce",
+          "match": "oyster"
+        },
+        {
+          "name": "egg",
+          "match": "egg"
+        },
+        {
+          "name": "broccoli",
+          "match": "broccoli"
+        }
+      ],
+      "steps": [
+        "Soak or cook the noodles.",
+        "Stir-fry broccoli in a hot pan, then push it aside and scramble an egg.",
+        "Add the noodles, soy sauce and a little oyster sauce; toss until coated."
+      ]
+    },
+    {
+      "id": "yellow-curry-chicken",
+      "name": "Yellow curry chicken and potatoes",
+      "cuisine": "Thai",
+      "minutes": 35,
+      "description": "Mild-spicy curry with potatoes.",
+      "ingredients": [
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "potatoes",
+          "match": "potato"
+        },
+        {
+          "name": "yellow curry",
+          "match": "curry"
+        },
+        {
+          "name": "carrots",
+          "match": "carrot"
+        }
+      ],
+      "steps": [
+        "Fry the yellow curry paste in a little oil for a minute.",
+        "Add chicken, potato chunks and carrots, and enough water or coconut milk to cover.",
+        "Simmer until the potatoes are soft and the chicken is cooked through."
+      ]
+    },
+    {
+      "id": "fried-rice-frozen-veg",
+      "name": "Fried rice with stir-fry veg",
+      "cuisine": "Chinese: Cantonese",
+      "minutes": 15,
+      "description": "Rice, eggs and the frozen veg mix.",
+      "ingredients": [
+        {
+          "name": "rice",
+          "match": "rice"
+        },
+        {
+          "name": "eggs",
+          "match": "egg"
+        },
+        {
+          "name": "stir-fry vegetables",
+          "match": "stir-fry"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        }
+      ],
+      "steps": [
+        "Scramble the eggs in a hot pan and set them aside.",
+        "Stir-fry the frozen veg until hot.",
+        "Add cold rice and soy sauce, then the eggs; toss until hot."
+      ]
+    },
+    {
+      "id": "chicken-broccoli",
+      "name": "Chicken and broccoli",
+      "cuisine": "Chinese: Cantonese",
+      "minutes": 20,
+      "description": "Quick stir-fry in oyster and soy sauce.",
+      "ingredients": [
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "broccoli",
+          "match": "broccoli"
+        },
+        {
+          "name": "oyster sauce",
+          "match": "oyster"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        }
+      ],
+      "steps": [
+        "Brown sliced chicken in a hot pan until cooked through.",
+        "Add broccoli and a splash of water; cover for 2 minutes.",
+        "Stir in oyster sauce and soy sauce. Serve with rice."
+      ]
+    },
+    {
+      "id": "tomato-egg-stir-fry",
+      "name": "Tomato and egg stir-fry",
+      "cuisine": "Chinese: Cantonese",
+      "minutes": 12,
+      "description": "Soft eggs with sweet tomatoes.",
+      "ingredients": [
+        {
+          "name": "tomatoes",
+          "match": "tomato"
+        },
+        {
+          "name": "eggs",
+          "match": "egg"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        }
+      ],
+      "steps": [
+        "Scramble the eggs softly and set them aside.",
+        "Cook tomato wedges until they start to break down.",
+        "Add a little soy sauce, return the eggs, and fold together."
+      ]
+    },
+    {
+      "id": "black-bean-chicken",
+      "name": "Black bean chicken",
+      "cuisine": "Chinese: Cantonese",
+      "minutes": 20,
+      "description": "Chicken with black bean paste.",
+      "ingredients": [
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "chunjang",
+          "match": "chunjang"
+        },
+        {
+          "name": "Shaoxing wine",
+          "match": "shaoxing"
+        }
+      ],
+      "steps": [
+        "Brown bite-size chicken.",
+        "Stir in chunjang and a splash of Shaoxing wine and water.",
+        "Simmer until the chicken is cooked and the sauce is thick."
+      ]
+    },
+    {
+      "id": "kung-pao-chicken",
+      "name": "Kung pao chicken",
+      "cuisine": "Chinese: Sichuan",
+      "minutes": 25,
+      "description": "Peanut, chili and a little tang.",
+      "ingredients": [
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "peanuts",
+          "match": "peanut"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        },
+        {
+          "name": "Shaoxing wine",
+          "match": "shaoxing"
+        },
+        {
+          "name": "sweet chili",
+          "match": "chili"
+        }
+      ],
+      "steps": [
+        "Mix soy sauce, Shaoxing wine and a little sweet chili sauce.",
+        "Stir-fry diced chicken until cooked through.",
+        "Add the sauce and the peanuts; toss for a minute."
+      ]
+    },
+    {
+      "id": "garlic-cabbage",
+      "name": "Garlic cabbage stir-fry",
+      "cuisine": "Chinese: Cantonese",
+      "minutes": 12,
+      "description": "Quick cabbage with soy and oyster sauce.",
+      "ingredients": [
+        {
+          "name": "cabbage",
+          "match": "cabbage"
+        },
+        {
+          "name": "oyster sauce",
+          "match": "oyster"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        }
+      ],
+      "steps": [
+        "Fry sliced garlic in oil for 30 seconds.",
+        "Add shredded cabbage and stir-fry on high heat.",
+        "Season with oyster sauce and soy sauce."
+      ]
+    },
+    {
+      "id": "chicken-lettuce-wraps",
+      "name": "Chicken lettuce wraps",
+      "cuisine": "Chinese: Cantonese",
+      "minutes": 20,
+      "description": "Crisp lettuce cups with savoury chicken.",
+      "ingredients": [
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "lettuce",
+          "match": "lettuce"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        },
+        {
+          "name": "oyster sauce",
+          "match": "oyster"
+        }
+      ],
+      "steps": [
+        "Stir-fry finely chopped chicken until cooked through.",
+        "Season with soy sauce and oyster sauce.",
+        "Spoon into crisp lettuce cups."
+      ]
+    },
+    {
+      "id": "century-egg-congee",
+      "name": "Century egg congee",
+      "cuisine": "Chinese: Cantonese",
+      "minutes": 60,
+      "description": "Silky rice porridge with century egg.",
+      "ingredients": [
+        {
+          "name": "rice",
+          "match": "rice"
+        },
+        {
+          "name": "century egg",
+          "match": "century"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        }
+      ],
+      "steps": [
+        "Simmer 1 part rice in about 8 parts water, stirring now and then, for about an hour.",
+        "Chop the century egg.",
+        "Stir it in at the end, season with soy sauce."
+      ]
+    },
+    {
+      "id": "orange-chicken",
+      "name": "Orange chicken",
+      "cuisine": "Chinese: Cantonese",
+      "minutes": 30,
+      "description": "Crisp chicken in a tangy orange glaze.",
+      "ingredients": [
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "orange juice",
+          "match": "orange"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        },
+        {
+          "name": "sweet chili",
+          "match": "chili"
+        }
+      ],
+      "steps": [
+        "Coat chicken pieces lightly in flour and pan-fry until cooked through.",
+        "Simmer orange juice, soy sauce and sweet chili sauce until syrupy.",
+        "Toss the chicken in the sauce."
+      ]
+    },
+    {
+      "id": "pancit",
+      "name": "Pancit",
+      "cuisine": "Filipino",
+      "minutes": 35,
+      "description": "Noodles with chicken, cabbage and carrots.",
+      "ingredients": [
+        {
+          "name": "noodles",
+          "match": "noodle"
+        },
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "cabbage",
+          "match": "cabbage"
+        },
+        {
+          "name": "carrots",
+          "match": "carrot"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        }
+      ],
+      "steps": [
+        "Soak or cook the noodles.",
+        "Stir-fry chicken until cooked, then add cabbage and carrots.",
+        "Add the noodles and soy sauce; toss until coated."
+      ]
+    },
+    {
+      "id": "chicken-adobo",
+      "name": "Chicken adobo",
+      "cuisine": "Filipino",
+      "minutes": 40,
+      "description": "Vinegar, soy and garlic braised chicken.",
+      "ingredients": [
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "cider vinegar",
+          "match": "vinegar"
+        },
+        {
+          "name": "soy sauce",
+          "match": "soy"
+        }
+      ],
+      "steps": [
+        "Put chicken, vinegar, soy sauce, garlic and a bay leaf in a pan.",
+        "Simmer covered for 30 minutes.",
+        "Uncover and reduce the sauce; serve with rice."
+      ]
+    },
+    {
+      "id": "aloo-gobi",
+      "name": "Aloo gobi",
+      "cuisine": "Indian",
+      "minutes": 35,
+      "description": "Potatoes and cauliflower, lightly spiced.",
+      "ingredients": [
+        {
+          "name": "potatoes",
+          "match": "potato"
+        },
+        {
+          "name": "cauliflower",
+          "match": "cauliflower"
+        },
+        {
+          "name": "carrots",
+          "match": "carrot"
+        }
+      ],
+      "steps": [
+        "Fry potato cubes in oil until golden.",
+        "Add cauliflower, carrots and your spices, with a splash of water.",
+        "Cover and cook until everything is tender."
+      ]
+    },
+    {
+      "id": "butter-chicken",
+      "name": "Butter chicken",
+      "cuisine": "Indian",
+      "minutes": 40,
+      "description": "Creamy tomato sauce with chicken.",
+      "ingredients": [
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "yogurt",
+          "match": "yogurt"
+        },
+        {
+          "name": "tomatoes",
+          "match": "tomato"
+        },
+        {
+          "name": "butter",
+          "match": "butter"
+        }
+      ],
+      "steps": [
+        "Marinate chicken in yogurt for 30 minutes, then brown it.",
+        "Cook chopped tomatoes with butter and spices into a sauce.",
+        "Add the chicken and simmer until cooked through."
+      ]
+    },
+    {
+      "id": "pumpkin-pasta-salami",
+      "name": "Pumpkin pasta with salami",
+      "cuisine": "Italian",
+      "minutes": 25,
+      "description": "Squash sauce, salami and pasta.",
+      "ingredients": [
+        {
+          "name": "pumpkin pasta sauce",
+          "match": "pumpkin"
+        },
+        {
+          "name": "salami",
+          "match": "salami"
+        },
+        {
+          "name": "pasta",
+          "match": "pasta"
+        }
+      ],
+      "steps": [
+        "Cook the pasta.",
+        "Warm the pumpkin sauce with sliced salami.",
+        "Toss with the pasta and a little pasta water."
+      ]
+    },
+    {
+      "id": "pesto-chicken-pasta",
+      "name": "Pesto chicken pasta",
+      "cuisine": "Italian",
+      "minutes": 25,
+      "description": "Pesto, chicken and tomatoes over pasta.",
+      "ingredients": [
+        {
+          "name": "pesto",
+          "match": "pesto"
+        },
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "tomatoes",
+          "match": "tomato"
+        },
+        {
+          "name": "pasta",
+          "match": "pasta"
+        }
+      ],
+      "steps": [
+        "Cook the pasta.",
+        "Pan-fry chicken until cooked through, then slice.",
+        "Toss pasta with pesto, chicken and halved tomatoes."
+      ]
+    },
+    {
+      "id": "spinach-tomato-frittata",
+      "name": "Spinach and tomato frittata",
+      "cuisine": "Italian",
+      "minutes": 25,
+      "description": "Eggs baked with spinach, tomato and cheese.",
+      "ingredients": [
+        {
+          "name": "eggs",
+          "match": "egg"
+        },
+        {
+          "name": "spinach",
+          "match": "spinach"
+        },
+        {
+          "name": "tomatoes",
+          "match": "tomato"
+        },
+        {
+          "name": "cheddar",
+          "match": "cheddar"
+        },
+        {
+          "name": "butter",
+          "match": "butter"
+        }
+      ],
+      "steps": [
+        "Soften spinach in butter in an ovenproof pan.",
+        "Pour in beaten eggs, add tomatoes and grated cheddar.",
+        "Cook on low until the edges set, then finish under the grill."
+      ]
+    },
+    {
+      "id": "baked-eggs-tomato",
+      "name": "Baked eggs in tomato",
+      "cuisine": "Italian",
+      "minutes": 20,
+      "description": "Eggs baked in a tomato and pesto sauce.",
+      "ingredients": [
+        {
+          "name": "eggs",
+          "match": "egg"
+        },
+        {
+          "name": "tomatoes",
+          "match": "tomato"
+        },
+        {
+          "name": "pesto",
+          "match": "pesto"
+        }
+      ],
+      "steps": [
+        "Warm chopped tomatoes with a spoon of pesto in a small pan.",
+        "Make wells and crack in the eggs.",
+        "Cover and cook until the whites are set."
+      ]
+    },
+    {
+      "id": "salami-pizza",
+      "name": "Salami pizza",
+      "cuisine": "Italian",
+      "minutes": 35,
+      "description": "Cheddar, salami and tomato on bread.",
+      "ingredients": [
+        {
+          "name": "salami",
+          "match": "salami"
+        },
+        {
+          "name": "cheddar",
+          "match": "cheddar"
+        },
+        {
+          "name": "tomatoes",
+          "match": "tomato"
+        },
+        {
+          "name": "bread",
+          "match": "bread"
+        }
+      ],
+      "steps": [
+        "Spread crushed tomato on sliced bread or a flatbread.",
+        "Add salami and grated cheddar.",
+        "Bake at 220°C (425°F) until bubbling."
+      ]
+    },
+    {
+      "id": "anchovy-garlic-pasta",
+      "name": "Anchovy garlic pasta",
+      "cuisine": "Italian",
+      "minutes": 20,
+      "description": "Anchovy, olive oil and a little chili.",
+      "ingredients": [
+        {
+          "name": "anchovies",
+          "match": "anchov"
+        },
+        {
+          "name": "olive oil",
+          "match": "olive oil"
+        },
+        {
+          "name": "pasta",
+          "match": "pasta"
+        }
+      ],
+      "steps": [
+        "Cook the pasta.",
+        "Warm olive oil with garlic and the anchovies until they melt.",
+        "Toss the pasta in the oil with a little pasta water."
+      ]
+    },
+    {
+      "id": "mac-and-cheese",
+      "name": "Cheddar mac and cheese",
+      "cuisine": "American (everyday)",
+      "minutes": 30,
+      "description": "Baked pasta in a sharp cheddar sauce.",
+      "ingredients": [
+        {
+          "name": "cheddar",
+          "match": "cheddar"
+        },
+        {
+          "name": "milk",
+          "match": "milk"
+        },
+        {
+          "name": "butter",
+          "match": "butter"
+        },
+        {
+          "name": "pasta",
+          "match": "pasta"
+        }
+      ],
+      "steps": [
+        "Cook the pasta.",
+        "Melt butter, stir in a spoon of flour, then whisk in milk until thick.",
+        "Stir in grated cheddar, mix with the pasta, and bake until golden."
+      ]
+    },
+    {
+      "id": "potato-cheddar-soup",
+      "name": "Potato and cheddar soup",
+      "cuisine": "American (everyday)",
+      "minutes": 40,
+      "description": "Creamy potatoes with sharp cheddar.",
+      "ingredients": [
+        {
+          "name": "potatoes",
+          "match": "potato"
+        },
+        {
+          "name": "cheddar",
+          "match": "cheddar"
+        },
+        {
+          "name": "milk",
+          "match": "milk"
+        },
+        {
+          "name": "butter",
+          "match": "butter"
+        }
+      ],
+      "steps": [
+        "Simmer potato chunks in water until soft.",
+        "Mash or blend with butter and milk.",
+        "Stir in grated cheddar until melted."
+      ]
+    },
+    {
+      "id": "sheet-pan-chicken",
+      "name": "Sheet-pan chicken and potatoes",
+      "cuisine": "American (everyday)",
+      "minutes": 45,
+      "description": "Everything on one tray.",
+      "ingredients": [
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "potatoes",
+          "match": "potato"
+        },
+        {
+          "name": "carrots",
+          "match": "carrot"
+        },
+        {
+          "name": "butter",
+          "match": "butter"
+        }
+      ],
+      "steps": [
+        "Toss chicken, potato and carrot pieces with melted butter or oil.",
+        "Spread on a tray.",
+        "Roast at 220°C (425°F) for about 40 minutes, until the chicken is cooked through."
+      ]
+    },
+    {
+      "id": "turkey-chili",
+      "name": "Turkey chili",
+      "cuisine": "American (everyday)",
+      "minutes": 45,
+      "description": "Lean turkey, tomatoes and cheddar on top.",
+      "ingredients": [
+        {
+          "name": "turkey",
+          "match": "turkey"
+        },
+        {
+          "name": "tomatoes",
+          "match": "tomato"
+        },
+        {
+          "name": "cheddar",
+          "match": "cheddar"
+        }
+      ],
+      "steps": [
+        "Brown the turkey.",
+        "Add chopped tomatoes, chili spices and beans if you have them.",
+        "Simmer 30 minutes. Top with cheddar."
+      ]
+    },
+    {
+      "id": "turkey-burgers",
+      "name": "Turkey burgers",
+      "cuisine": "American (everyday)",
+      "minutes": 25,
+      "description": "Lean turkey burgers with cheddar.",
+      "ingredients": [
+        {
+          "name": "turkey",
+          "match": "turkey"
+        },
+        {
+          "name": "cheddar",
+          "match": "cheddar"
+        },
+        {
+          "name": "lettuce",
+          "match": "lettuce"
+        },
+        {
+          "name": "tomatoes",
+          "match": "tomato"
+        },
+        {
+          "name": "ketchup",
+          "match": "ketchup"
+        }
+      ],
+      "steps": [
+        "Season the turkey and shape into patties.",
+        "Cook in a pan until cooked through, about 5 minutes a side.",
+        "Add cheddar to melt; serve with lettuce, tomato and ketchup."
+      ]
+    },
+    {
+      "id": "turkey-meatball-pasta",
+      "name": "Turkey meatballs in squash sauce",
+      "cuisine": "Italian",
+      "minutes": 35,
+      "description": "Lean turkey meatballs in a squash sauce.",
+      "ingredients": [
+        {
+          "name": "turkey",
+          "match": "turkey"
+        },
+        {
+          "name": "pumpkin pasta sauce",
+          "match": "pumpkin"
+        },
+        {
+          "name": "cheddar",
+          "match": "cheddar"
+        }
+      ],
+      "steps": [
+        "Shape seasoned turkey into small balls and brown them.",
+        "Add the pumpkin sauce and simmer until the meatballs are cooked through.",
+        "Serve over pasta with cheddar."
+      ]
+    },
+    {
+      "id": "chicken-quesadillas",
+      "name": "Chicken quesadillas",
+      "cuisine": "Mexican",
+      "minutes": 20,
+      "description": "Crisp tortillas with chicken and cheese.",
+      "ingredients": [
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "cheddar",
+          "match": "cheddar"
+        },
+        {
+          "name": "salsa",
+          "match": "salsa"
+        }
+      ],
+      "steps": [
+        "Fill tortillas with cooked chicken and grated cheddar.",
+        "Toast in a dry pan until crisp and the cheese melts.",
+        "Serve with salsa."
+      ]
+    },
+    {
+      "id": "caesar-chicken-salad",
+      "name": "Chicken Caesar salad",
+      "cuisine": "American (everyday)",
+      "minutes": 20,
+      "description": "Romaine, chicken, cheese and crisp bits.",
+      "ingredients": [
+        {
+          "name": "lettuce",
+          "match": "lettuce"
+        },
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "cheddar",
+          "match": "cheddar"
+        }
+      ],
+      "steps": [
+        "Cook and slice the chicken.",
+        "Toss chopped lettuce with dressing.",
+        "Top with chicken and grated cheese."
+      ]
+    },
+    {
+      "id": "apple-spinach-salad",
+      "name": "Spinach and apple salad",
+      "cuisine": "American (everyday)",
+      "minutes": 10,
+      "description": "Spinach, apple and crunchy seeds.",
+      "ingredients": [
+        {
+          "name": "spinach",
+          "match": "spinach"
+        },
+        {
+          "name": "apples",
+          "match": "apple"
+        },
+        {
+          "name": "salad topper",
+          "match": "salad topper"
+        }
+      ],
+      "steps": [
+        "Slice the apple thinly.",
+        "Toss with spinach and a simple dressing.",
+        "Sprinkle the salad topper over."
+      ]
+    },
+    {
+      "id": "chopped-salad-chicken",
+      "name": "Chopped salad with chicken",
+      "cuisine": "American (everyday)",
+      "minutes": 15,
+      "description": "Salad kit, chicken and cheese.",
+      "ingredients": [
+        {
+          "name": "salad kit",
+          "match": "salad kit"
+        },
+        {
+          "name": "chicken",
+          "match": "chicken"
+        },
+        {
+          "name": "cheddar",
+          "match": "cheddar"
+        },
+        {
+          "name": "tomatoes",
+          "match": "tomato"
+        }
+      ],
+      "steps": [
+        "Open the salad kit into a bowl.",
+        "Add sliced cooked chicken, tomatoes and cheese.",
+        "Toss with the kit dressing."
+      ]
+    },
+    {
+      "id": "avocado-toast-egg",
+      "name": "Avocado toast with egg",
+      "cuisine": "American (everyday)",
+      "minutes": 10,
+      "description": "Avocado on toast, topped with an egg.",
+      "ingredients": [
+        {
+          "name": "avocado",
+          "match": "avocado"
+        },
+        {
+          "name": "bread",
+          "match": "bread"
+        },
+        {
+          "name": "eggs",
+          "match": "egg"
+        }
+      ],
+      "steps": [
+        "Toast the bread.",
+        "Mash avocado with salt and spread it on.",
+        "Top with a fried or poached egg."
+      ]
+    },
+    {
+      "id": "avocado-salsa",
+      "name": "Avocado and tomato salsa",
+      "cuisine": "Mexican",
+      "minutes": 10,
+      "description": "Fresh salsa for chips.",
+      "ingredients": [
+        {
+          "name": "avocado",
+          "match": "avocado"
+        },
+        {
+          "name": "tomatoes",
+          "match": "tomato"
+        },
+        {
+          "name": "chips",
+          "match": "chips"
+        }
+      ],
+      "steps": [
+        "Dice avocado and tomatoes.",
+        "Season with salt and a squeeze of lime.",
+        "Serve with chips."
+      ]
+    },
+    {
+      "id": "plum-crumble",
+      "name": "Plum crumble",
+      "cuisine": "British",
+      "minutes": 45,
+      "description": "Baked plums under a buttery top.",
+      "ingredients": [
+        {
+          "name": "plums",
+          "match": "plum"
+        },
+        {
+          "name": "butter",
+          "match": "butter"
+        },
+        {
+          "name": "flour",
+          "match": "flour"
+        }
+      ],
+      "steps": [
+        "Halve and stone the plums and put them in a dish.",
+        "Rub butter into flour (and sugar) until crumbly; scatter over.",
+        "Bake at 180°C (350°F) for 35 to 40 minutes."
+      ]
+    },
+    {
+      "id": "persimmon-cookies",
+      "name": "Persimmon cookies",
+      "cuisine": "American (everyday)",
+      "minutes": 30,
+      "description": "Soft spiced cookies with persimmon.",
+      "ingredients": [
+        {
+          "name": "persimmons",
+          "match": "persimmon"
+        },
+        {
+          "name": "butter",
+          "match": "butter"
+        },
+        {
+          "name": "eggs",
+          "match": "egg"
+        },
+        {
+          "name": "flour",
+          "match": "flour"
+        }
+      ],
+      "steps": [
+        "Mash ripe persimmon.",
+        "Beat butter and sugar, add egg and the persimmon, then flour and spices.",
+        "Drop spoonfuls on a tray and bake at 175°C (350°F) for 12 to 14 minutes."
+      ]
+    },
+    {
+      "id": "mango-yogurt-bowl",
+      "name": "Mango yogurt bowl",
+      "cuisine": "American (everyday)",
+      "minutes": 5,
+      "description": "Yogurt, dried mango and chia.",
+      "ingredients": [
+        {
+          "name": "yogurt",
+          "match": "yogurt"
+        },
+        {
+          "name": "mango",
+          "match": "mango"
+        },
+        {
+          "name": "chia",
+          "match": "chia"
+        }
+      ],
+      "steps": [
+        "Spoon yogurt into a bowl.",
+        "Chop dried mango and scatter over.",
+        "Add a spoon of chia seeds."
+      ]
+    },
+    {
+      "id": "smores-bars",
+      "name": "S'mores bars",
+      "cuisine": "American (everyday)",
+      "minutes": 30,
+      "description": "Graham, chocolate and marshmallow, baked.",
+      "ingredients": [
+        {
+          "name": "graham crackers",
+          "match": "graham"
+        },
+        {
+          "name": "marshmallows",
+          "match": "marshmallow"
+        },
+        {
+          "name": "nutella",
+          "match": "nutella"
+        }
+      ],
+      "steps": [
+        "Press crushed graham crackers into a lined tin.",
+        "Spread Nutella, then top with marshmallows.",
+        "Bake briefly until the marshmallows puff and brown."
+      ]
+    },
+    {
+      "id": "nutella-brownies",
+      "name": "Nutella brownies",
+      "cuisine": "American (everyday)",
+      "minutes": 35,
+      "description": "Fudgy brownies with a Nutella swirl.",
+      "ingredients": [
+        {
+          "name": "nutella",
+          "match": "nutella"
+        },
+        {
+          "name": "eggs",
+          "match": "egg"
+        },
+        {
+          "name": "butter",
+          "match": "butter"
+        },
+        {
+          "name": "flour",
+          "match": "flour"
+        }
+      ],
+      "steps": [
+        "Mix Nutella, eggs, melted butter and flour.",
+        "Pour into a lined tin.",
+        "Bake at 175°C (350°F) for about 20 minutes."
+      ]
+    },
+    {
+      "id": "peanut-butter-cookies",
+      "name": "Peanut butter cookies",
+      "cuisine": "American (everyday)",
+      "minutes": 20,
+      "description": "Chewy, with a fork pattern.",
+      "ingredients": [
+        {
+          "name": "peanut butter",
+          "match": "peanut butter"
+        },
+        {
+          "name": "eggs",
+          "match": "egg"
+        },
+        {
+          "name": "butter",
+          "match": "butter"
+        }
+      ],
+      "steps": [
+        "Mix peanut butter, egg, butter and sugar.",
+        "Roll into balls and press with a fork.",
+        "Bake at 175°C (350°F) for 10 to 12 minutes."
+      ]
+    },
+    {
+      "id": "brown-rice-bowl",
+      "name": "Brown rice bowl with roast veg",
+      "cuisine": "Bowls and grain dishes",
+      "minutes": 35,
+      "description": "Brown rice, roasted veg and chicken.",
+      "ingredients": [
+        {
+          "name": "brown rice",
+          "match": "rice"
+        },
+        {
+          "name": "cauliflower",
+          "match": "cauliflower"
+        },
+        {
+          "name": "carrots",
+          "match": "carrot"
+        },
+        {
+          "name": "chicken",
+          "match": "chicken"
+        }
+      ],
+      "steps": [
+        "Cook the brown rice.",
+        "Roast cauliflower and carrots at 220°C (425°F) for 25 minutes.",
+        "Add sliced cooked chicken and a dressing."
+      ]
+    },
+    {
+      "id": "corn-cheddar-fritters",
+      "name": "Corn and cheddar fritters",
+      "cuisine": "American (everyday)",
+      "minutes": 20,
+      "description": "Corn, cheddar and egg fritters.",
+      "ingredients": [
+        {
+          "name": "corn",
+          "match": "corn"
+        },
+        {
+          "name": "cheddar",
+          "match": "cheddar"
+        },
+        {
+          "name": "eggs",
+          "match": "egg"
+        },
+        {
+          "name": "flour",
+          "match": "flour"
+        }
+      ],
+      "steps": [
+        "Cut corn from the cob.",
+        "Mix with eggs, flour and grated cheddar into a thick batter.",
+        "Fry spoonfuls until golden on both sides."
+      ]
+    }
+  ]
+}

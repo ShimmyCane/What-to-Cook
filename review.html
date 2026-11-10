@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What to Cook — internal review</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  main { max-width: 900px; }
+  h2 { margin-top: 24px; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); color: var(--surface-ink); border: 3px solid var(--ink); border-radius: var(--r); display: block; overflow-x: auto; }
+  th, td { text-align: left; padding: 7px 9px; border-bottom: 1px dashed var(--ink); vertical-align: top; font-size: 14px; }
+  th { background: var(--sun); }
+  a { color: var(--ink); font-weight: 700; }
+  .box { background: var(--surface); color: var(--surface-ink); border: 3px solid var(--ink); border-radius: var(--r); padding: 12px 14px; margin: 10px 0; }
+  .map { display: grid; gap: 8px; }
+  .node { border: 3px solid var(--ink); border-radius: var(--r); padding: 8px 10px; box-shadow: var(--shadow); color: var(--surface-ink); background: var(--surface); }
+  .node.ui { background: var(--sage); } .node.data { background: var(--mint); } .node.db { background: var(--peach); }
+  .arrow { text-align: center; font-weight: 700; }
+  .cards { display: grid; gap: 10px; }
+  @media (min-width: 620px) { .cards { grid-template-columns: 1fr 1fr; } }
+  .card2 { border: 3px solid var(--ink); border-radius: var(--r); padding: 10px 12px; background: var(--surface); color: var(--surface-ink); box-shadow: var(--shadow); }
+  .card2 h3 { margin: 0 0 4px; font-size: 16px; }
+  .small { font-size: 13px; opacity: .85; }
+  .pill2 { display: inline-block; font-size: 12px; padding: 1px 8px; border: 2px solid var(--ink); border-radius: 999px; margin: 2px 3px 0 0; background: #fff; color: var(--surface-ink); }
+</style>
+</head>
+<body>
+<header class="top"><h1>🔎 Internal review</h1><span class="pill">for Jimmy</span></header>
+<main>
+  <p class="hint">A map of the project, the overlaps I found, and the two data files as cards. Nothing here changes the app.</p>
+
+  <h2>1. Files</h2>
+  <table>
+    <thead><tr><th>File</th><th>Lines</th><th>What it does</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td><a href="index.html">index.html</a></td><td>179</td><td>Pantry, add, settings</td><td>Core page</td></tr>
+      <tr><td><a href="foods.html">foods.html</a></td><td>271</td><td>Food list</td><td>Own helper copies (see 2)</td></tr>
+      <tr><td><a href="recipes.html">recipes.html</a></td><td>192</td><td>Recipe book cards</td><td>Own helper copies (see 2)</td></tr>
+      <tr><td><a href="js/app.js">js/app.js</a></td><td>~50</td><td>Start-up only</td><td>Connects the modules</td></tr>
+      <tr><td>js/core.js, pantry.js, capture.js, settings.js, content.js</td><td>—</td><td>Screens and shared state (see the brief)</td><td>Talk through events</td></tr>
+      <tr><td><a href="js/db.js">js/db.js</a></td><td>120</td><td>Family database client</td><td>Shared, good</td></tr>
+      <tr><td><a href="js/parse.js">js/parse.js</a></td><td>114</td><td>Transcript parser (offline)</td><td>Good</td></tr>
+      <tr><td><a href="js/config.js">js/config.js</a></td><td>8</td><td>Database URL and publishable key</td><td>Public key only</td></tr>
+      <tr><td><a href="style.css">style.css</a></td><td>117</td><td>Shared look</td><td>Some inline styles elsewhere</td></tr>
+      <tr><td><a href="foods_summary.html">foods_summary.html</a></td><td>118</td><td>Summary of foods.html</td><td>Will go stale if foods.html changes</td></tr>
+      <tr><td><a href="recipes_explore.json">recipes_explore.json</a></td><td>1192</td><td>50 starter recipes</td><td>Raw JSON; see section 3</td></tr>
+      <tr><td><a href="cuisine_library.json">cuisine_library.json</a></td><td>657</td><td>66 cuisines and styles</td><td>Raw JSON; see section 3</td></tr>
+      <tr><td><a href="todo.md">todo.md</a></td><td>—</td><td>The one current to-do list</td><td>Consolidated</td></tr>
+      <tr><td>supabase/*.sql (9 files)</td><td>—</td><td>Paste-by-hand database files</td><td>Two overlap; see 2</td></tr>
+      <tr><td>convo/*.md (8 files)</td><td>—</td><td>Decisions, v0.1 to v0.8</td><td>History; never edited</td></tr>
+    </tbody>
+  </table>
+
+  <h2>2. Overlaps and simplifications</h2>
+  <div class="box">
+    <ol>
+      <li><b>✅ Device storage helpers, four copies.</b> <code>app.js</code> (read and write), <code>db.js</code> (session), <code>foods.html</code> (readLocal, writeLocal) and <code>recipes.html</code> (readList, writeList) each wrap <code>localStorage</code> in try/catch. <i>Fix:</i> one shared <code>js/store.js</code>. Low risk.</li>
+      <li><b>✅ Error panel, two copies.</b> <code>app.js</code> and <code>foods.html</code> each have reportError and renderErrors. <i>Fix:</i> one shared <code>js/errors.js</code>.</li>
+      <li><b>Database error wording, two copies.</b> <i>(proposed, not changed)</i> <code>foods.html</code> has explainSave for the duplicate-key case, next to <code>db.js</code>'s explain. <i>Fix:</i> move the duplicate-key sentence into <code>db.js</code> explain, once.</li>
+      <li><b>Id check, two copies.</b> The UUID pattern is in <code>app.js</code> and <code>foods.html</code>. <i>Fix:</i> <code>DB.isUuid</code> in <code>db.js</code>.</li>
+      <li><b>Date helpers, two copies.</b> <code>app.js</code> has daysBetween and today; <code>recipes.html</code> has isSoon, which does the same job differently. <i>Fix:</i> one <code>js/dates.js</code>. Medium risk: the pantry's "use soon" rule must stay the same.</li>
+      <li><b>Sync blocks, four copies in one file.</b> <code>pushAll</code> repeats one pattern for items, check-ins, transcripts and notes. <i>Fix:</i> one helper that takes the table name and the row shape. This is the biggest simplification in the app, and the easiest to get wrong, so test the pantry flows after it.</li>
+      <li><b>◐ One large file, partly done.</b> The sync code moved to <code>js/sync.js</code>; <code>app.js</code> (about 700 lines) still holds pantry and settings. <code>app.js</code> (836 lines) holds pantry, notes, settings and sync. <i>Fix:</i> split into <code>pantry.js</code>, <code>sync.js</code> and <code>settings.js</code> once items 1 to 6 are done.</li>
+      <li><b>Inline style blocks.</b> <code>foods.html</code> and <code>recipes.html</code> each repeat tab wrapping and card rules that also belong in <code>style.css</code>. <i>Fix:</i> move them there.</li>
+      <li><b>✅ Two SQL files define the same table.</b> <code>foods_what_to_cook.sql</code> is fully inside <code>what_to_cook_MVP.sql</code>. <i>Fix:</i> move the older file to a <code>supabase/archive/</code> folder. This needs your OK, since it was written as a paste file.</li>
+      <li><b>Repeated SQL pieces.</b> The policy loop is in the setup and MVP files, and the check query is in five files. <i>Keep:</i> each paste file stays self-contained, so it can be pasted alone. This is a deliberate trade-off, not a fault.</li>
+      <li><b>✅ Recipe cuisines do not match the library.</b> <code>recipes_explore.json</code> uses "American", "Chinese" and "Global", which are not library names. <i>Fix:</i> the recipes point at library entries, and "Global" becomes a region.</li>
+      <li><b>Summary page will go stale.</b> <code>foods_summary.html</code> lists line numbers from <code>foods.html</code>. <i>Fix:</i> regenerate it after any change to <code>foods.html</code>, or fold it into this page.</li>
+    </ol>
+  </div>
+
+  <h2>3. The two JSON files</h2>
+  <p class="small">Read live from the files, so the counts stay true.</p>
+  <h3>Cuisine library</h3>
+  <div id="library" class="cards"></div>
+  <h3>Starter recipes</h3>
+  <div id="recipes" class="cards"></div>
+
+  <h2>4. What to do next</h2>
+  <div class="box">
+    <ol>
+      <li>Merge the store and error helpers (items 1, 2 and 4). Low risk, and it removes most of the copies.</li>
+      <li>Move the duplicate-key sentence into <code>db.js</code> (item 3).</li>
+      <li>Test the pantry flows, then split the sync block (item 6) and the file (item 7).</li>
+      <li>Decide on the superseded SQL file (item 9), and on the cuisine names (item 11).</li>
+    </ol>
+    <p class="small">Each step is a separate, small change with its own check. Say which to start with.</p>
+  </div>
+</main>
+
+<script>
+(function () {
+  'use strict';
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
+  fetch('cuisine_library.json').then(function (r) { return r.json(); }).then(function (data) {
+    var box = document.getElementById('library');
+    data.categories.forEach(function (cat) {
+      var c = el('div', 'card2');
+      c.appendChild(el('h3', '', cat.title + ' (' + cat.cuisines.length + ')'));
+      cat.cuisines.forEach(function (cu) {
+        var p = el('span', 'pill2', cu.name);
+        c.appendChild(p);
+      });
+      box.appendChild(c);
+    });
+  }).catch(function () { document.getElementById('library').textContent = 'Open this page from the nursery site to load the library.'; });
+
+  fetch('recipes_explore.json').then(function (r) { return r.json(); }).then(function (data) {
+    var box = document.getElementById('recipes');
+    var byCuisine = {};
+    data.recipes.forEach(function (r) { (byCuisine[r.cuisine] = byCuisine[r.cuisine] || []).push(r.name); });
+    Object.keys(byCuisine).sort().forEach(function (k) {
+      var c = el('div', 'card2');
+      c.appendChild(el('h3', '', k + ' (' + byCuisine[k].length + ')'));
+      byCuisine[k].forEach(function (n) { c.appendChild(el('span', 'pill2', n)); });
+      box.appendChild(c);
+    });
+  }).catch(function () { document.getElementById('recipes').textContent = 'Open this page from the nursery site to load the recipes.'; });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,680 @@
+{
+  "title": "What to Cook — cuisine library (to try)",
+  "updated": "2026-11-07",
+  "note": "Ideas only. Nothing here is a recipe yet. Each cuisine moves from 'to try' to 'in the book' when a version is added to the recipe book.",
+  "categories": [
+    {
+      "id": "asian",
+      "title": "Asian",
+      "cuisines": [
+        {
+          "name": "Japanese",
+          "examples": [
+            "Okonomiyaki",
+            "Katsu curry",
+            "Teriyaki chicken",
+            "Miso soup"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Korean",
+          "examples": [
+            "Bulgogi",
+            "Kimchi jjigae",
+            "Japchae",
+            "Bibimbap"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Chinese: Cantonese",
+          "examples": [
+            "Congee",
+            "Steamed fish",
+            "Char siu",
+            "Dim sum"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Chinese: Sichuan",
+          "examples": [
+            "Mapo tofu",
+            "Dan dan noodles",
+            "Kung pao chicken"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Chinese: Shanghai",
+          "examples": [
+            "Soup dumplings",
+            "Red-braised pork"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Thai",
+          "examples": [
+            "Green curry",
+            "Pad see ew",
+            "Larb",
+            "Tom yum"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Vietnamese",
+          "examples": [
+            "Pho",
+            "Bun cha",
+            "Banh xeo",
+            "Goi cuon"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Filipino",
+          "examples": [
+            "Adobo",
+            "Sinigang",
+            "Lumpia",
+            "Pancit"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Indian",
+          "examples": [
+            "Dal",
+            "Butter chicken",
+            "Chana masala",
+            "Biryani"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Indonesian",
+          "examples": [
+            "Nasi goreng",
+            "Rendang",
+            "Gado-gado"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Malaysian",
+          "examples": [
+            "Laksa",
+            "Roti canai",
+            "Char kway teow"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Singaporean",
+          "examples": [
+            "Hainanese chicken rice",
+            "Chili crab"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Taiwanese",
+          "examples": [
+            "Beef noodle soup",
+            "Scallion pancakes",
+            "Bubble tea"
+          ],
+          "status": "to try"
+        }
+      ]
+    },
+    {
+      "id": "european",
+      "title": "European",
+      "cuisines": [
+        {
+          "name": "Italian",
+          "examples": [
+            "Cacio e pepe",
+            "Risotto",
+            "Ragu",
+            "Focaccia"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "French",
+          "examples": [
+            "Coq au vin",
+            "Ratatouille",
+            "Crepes",
+            "Gratin"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Spanish",
+          "examples": [
+            "Paella",
+            "Gazpacho",
+            "Patatas bravas",
+            "Tortilla espanola"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Greek",
+          "examples": [
+            "Moussaka",
+            "Spanakopita",
+            "Souvlaki",
+            "Tzatziki"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "German",
+          "examples": [
+            "Schnitzel",
+            "Sauerbraten",
+            "Pretzels",
+            "Spaetzle"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "British",
+          "examples": [
+            "Shepherd's pie",
+            "Yorkshire pudding",
+            "Bangers and mash"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Polish",
+          "examples": [
+            "Pierogi",
+            "Bigos",
+            "Golabki"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Hungarian",
+          "examples": [
+            "Goulash",
+            "Chicken paprikash",
+            "Langos"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Russian",
+          "examples": [
+            "Borscht",
+            "Beef stroganoff",
+            "Blini"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Scandinavian",
+          "examples": [
+            "Meatballs",
+            "Gravlax",
+            "Cardamom buns"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Portuguese",
+          "examples": [
+            "Caldo verde",
+            "Pastel de nata",
+            "Bacalhau"
+          ],
+          "status": "to try"
+        }
+      ]
+    },
+    {
+      "id": "americas",
+      "title": "American and Latin American",
+      "cuisines": [
+        {
+          "name": "Southern US",
+          "examples": [
+            "Fried chicken",
+            "Collard greens",
+            "Cornbread"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Tex-Mex",
+          "examples": [
+            "Enchiladas",
+            "Chili con carne",
+            "Fajitas"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Cajun and Creole",
+          "examples": [
+            "Gumbo",
+            "Jambalaya",
+            "Etouffee"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "New England",
+          "examples": [
+            "Clam chowder",
+            "Lobster rolls"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Pacific Northwest",
+          "examples": [
+            "Salmon",
+            "Dungeness crab"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Barbecue",
+          "examples": [
+            "Pulled pork",
+            "Brisket",
+            "Ribs"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Mexican",
+          "examples": [
+            "Mole",
+            "Tamales",
+            "Pozole",
+            "Chilaquiles"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Peruvian",
+          "examples": [
+            "Ceviche",
+            "Lomo saltado",
+            "Aji de gallina"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Brazilian",
+          "examples": [
+            "Feijoada",
+            "Pao de queijo",
+            "Moqueca"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Argentine",
+          "examples": [
+            "Empanadas",
+            "Chimichurri steak"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Caribbean",
+          "examples": [
+            "Jerk chicken",
+            "Rice and peas",
+            "Plantains"
+          ],
+          "status": "to try"
+        }
+      ]
+    },
+    {
+      "id": "middle-east-africa",
+      "title": "Middle Eastern and African",
+      "cuisines": [
+        {
+          "name": "Lebanese",
+          "examples": [
+            "Tabbouleh",
+            "Fattoush",
+            "Kibbeh"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Turkish",
+          "examples": [
+            "Lahmacun",
+            "Menemen",
+            "Manti"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Persian (Iranian)",
+          "examples": [
+            "Tahdig",
+            "Ghormeh sabzi",
+            "Kebab"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Moroccan",
+          "examples": [
+            "Tagine",
+            "Harira",
+            "Couscous"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Ethiopian",
+          "examples": [
+            "Injera",
+            "Doro wat",
+            "Misir wat"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "West African",
+          "examples": [
+            "Jollof rice",
+            "Egusi soup",
+            "Suya"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Israeli",
+          "examples": [
+            "Shakshuka",
+            "Falafel",
+            "Hummus"
+          ],
+          "status": "to try"
+        }
+      ]
+    },
+    {
+      "id": "oceania",
+      "title": "Oceania and other",
+      "cuisines": [
+        {
+          "name": "Australian",
+          "examples": [
+            "Meat pie",
+            "Lamingtons",
+            "Pavlova"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Hawaiian",
+          "examples": [
+            "Poke",
+            "Loco moco",
+            "Kalua pork"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Pacific Islands",
+          "examples": [
+            "Coconut fish",
+            "Taro dishes"
+          ],
+          "status": "to try"
+        }
+      ]
+    },
+    {
+      "id": "desserts",
+      "title": "Desserts",
+      "cuisines": [
+        {
+          "name": "Cakes and layer cakes",
+          "examples": [
+            "Victoria sponge",
+            "Carrot cake",
+            "Chiffon cake"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Pies and tarts",
+          "examples": [
+            "Apple pie",
+            "Lemon tart",
+            "Pecan pie"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Puddings and custards",
+          "examples": [
+            "Creme brulee",
+            "Panna cotta",
+            "Rice pudding"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Frozen desserts",
+          "examples": [
+            "Ice cream",
+            "Sorbet",
+            "Kulfi"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Asian desserts",
+          "examples": [
+            "Mochi",
+            "Red bean soup",
+            "Mango sticky rice"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Cookies",
+          "examples": [
+            "Chocolate chip",
+            "Shortbread",
+            "Snickerdoodle"
+          ],
+          "status": "to try"
+        }
+      ]
+    },
+    {
+      "id": "bakery",
+      "title": "Bakery",
+      "cuisines": [
+        {
+          "name": "Bread (yeasted)",
+          "examples": [
+            "Sourdough",
+            "Focaccia",
+            "Milk bread"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Pastry",
+          "examples": [
+            "Croissants",
+            "Danish",
+            "Puff pastry"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Flatbreads",
+          "examples": [
+            "Naan",
+            "Pita",
+            "Tortillas"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Savoury bakes",
+          "examples": [
+            "Scones",
+            "Biscuits",
+            "Savoury muffins"
+          ],
+          "status": "to try"
+        }
+      ]
+    },
+    {
+      "id": "salads",
+      "title": "Salads",
+      "cuisines": [
+        {
+          "name": "Green and leafy",
+          "examples": [
+            "Caesar",
+            "Wedge",
+            "Spinach and strawberry"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Grain and bean",
+          "examples": [
+            "Tabbouleh",
+            "Quinoa salad",
+            "Three-bean salad"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Asian salads",
+          "examples": [
+            "Som tam",
+            "Seaweed salad",
+            "Cucumber salad"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Potato and pasta salads",
+          "examples": [
+            "Potato salad",
+            "Pasta salad"
+          ],
+          "status": "to try"
+        }
+      ]
+    },
+    {
+      "id": "methods",
+      "title": "Cooking methods",
+      "cuisines": [
+        {
+          "name": "Stir-fry",
+          "examples": [
+            "Beef and broccoli",
+            "Egg fried rice",
+            "Chow mein"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Stove-top braising",
+          "examples": [
+            "Pot roast",
+            "Chicken adobo"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Stovetop soups and stews",
+          "examples": [
+            "Minestrone",
+            "Lentil soup"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Baking (oven)",
+          "examples": [
+            "Sheet-pan dinners",
+            "Roast vegetables"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Grilling and smoking",
+          "examples": [
+            "Kebabs",
+            "Smoked salmon"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Pickling and fermenting",
+          "examples": [
+            "Kimchi",
+            "Quick pickles",
+            "Sauerkraut"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Steaming",
+          "examples": [
+            "Bao",
+            "Steamed fish",
+            "Idli"
+          ],
+          "status": "to try"
+        }
+      ]
+    },
+    {
+      "id": "everyday",
+      "title": "Everyday",
+      "cuisines": [
+        {
+          "name": "American (everyday)",
+          "examples": [
+            "Sheet-pan dinners",
+            "Burgers",
+            "Mac and cheese"
+          ],
+          "status": "to try"
+        },
+        {
+          "name": "Bowls and grain dishes",
+          "examples": [
+            "Grain bowls",
+            "Rice bowls"
+          ],
+          "status": "to try"
+        }
+      ]
+    }
+  ]
+}

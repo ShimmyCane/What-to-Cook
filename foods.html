@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What to Cook — Food list</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .tabs { flex-wrap: wrap; }
+  .tab { flex: 1 1 auto; }
+  .card .pair input, .card .pair select, .card input, .card select { min-width: 0; max-width: 100%; }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>🧾 Food list</h1>
+  <span id="statusPill" class="pill">this device only</span>
+</header>
+
+<nav class="tabs" aria-label="Places">
+  <button class="tab on" data-place="" type="button">All</button>
+  <button class="tab" data-place="fridge" type="button">🧊 Fridge</button>
+  <button class="tab" data-place="freezer" type="button">❄️ Freezer</button>
+  <button class="tab" data-place="pantry" type="button">🥫 Pantry</button>
+  <button class="tab" data-place="other" type="button">📦 Other</button>
+</nav>
+
+<main>
+  <p class="hint">Blanks are fine. Fill in the foods as you find them. Fridge days is how long the food keeps in the fridge; it is the estimate used when an item goes in. Tap a place above to see only those foods; new foods are tagged with the place you are on.</p>
+
+  <div class="row wrap">
+    <button id="addFood" type="button" class="big primary grow">+ Add a food</button>
+  </div>
+
+  <ul id="foodList" class="cards" aria-live="polite"></ul>
+  <div id="emptyNote" class="empty" hidden>No foods here yet. Tap “Add a food”.</div>
+
+  <div class="row wrap">
+    <button id="saveFoods" type="button" class="big primary grow">Save to the family database</button>
+  </div>
+  <p id="saveStatus" class="hint" role="status"></p>
+
+  <p class="hint"><a href="index.html">← Back to the pantry and settings</a></p>
+
+  <section class="panel" data-panel="errors" data-open="false">
+    <button class="panelHead" type="button" aria-expanded="false"><span>🛠️</span><span class="grow">Show errors</span><span class="mark">▸</span></button>
+    <div class="panelBody">
+      <label class="check"><input type="checkbox" id="showErrors"> Show errors on this page</label>
+      <ul id="errorList" class="plain"></ul>
+    </div>
+  </section>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/store.js"></script>
+<script src="js/util.js"></script>
+<script src="js/errors.js"></script>
+<script src="js/db.js"></script>
+<script>
+(function () {
+  'use strict';
+  var DB = window.WTCDb;
+  var KEY_ROWS = 'wtc.foods', KEY_ERRORS = 'wtc.showErrors';
+  var PLACES = ['fridge', 'pantry', 'freezer', 'other'];
+  var KINDS = ['', 'dry', 'wet', 'tool', 'space'];
+  var $ = function (id) { return document.getElementById(id); };
+  var rows = [];          // { id, name, location, kind, category, fridge_days, notes, dirty }
+  var place = '';         // '' = all places
+
+  // ---- device copy (each read and write in try/catch) ----
+  function readLocal() { var v = WTCStore.read(KEY_ROWS, []); return Array.isArray(v) ? v : []; }
+  function writeLocal() { WTCStore.write(KEY_ROWS, rows, reportError); }
+
+  // ---- errors at the bottom, shown only when the box is ticked ----
+  var errorLog = WTCErrors.create(function (lines) {
+    var ul = $('errorList');
+    ul.textContent = '';
+    lines.slice().reverse().forEach(function (m) {
+      var li = document.createElement('li'); li.textContent = m; ul.appendChild(li);
+    });
+    ul.hidden = !$('showErrors').checked;
+  }, 30);
+  function reportError(msg) { errorLog.report(msg); }
+  function renderErrors() { errorLog.redraw(); }
+  $('showErrors').checked = WTCStore.read(KEY_ERRORS, false) === true;
+  $('showErrors').addEventListener('change', function (e) {
+    WTCStore.write(KEY_ERRORS, e.target.checked);
+    renderErrors();
+  });
+
+  // ---- status pill and save line ----
+  function setPill() {
+    var s = DB.session();
+    $('statusPill').textContent = s ? 'family database' : 'this device only';
+  }
+  function unsaved() { return rows.filter(function (r) { return r.dirty; }).length; }
+  function setSaveStatus(extra) {
+    var n = unsaved();
+    $('saveStatus').textContent = extra || (n ? n + ' not saved yet' : 'All saved.');
+  }
+
+  // ---- draw the list for the chosen place ----
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  function select(options, value, cls, label) {
+    var s = el('select', cls);
+    s.setAttribute('aria-label', label);
+    options.forEach(function (o) {
+      var op = el('option', '', o.label); op.value = o.value; s.appendChild(op);
+    });
+    s.value = value;
+    return s;
+  }
+  function textInput(cls, value, placeholder, label) {
+    var i = el('input', cls); i.type = 'text'; i.value = value || ''; i.placeholder = placeholder; i.setAttribute('aria-label', label);
+    return i;
+  }
+  function numberInput(cls, value, placeholder, label) {
+    var i = el('input', cls); i.type = 'number'; i.min = '0'; i.step = 'any';
+    i.value = value === null || value === undefined ? '' : value; i.placeholder = placeholder; i.setAttribute('aria-label', label);
+    return i;
+  }
+
+  function renderList() {
+    var ul = $('foodList');
+    ul.textContent = '';
+    var shown = rows.filter(function (r) { return !place || r.location === place; });
+    $('emptyNote').hidden = shown.length > 0;
+    shown.forEach(function (r) {
+      var li = el('li', 'card' + (r.dirty ? ' clean' : ''));
+      var head = el('div', 'head');
+      var name = textInput('fname', r.name, 'Food name', 'Food name');
+      name.style.flex = '1';
+      name.addEventListener('input', function () { r.name = name.value; touch(r); });
+      head.appendChild(name);
+      li.appendChild(head);
+
+      var places = PLACES.map(function (p) { return { value: p, label: p }; });
+      var loc = select(places, r.location, 'floc', 'Place');
+      loc.addEventListener('change', function () { r.location = loc.value; touch(r); renderList(); });
+
+      var kinds = KINDS.map(function (k) { return { value: k, label: k || 'kind (blank)' }; });
+      var kind = select(kinds, r.kind, 'fkind', 'Kind');
+      kind.addEventListener('change', function () { r.kind = kind.value; touch(r); });
+
+      var cat = textInput('fcat', r.category, 'Category (for example, dairy)', 'Category');
+      cat.addEventListener('input', function () { r.category = cat.value; touch(r); });
+
+      var days = numberInput('fdays', r.fridge_days, 'Fridge days', 'Fridge days');
+      days.addEventListener('input', function () { r.fridge_days = days.value === '' ? null : Number(days.value); touch(r); });
+
+      var notes = textInput('fnotes', r.notes, 'Notes', 'Notes');
+      notes.addEventListener('input', function () { r.notes = notes.value; touch(r); });
+
+      var pair1 = el('div', 'pair'); pair1.appendChild(loc); pair1.appendChild(kind);
+      var pair2 = el('div', 'pair'); pair2.appendChild(days); pair2.appendChild(cat);
+      li.appendChild(pair1); li.appendChild(pair2); li.appendChild(notes);
+      ul.appendChild(li);
+    });
+  }
+
+  function touch(r) {
+    r.dirty = true;
+    writeLocal();
+    setSaveStatus();
+  }
+
+  // ---- add a food: tagged with the place on screen ----
+  $('addFood').addEventListener('click', function () {
+    rows.push({ id: '', name: '', location: place || 'pantry', kind: '', category: '', fridge_days: null, notes: '', dirty: true });
+    writeLocal();
+    renderList();
+    setSaveStatus();
+    var inputs = document.querySelectorAll('#foodList .fname');
+    if (inputs.length) inputs[inputs.length - 1].focus();
+  });
+
+  // ---- places ----
+  document.querySelectorAll('.tab[data-place]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      place = b.dataset.place;
+      document.querySelectorAll('.tab[data-place]').forEach(function (x) { x.classList.toggle('on', x === b); });
+      renderList();
+    });
+  });
+
+  // ---- save to the database ----
+  function explainSave(e) {
+    var m = String((e && e.message) || e || '');
+    if (/duplicate key|23505|wtc_foods_name_location_key/i.test(m)) return 'This food is already in that place. Change the name or the place.';
+    return DB.explain(e);
+  }
+
+  function saveOne(r) {
+    var body = { name: r.name.trim(), location: r.location, kind: r.kind, category: r.category.trim(),
+      fridge_days: r.fridge_days, notes: r.notes.trim(), updated_at: new Date().toISOString() };
+    if (WTCUtil.isUuid(r.id)) {
+      return DB.patch('wtc_foods', 'id=eq.' + r.id, body).then(function () { r.dirty = false; });
+    }
+    return DB.insert('wtc_foods', [body]).then(function (res) {
+      var row = res.data && res.data[0];
+      if (row && row.id) r.id = row.id;
+      r.dirty = false;
+    });
+  }
+
+  $('saveFoods').addEventListener('click', function () {
+    var pending = rows.filter(function (r) { return r.dirty && r.name.trim() !== ''; });
+    if (!pending.length) { setSaveStatus(unsaved() ? 'Give each food a name first.' : 'Nothing to save.'); return; }
+    if (!DB.session()) {
+      writeLocal();
+      setSaveStatus('Not signed in. Kept on this device only. Sign in from the Pantry page’s settings to save to the family database.');
+      return;
+    }
+    setSaveStatus('Saving…');
+    var chain = Promise.resolve(), failed = 0;
+    pending.forEach(function (r) {
+      chain = chain.then(function () {
+        return saveOne(r).catch(function (e) { failed++; reportError('Save “' + r.name + '”: ' + explainSave(e)); });
+      });
+    });
+    chain.then(function () {
+      writeLocal();
+      renderList();
+      setSaveStatus(failed ? failed + ' not saved. See Show errors.' : 'Saved to the family database.');
+    });
+  });
+
+  // ---- start: family database first, device copy if not signed in or offline ----
+  function start() {
+    setPill();
+    rows = readLocal();
+    renderList();
+    setSaveStatus();
+    if (!DB.session()) return;
+    DB.select('wtc_foods', 'select=*&order=name.asc', { timeoutMs: 8000 }).then(function (res) {
+      var dbRows = (res.data || []).map(function (r) {
+        return { id: r.id, name: r.name || '', location: r.location || 'pantry', kind: r.kind || '',
+          category: r.category || '', fridge_days: r.fridge_days, notes: r.notes || '', dirty: false };
+      });
+      var keep = rows.filter(function (r) { return r.dirty && !WTCUtil.isUuid(r.id); });
+      var dirtyById = {};
+      rows.forEach(function (r) { if (r.dirty && WTCUtil.isUuid(r.id)) dirtyById[r.id] = r; });
+      dbRows = dbRows.map(function (r) { return dirtyById[r.id] || r; });
+      rows = dbRows.concat(keep);
+      writeLocal();
+      renderList();
+      setSaveStatus();
+    }, function (e) {
+      reportError('Load: ' + DB.explain(e));
+      setSaveStatus('Could not load from the family database. Showing this device’s copy.');
+    });
+  }
+
+  start();
+})();
+</script>
+</body>
+</html>

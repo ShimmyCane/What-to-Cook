@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>foods.html — summary</title>
+<style>
+  :root { --paper: #fff8ec; --ink: #2f2d3d; --sun: #ffd166; --sage: #cfe8c9; --peach: #ffc9a8; --mint: #bfeee0; --coral: #ff8a80; --r: 18px; }
+  :root:not([data-theme="light"]) { --paper: #2a2838; --ink: #fff8ec; }
+  :root[data-theme="dark"] { --paper: #2a2838; --ink: #fff8ec; }
+  body { margin: 0; padding: 16px; font: 15px/1.5 system-ui, sans-serif; color: var(--ink); background: var(--paper); }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  h2 { font-size: 19px; margin: 22px 0 8px; }
+  .box { background: #fff; border: 3px solid var(--ink); border-radius: var(--r); padding: 12px 14px; margin: 10px 0; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border: 3px solid var(--ink); border-radius: var(--r); overflow: hidden; display: block; overflow-x: auto; }
+  th, td { text-align: left; padding: 7px 9px; border-bottom: 1px dashed var(--ink); vertical-align: top; font-size: 14px; }
+  th { background: var(--sun); }
+  code { font-size: 13px; background: #fff; padding: 0 4px; border: 1px solid var(--ink); border-radius: 6px; }
+  .flow { display: grid; gap: 8px; }
+  .node { border: 3px solid var(--ink); border-radius: var(--r); padding: 8px 10px; background: #fff; box-shadow: 0 4px 0 var(--ink); }
+  .node.db { background: var(--mint); }
+  .node.ui { background: var(--sage); }
+  .node.store { background: var(--peach); }
+  .arrow { text-align: center; font-weight: 700; }
+  .grid2 { display: grid; gap: 8px; }
+  @media (min-width: 620px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<h1>🧾 foods.html — summary</h1>
+<p>The food list page. Shows every food with its place (fridge, pantry, freezer, other), kind, category, fridge days and notes. Saves to the Family database table <code>wtc_foods</code>. Blanks are allowed. Works on the device when signed out. The main file is <code>foods.html</code> (about 270 lines).</p>
+
+<h2>1. How it fits together</h2>
+<div class="box flow" role="img" aria-label="Diagram: the page reads and writes the family database and keeps a copy on the device">
+  <div class="node ui">Page (<code>foods.html</code>): place tabs, food cards, Save button, Show errors</div>
+  <div class="arrow">↕ reads and writes its rows</div>
+  <div class="node store">Device copy: local storage key <code>wtc.foods</code> (each read and write in try/catch)</div>
+  <div class="arrow">↕ when signed in</div>
+  <div class="node db">Family database: table <code>wtc_foods</code> (signed-in users only, RLS on)</div>
+  <div class="arrow">↑ sign-in is done once, on the Pantry page, under ⚙️ Settings</div>
+  <div class="node ui"><code>js/db.js</code> (sign-in, select, insert, patch, timeouts, plain-words errors) and <code>js/config.js</code> (URL and publishable key only)</div>
+</div>
+<div class="box">
+  <strong>How to read this:</strong> the page keeps its rows in memory. Each change marks a row “not saved yet” and is copied to the device. The Save button sends the unsaved rows to the database, one at a time. A row with no name is not sent. If sending fails, the message goes to the bottom panel, which shows only when “Show errors” is ticked.
+</div>
+
+<h2>2. Table of contents (line numbers in <code>foods.html</code>)</h2>
+<table>
+  <thead><tr><th>Lines</th><th>Section</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td>1–14</td><td>Head</td><td>Title, link to <code>style.css</code>, and a short style block: place tabs wrap on a phone; cards' inputs can shrink.</td></tr>
+    <tr><td>15–19</td><td>Header</td><td>Title and the status pill (“this device only” or “family database”).</td></tr>
+    <tr><td>20–27</td><td>Place tabs</td><td>All, Fridge, Freezer, Pantry, Other. Each has <code>data-place</code>. Tapping one filters the list.</td></tr>
+    <tr><td>28–44</td><td>Main</td><td>Hint text, “+ Add a food” button, the food list, the empty note, “Save to the family database”, the save status line, the link back to the pantry, and the errors panel.</td></tr>
+    <tr><td>54–55</td><td>Scripts</td><td>Loads <code>js/config.js</code> then <code>js/db.js</code>.</td></tr>
+    <tr><td>56–67</td><td>Setup</td><td>Starts the page script. Constants (storage key, places, kinds, UUID pattern) and the in-memory <code>rows</code>, the current <code>place</code>, and the <code>errors</code> list.</td></tr>
+    <tr><td>69–78</td><td>Device copy</td><td><code>readLocal()</code> and <code>writeLocal()</code>, each in try/catch.</td></tr>
+    <tr><td>79–97</td><td>Errors</td><td><code>reportError()</code> adds a time-stamped line; <code>renderErrors()</code> draws it; the “Show errors” box is remembered in local storage.</td></tr>
+    <tr><td>99–108</td><td>Status</td><td><code>setPill()</code>, <code>unsaved()</code>, <code>setSaveStatus()</code>.</td></tr>
+    <tr><td>110–134</td><td>Element helpers</td><td><code>el()</code>, <code>select()</code>, <code>textInput()</code>, <code>numberInput()</code>. These build elements with <code>textContent</code>, so user text is never read as HTML.</td></tr>
+    <tr><td>136–172</td><td>Draw the list</td><td><code>renderList()</code> shows the rows for the current place. Each field writes back to its row on input.</td></tr>
+    <tr><td>174–178</td><td>Mark changed</td><td><code>touch()</code> sets <code>dirty</code>, copies to the device and updates the status line.</td></tr>
+    <tr><td>180–188</td><td>Add a food</td><td>Adds a blank row tagged with the place on screen, and focuses its name.</td></tr>
+    <tr><td>190–197</td><td>Place tabs</td><td>Sets <code>place</code> and redraws. Rows are kept, so nothing is lost when switching.</td></tr>
+    <tr><td>199–217</td><td>Save one row</td><td><code>explainSave()</code> turns the duplicate-key error into a sentence. <code>saveOne()</code> patches a row with an id, or inserts a new one and keeps the id the database returns.</td></tr>
+    <tr><td>219–239</td><td>Save all</td><td>Sends each unsaved, named row in order. Failed rows stay unsaved and are reported. With no sign-in, it saves to the device only.</td></tr>
+    <tr><td>241–265</td><td>Start</td><td>Reads the device copy first. If signed in, it loads <code>wtc_foods</code> (8-second timeout) and keeps any unsaved local edits.</td></tr>
+    <tr><td>267</td><td>Run</td><td><code>start()</code> is called at the end.</td></tr>
+  </tbody>
+</table>
+
+<h2>3. Variables that work with the page</h2>
+<p>Colours and shapes come from <code>style.css</code>. The page's own variables are in the script and the style block.</p>
+<h3>CSS (colours and shapes, from <code>style.css</code>)</h3>
+<table>
+  <thead><tr><th>Variable</th><th>Current value</th><th>What it does</th><th>How to tweak it</th></tr></thead>
+  <tbody>
+    <tr><td><code>--paper</code></td><td>#fff8ec</td><td>Page background, cream.</td><td>Change the hex. Dark mode is set in <code>:root:not([data-theme="light"])</code>.</td></tr>
+    <tr><td><code>--ink</code></td><td>#2f2d3d</td><td>Text and outline colour.</td><td>Keep it dark for contrast. Dark mode uses a light ink.</td></tr>
+    <tr><td><code>--sun</code></td><td>#ffd166</td><td>Header and table-head colour.</td><td>Any pastel.</td></tr>
+    <tr><td><code>--sage</code></td><td>#cfe8c9</td><td>“Primary” buttons, such as Save and Add.</td><td>Any pastel.</td></tr>
+    <tr><td><code>--mint</code></td><td>#bfeee0</td><td>The selected place tab.</td><td>Any pastel.</td></tr>
+    <tr><td><code>--peach</code></td><td>#ffc9a8</td><td>Warm buttons.</td><td>Any pastel.</td></tr>
+    <tr><td><code>--coral</code></td><td>#ff8a80</td><td>Left edge of a card with unsaved changes.</td><td>Change the hex; the edge width is set in <code>.card.clean</code>.</td></tr>
+    <tr><td><code>--shadow</code></td><td>0 4px 0 #2f2d3d</td><td>The offset shadow under buttons and cards.</td><td>Make the first number 0 to flatten the look.</td></tr>
+    <tr><td><code>--r</code></td><td>18px</td><td>Corner radius.</td><td>A smaller number for sharper corners.</td></tr>
+  </tbody>
+</table>
+
+<h3>JavaScript (in <code>foods.html</code>)</h3>
+<table>
+  <thead><tr><th>Name</th><th>Lines</th><th>What it does</th><th>How to tweak it</th></tr></thead>
+  <tbody>
+    <tr><td><code>DB</code></td><td>59</td><td>The database client from <code>js/db.js</code>.</td><td>Do not change. Its settings come from <code>js/config.js</code>.</td></tr>
+    <tr><td><code>KEY_ROWS</code></td><td>60</td><td>Device storage key for the food rows.</td><td>Change only if you want a fresh device copy; old rows will be left behind.</td></tr>
+    <tr><td><code>KEY_ERRORS</code></td><td>60</td><td>Device storage key for the “Show errors” box (shared with the Pantry page).</td><td>Keep it as <code>wtc.showErrors</code> to share the setting.</td></tr>
+    <tr><td><code>PLACES</code></td><td>61</td><td>The four places in the place menu. Must match the database check list in <code>supabase/foods_what_to_cook.sql</code>.</td><td>Adding a place needs the same change in the SQL, or the save will be refused.</td></tr>
+    <tr><td><code>KINDS</code></td><td>62</td><td>The kind menu: blank, dry, wet, tool, space. Must match the SQL.</td><td>Same rule as PLACES.</td></tr>
+    <tr><td><code>UUID</code></td><td>63</td><td>Pattern that tells a database id from a new blank row.</td><td>Do not change.</td></tr>
+    <tr><td><code>rows</code></td><td>65</td><td>Every food in memory: id, name, place, kind, category, fridge days, notes, unsaved flag.</td><td>Not tweaked by hand.</td></tr>
+    <tr><td><code>place</code></td><td>66</td><td>Which place tab is open. Empty means All.</td><td>Set by the tabs.</td></tr>
+    <tr><td><code>errors</code></td><td>67</td><td>The last 30 messages for the errors panel.</td><td>Change <code>slice(-30)</code> in <code>reportError()</code> to keep more or fewer.</td></tr>
+    <tr><td>timeout</td><td>248</td><td>The 8-second limit for loading the list.</td><td>Change <code>timeoutMs: 8000</code> in <code>start()</code>. A slow connection needs more.</td></tr>
+  </tbody>
+</table>
+
+<h2>4. Checks and open items</h2>
+<div class="box">
+  <ul>
+    <li>Headless browser at 390 px and 820 px: no JavaScript errors, place tabs filter the list, no horizontal scroll (after the tabs were allowed to wrap).</li>
+    <li>Not yet tested: a save to the live database. The table <code>wtc_foods</code> is written but not pasted in yet.</li>
+    <li>The page does not delete foods. That is deliberate, until Jimmy asks for it.</li>
+  </ul>
+</div>
+
+</body>
+</html>
