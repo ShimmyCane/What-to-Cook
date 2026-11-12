@@ -123,3 +123,19 @@ None yet. This round adds only this note and the to-do items. Build order if app
 4. Meal prep: should it also let you *exclude* ingredients (do not use the milk), or only pick ones to use?
 5. Ideas for the week: should the dinner five avoid anything cooked in the last week (needs trials logged)?
 6. Where should Ideas for the week live: a tab in the pantry page, or its own page linked from the front?
+
+## Answers (Jimmy, 2026-11-12) and what was built (app 0.9.0)
+
+1. **Layout:** A, grouped shelves. Built, with the list view (B) as a toggle.
+2. **Flourishes:** go. Written by Claude for all 50 starter recipes (205 suggestions, each with a role and a tip). To be corrected by the family.
+3. **Difficulty weights:** go as proposed.
+4. **Meal prep:** no exclude option; only pick ingredients to use. Built as the **Prep** tab.
+5. **Dinner ideas:** skip anything cooked in the last 7 days, and sort either **New to us first** or **Favourites first**. Built. "Cooked" comes from a new *Cooked it today* button on the card back, which also asks how hard it was (the personal part of difficulty). Kept on this device for now.
+6. **Ideas for the week:** its own tab (**Week**) on the front page.
+
+Notes on the build:
+- Recipe maths (pantry match, difficulty, shelves) is in `js/recipelib.js`, pure and offline.
+- `breakfast_ideas.json` holds 12 breakfast ideas matched against staples.
+- Aromatics are written as flourishes with role `aromatic` (no separate field on ingredients); the card back shows them under their own heading.
+- Trials are in the device's local storage (`wtc.recipeTrials`). Moving them to `wtc_recipe_trials` (with a `difficulty` column) needs a SQL paste, left for Jimmy.
+- Checked headless at 390 px: shelves, flip, list view, link to a card from Prep, prep results, week plan, shuffle, sort toggle; no JS errors, no sideways scroll. Not checked on a real phone.

@@ -15,6 +15,8 @@
 <nav class="tabs" aria-label="Sections">
   <button class="tab on" data-tab="pantry" type="button">🥫 Pantry</button>
   <button class="tab" data-tab="capture" type="button">🎙️ Add</button>
+  <button class="tab" data-tab="prep" type="button">🍱 Prep</button>
+  <button class="tab" data-tab="week" type="button">💡 Week</button>
 </nav>
 
 <main>
@@ -85,6 +87,32 @@
       <button id="save" type="button" class="big primary">Save to pantry</button>
     </div>
     <p id="saveNote" class="hint" hidden></p>
+  </section>
+  <section id="tab-prep" class="view" hidden>
+    <h2>Meal prep</h2>
+    <p class="hint">Tick what you want to use up. Recipes use only what is in the pantry; ones missing something come after, with the gap named.</p>
+    <div class="row wrap">
+      <label class="grow">Find in the pantry<input type="text" id="prepSearch" placeholder="e.g. chicken"></label>
+      <span id="prepCount" class="hint">none picked</span>
+      <button id="prepClear" type="button">Clear</button>
+    </div>
+    <div id="prepPick"></div>
+    <div id="prepOut"></div>
+  </section>
+
+  <section id="tab-week" class="view" hidden>
+    <h2>Ideas for the week</h2>
+    <div class="chips" role="group" aria-label="Dinner order">
+      <button class="chip on" data-wsort="new" type="button">✨ New to us first</button>
+      <button class="chip" data-wsort="fav" type="button">⭐ Favourites first</button>
+    </div>
+    <h3>Five dinners</h3>
+    <ul id="weekDinners" class="slots"></ul>
+    <h3>Five breakfasts</h3>
+    <ul id="weekBreakfasts" class="slots"></ul>
+    <p id="weekNote" class="hint" role="status"></p>
+    <button id="weekAgain" type="button" class="big">↻ Plan again</button>
+    <p class="hint">Dinners skip anything cooked in the last 7 days, and use different proteins. Tap a dinner to see its recipe.</p>
   </section>
 </main>
 
@@ -186,11 +214,13 @@
 <script src="js/errors.js"></script>
 <script src="js/db.js"></script>
 <script src="js/parse.js"></script>
+<script src="js/recipelib.js"></script>
 <script src="js/core.js"></script>
 <script src="js/content.js"></script>
 <script src="js/sync.js"></script>
 <script src="js/pantry.js"></script>
 <script src="js/capture.js"></script>
+<script src="js/plan.js"></script>
 <script src="js/settings.js"></script>
 <script src="js/app.js"></script>
 </body>

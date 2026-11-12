@@ -6,41 +6,56 @@
 <title>What to Cook — Recipe book</title>
 <link rel="stylesheet" href="style.css">
 <style>
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 4px; }
-  .chip { min-height: 44px; padding: 6px 12px; font-size: 15px; }
-  .chip.on { background: var(--mint); }
-  .book { display: grid; gap: 14px; margin-top: 10px; }
-  @media (min-width: 620px) { .book { grid-template-columns: 1fr 1fr; } }
-  .flip { perspective: 1200px; min-height: 210px; }
-  .flip-inner { position: relative; width: 100%; min-height: 210px; transition: transform .5s; transform-style: preserve-3d; }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 10px 0 4px; align-items: center; }
+  .chip { min-height: 44px; padding: 4px 2px; font-size: 16px; background: none; border: 0; border-bottom: 3px solid transparent; border-radius: 0; box-shadow: none; }
+  .chip.on { border-bottom-color: var(--ink); }
+  .chips .sp { flex: 1; }
+  details.shelf { margin: 14px 0 6px; }
+  details.shelf > summary { list-style: none; cursor: pointer; min-height: 44px; display: flex; align-items: center; gap: 8px; font: 700 18px Quicksand, system-ui, sans-serif; padding: 4px 0; border-bottom: 2px solid color-mix(in srgb, var(--ink) 25%, transparent); }
+  details.shelf > summary::-webkit-details-marker { display: none; }
+  details.shelf > summary::before { content: "▸"; }
+  details.shelf[open] > summary::before { content: "▾"; }
+  .count { font-weight: 500; font-size: 14px; opacity: .7; }
+  .strip { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x proximity; padding: 14px 4px 18px; margin: 0 -4px; }
+  .strip .flip { flex: 0 0 min(280px, 82vw); scroll-snap-align: start; }
+  .shelflabel { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; opacity: .7; margin: 22px 0 0; }
+  .flip { perspective: 1200px; height: 330px; }
+  .flip-inner { position: relative; width: 100%; height: 100%; transition: transform .5s; transform-style: preserve-3d; }
   .flip.open .flip-inner { transform: rotateY(180deg); }
   .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
           border: 3px solid var(--ink); border-radius: var(--r); box-shadow: var(--shadow); padding: 14px; overflow: hidden; }
-  .front { background: var(--surface); color: var(--surface-ink); cursor: pointer; }
+  .front { background: var(--surface); color: var(--surface-ink); cursor: pointer; display: flex; flex-direction: column; }
   .back { transform: rotateY(180deg); background: var(--paper); color: var(--ink); overflow-y: auto; }
   .flip:not(.open) .back { visibility: hidden; }
   .flip.open .front { visibility: hidden; }
-  .tag { display: inline-block; font-size: 13px; padding: 2px 9px; border: 2px solid var(--ink); border-radius: 999px; background: var(--sun); color: var(--surface-ink); }
-  .name { font: 700 20px Quicksand, system-ui, sans-serif; margin: 10px 0 6px; overflow-wrap: anywhere; }
-  .desc { font-size: 15px; margin: 0 0 10px; }
-  .meta { font-size: 13px; opacity: .85; }
+  .tag { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .75; }
+  .name { font: 700 20px Quicksand, system-ui, sans-serif; margin: 6px 0 6px; overflow-wrap: anywhere; }
+  .desc { font-size: 15px; margin: 0 0 10px; flex: 1; }
+  .meta { font-size: 13px; opacity: .85; margin: 2px 0; }
+  .dots { letter-spacing: 2px; }
   .have { font-size: 13px; }
-  .ing { list-style: none; padding: 0; margin: 8px 0; font-size: 15px; }
-  .ing li { padding: 3px 0; }
+  h4 { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .7; margin: 12px 0 2px; font-weight: 700; }
+  .ing { list-style: none; padding: 0; margin: 0; font-size: 15px; display: flex; flex-wrap: wrap; gap: 2px 14px; }
   .ing li.yes::before { content: "✅ "; }
   .ing li.no::before { content: "◻️ "; }
-  .btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .ing li.dim { opacity: .55; }
+  .tipline { font-size: 13px; margin: 4px 0 0; opacity: .85; }
+  .btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
   .btns button, .btns a { min-height: 44px; font-size: 15px; padding: 6px 12px; }
-  .btns a { display: inline-flex; align-items: center; color: var(--ink); text-decoration: none; background: #fff; border: 3px solid var(--ink); border-radius: var(--r); box-shadow: var(--shadow); font-weight: 700; }
+  .btns a { display: inline-flex; align-items: center; color: var(--ink); text-decoration: none; background: #fff; color: var(--surface-ink); border: 3px solid var(--ink); border-radius: var(--r); box-shadow: var(--shadow); font-weight: 700; }
   .mark { position: absolute; top: 10px; right: 12px; font-size: 20px; }
   .steps { margin: 6px 0 4px 18px; padding: 0; font-size: 14px; }
+  .steps li { padding: 2px 0; }
   .logos { position: absolute; bottom: 10px; right: 12px; display: flex; gap: 4px; }
   .logo { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--ink); display: inline-flex; align-items: center; justify-content: center; font: 700 13px Quicksand, system-ui, sans-serif; color: var(--surface-ink); flex: 0 0 auto; }
   .versions { list-style: none; padding: 0; margin: 8px 0; font-size: 14px; }
   .versions li { display: flex; gap: 6px; align-items: center; padding: 3px 0; }
-  .vform { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-  .vform select, .vform input { min-height: 44px; flex: 1 1 120px; min-width: 0; }
-  .steps li { padding: 2px 0; }
+  .vform, .cform { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .vform select, .vform input, .cform select { min-height: 44px; flex: 1 1 120px; min-width: 0; }
+  .list .lrow { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 48px; text-align: left; background: none; color: var(--ink); border: 0; border-bottom: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); border-radius: 0; box-shadow: none; font-weight: 500; font-size: 16px; padding: 6px 2px; }
+  .list .lrow .grow { flex: 1; overflow-wrap: anywhere; }
+  .list .flip { height: 360px; margin: 10px 0; }
+  .list .seg { margin-top: 18px; }
 </style>
 </head>
 <body>
@@ -50,14 +65,15 @@
 </header>
 
 <main>
-  <p class="hint">Tap a card to turn it over. Pantry matches come from this device's pantry.</p>
+  <p class="hint">Tap a card to turn it over. Pantry matches come from this device's pantry. Open one from Meal prep or Week and it is turned over for you.</p>
 
-  <div class="chips" role="group" aria-label="Filter">
+  <div class="chips" role="group" aria-label="Filter and view">
     <button class="chip on" data-filter="all" type="button">All <span id="cAll"></span></button>
     <button class="chip" data-filter="fav" type="button">⭐ Favourites <span id="cFav"></span></button>
-    <button class="chip" data-filter="have" type="button">🧺 We have most <span id="cHave"></span></button>
-    <button class="chip" data-filter="soon" type="button">⏰ Use soon <span id="cSoon"></span></button>
     <button class="chip" data-filter="started" type="button">▶ Started <span id="cStart"></span></button>
+    <span class="sp"></span>
+    <button class="chip on" data-view="shelves" type="button">Shelves</button>
+    <button class="chip" data-view="list" type="button">List</button>
   </div>
 
   <p id="saveState" class="hint" role="status"></p>
@@ -69,6 +85,7 @@
 <script src="js/config.js"></script>
 <script src="js/store.js"></script>
 <script src="js/db.js"></script>
+<script src="js/recipelib.js"></script>
 <script>
 (function () {
   'use strict';
@@ -80,82 +97,95 @@
   function readList(key) { var v = WTCStore.read(key, []); return Array.isArray(v) ? v : []; }
   function writeList(key, v) { WTCStore.write(key, v); }
 
-  function inStock() { return items.filter(function (it) { return it.status === 'in_stock'; }); }
-  function isSoon(it) {
-    if (it.freshness === 'use soon' || it.freshness === 'use now' || it.freshness === 'past') return true;
-    if (!it.expires_on) return false;
-    var days = Math.round((new Date(it.expires_on + 'T00:00:00') - new Date(new Date().toDateString())) / 86400000);
-    return days <= 3;
-  }
-  function haveOf(ing) {
-    var k = String(ing.match || '').toLowerCase();
-    return inStock().filter(function (it) { return String(it.name || '').toLowerCase().indexOf(k) !== -1; });
-  }
-  function summary(r) {
-    var n = r.ingredients.length, matched = 0, soon = false;
-    r.ingredients.forEach(function (ing) {
-      var hits = haveOf(ing);
-      if (hits.length) matched++;
-      if (hits.some(isSoon)) soon = true;
-      ing.have = hits.length > 0;
-    });
-    return { matched: matched, n: n, most: matched * 2 >= n, soon: soon };
-  }
+  var R = window.WTCRecipes, KEY_TRIALS = 'wtc.recipeTrials', KEY_VIEW = 'wtc.recipeView', KEY_SHELF = 'wtc.shelfOpen';
+  var trials = [], view = 'shelves', shelfOpen = {};
+  function inStock() { return R.inStock(items); }
 
   function googleUrl(name) { return 'https://www.google.com/search?q=' + encodeURIComponent(name + ' recipe versions'); }
 
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function listBlock(title, rows, haveKey) {
+    var box = document.createDocumentFragment();
+    if (!rows.length) return box;
+    box.appendChild(el('h4', '', title));
+    var ul = el('ul', 'ing');
+    rows.forEach(function (x) { ul.appendChild(el('li', (x.have ? 'yes' : 'no') + (haveKey && !x.have ? ' dim' : ''), x.name)); });
+    box.appendChild(ul);
+    return box;
+  }
+
   function card(r, i, s) {
     var isFav = fav.indexOf(r.id) !== -1, isStart = started.indexOf(r.id) !== -1;
-    var flip = document.createElement('div'); flip.className = 'flip'; flip.dataset.id = r.id;
-    var inner = document.createElement('div'); inner.className = 'flip-inner';
+    var pers = R.personalOf(trials, r.id), df = R.difficulty(r, pers);
+    var flip = el('div', 'flip'); flip.dataset.id = r.id;
+    var inner = el('div', 'flip-inner');
 
-    var front = document.createElement('div'); front.className = 'face front';
+    var front = el('div', 'face front');
     front.style.background = PALETTE[i % PALETTE.length];
-    var tag = document.createElement('span'); tag.className = 'tag'; tag.textContent = r.cuisine; front.appendChild(tag);
-    if (isFav || isStart) { var m = document.createElement('span'); m.className = 'mark'; m.textContent = (isFav ? '⭐' : '') + (isStart ? '▶' : ''); front.appendChild(m); }
-    var nm = document.createElement('div'); nm.className = 'name'; nm.textContent = r.name; front.appendChild(nm);
-    var ds = document.createElement('p'); ds.className = 'desc'; ds.textContent = r.description; front.appendChild(ds);
-    var mt = document.createElement('div'); mt.className = 'meta'; mt.textContent = r.minutes + ' min'; front.appendChild(mt);
-    var hv = document.createElement('div'); hv.className = 'have';
-    hv.textContent = s.matched + ' of ' + s.n + ' in the pantry' + (s.soon ? ' · use soon' : ''); front.appendChild(hv);
-    var vs = versions[r.id] || [];
-    if (vs.length) {
-      var lg = document.createElement('div'); lg.className = 'logos';
-      vs.forEach(function (v) { lg.appendChild(logo(v.version_by)); });
-      front.appendChild(lg);
-    }
+    front.appendChild(el('div', 'tag', r.cuisine));
+    if (isFav || isStart) front.appendChild(el('span', 'mark', (isFav ? '⭐' : '') + (isStart ? '▶' : '')));
+    front.appendChild(el('div', 'name', r.name));
+    front.appendChild(el('p', 'desc', r.description));
+    front.appendChild(el('div', 'meta', (r.total_min || r.minutes) + ' min · ' + R.dots(df.level)));
+    front.appendChild(el('div', 'have', s.matched + ' of ' + s.n + ' in the pantry' + (s.flourishes ? ' · ✨ ' + s.flourishes : '') + (s.soon ? ' · use soon' : '')));
+    (versions[r.id] || []).length && (function () {
+      var lg = el('div', 'logos'); versions[r.id].forEach(function (v) { lg.appendChild(logo(v.version_by)); }); front.appendChild(lg);
+    })();
 
-    var back = document.createElement('div'); back.className = 'face back';
-    var bn = document.createElement('div'); bn.className = 'name'; bn.textContent = r.name; back.appendChild(bn);
-    var ul = document.createElement('ul'); ul.className = 'ing';
-    r.ingredients.forEach(function (ing) {
-      var li = document.createElement('li'); li.className = ing.have ? 'yes' : 'no'; li.textContent = ing.name; ul.appendChild(li);
-    });
-    back.appendChild(ul);
+    var back = el('div', 'face back');
+    back.appendChild(el('div', 'name', r.name));
+    back.appendChild(el('div', 'meta', 'Prep ' + (r.prep_min || 0) + ' · wait ' + (r.wait_min || 0) + ' · cook ' + (r.cook_min || 0) + ' · total ' + (r.total_min || r.minutes) + ' min'));
+    var why = df.parts.map(function (p) { return p.k + ' ' + p.s; }).join(', ');
+    var dm = el('div', 'meta'); dm.appendChild(el('span', 'dots', R.dots(df.level))); dm.appendChild(document.createTextNode(' difficulty ' + df.score + ' (' + why + ')'));
+    back.appendChild(dm);
+    if ((r.equipment || []).length) back.appendChild(el('div', 'meta', 'Needs: ' + r.equipment.join(', ')));
+    back.appendChild(listBlock('Base', r.ingredients));
+    var fl = r.flourishes || [];
+    var arom = fl.filter(function (f) { return f.role === 'aromatic'; }), rest = fl.filter(function (f) { return f.role !== 'aromatic'; });
+    back.appendChild(listBlock('Aromatics', arom, true));
+    back.appendChild(listBlock('Flourishes', rest, true));
+    var have = fl.filter(function (f) { return f.have; })[0];
+    if (have) back.appendChild(el('p', 'tipline', '✨ ' + have.name + ': ' + have.tip));
     if (isStart && r.steps && r.steps.length) {
-      var ol = document.createElement('ol'); ol.className = 'steps';
-      r.steps.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ol.appendChild(li); });
+      back.appendChild(el('h4', '', 'Steps'));
+      var ol = el('ol', 'steps');
+      r.steps.forEach(function (t) { ol.appendChild(el('li', '', t)); });
       back.appendChild(ol);
     } else if (r.steps && r.steps.length) {
-      var tip = document.createElement('p'); tip.className = 'meta'; tip.textContent = 'Start it to see the steps.'; back.appendChild(tip);
+      back.appendChild(el('p', 'meta', 'Start it to see the steps.'));
     }
-    var btns = document.createElement('div'); btns.className = 'btns';
-    var b1 = document.createElement('button'); b1.type = 'button'; b1.textContent = isFav ? '⭐ Favourite' : '☆ Favourite';
-    b1.addEventListener('click', function (e) { e.stopPropagation(); toggle(fav, KEY_FAV, r.id); render(); share(r); });
-    var b2 = document.createElement('button'); b2.type = 'button'; b2.textContent = isStart ? '▶ Started' : '▷ Start this';
+    var btns = el('div', 'btns');
+    var b1 = el('button', '', isFav ? '⭐ Favourite' : '☆ Favourite'); b1.type = 'button';
+    b1.addEventListener('click', function (e) { e.stopPropagation(); toggle(fav, KEY_FAV, r.id); render(); reopen(r.id); share(r); });
+    var b2 = el('button', '', isStart ? '▶ Started' : '▷ Start this'); b2.type = 'button';
     b2.addEventListener('click', function (e) { e.stopPropagation(); toggle(started, KEY_START, r.id); render(); reopen(r.id); share(r); });
-    var a = document.createElement('a'); a.href = googleUrl(r.name); a.target = '_blank'; a.rel = 'noopener'; a.textContent = '🔎 See versions';
+    var a = el('a', '', '🔎 See versions'); a.href = googleUrl(r.name); a.target = '_blank'; a.rel = 'noopener';
     a.addEventListener('click', function (e) { e.stopPropagation(); });
-    var b3 = document.createElement('button'); b3.type = 'button'; b3.textContent = 'Back';
+    var b3 = el('button', '', 'Back'); b3.type = 'button';
     b3.addEventListener('click', function (e) { e.stopPropagation(); flip.classList.remove('open'); });
     btns.appendChild(b1); btns.appendChild(b2); btns.appendChild(a); btns.appendChild(b3);
     back.appendChild(btns);
+    // After cooking: how hard was it? This is the personal part of the difficulty.
+    back.appendChild(el('h4', '', 'Cooked it?'));
+    var cf = el('div', 'cform');
+    var hs = document.createElement('select'); hs.setAttribute('aria-label', 'How hard was it');
+    [['', 'How hard? (1 easy – 5 hard)'], ['1', '1 easy'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5 hard']].forEach(function (o) { var op = el('option', '', o[1]); op.value = o[0]; hs.appendChild(op); });
+    var cb = el('button', '', '🍳 Cooked it today'); cb.type = 'button';
+    [hs, cb].forEach(function (x) { x.addEventListener('click', function (e) { e.stopPropagation(); }); });
+    cb.addEventListener('click', function () {
+      trials.push({ id: r.id, on: todayIso(), hard: +hs.value || 0 });
+      writeList(KEY_TRIALS, trials); render(); reopen(r.id);
+    });
+    cf.appendChild(hs); cf.appendChild(cb); back.appendChild(cf);
+    var last = R.lastCooked(trials, r.id);
+    if (last) back.appendChild(el('p', 'meta', 'Last cooked ' + last + '.'));
     if (isStart) back.appendChild(versionBlock(r));
 
     inner.appendChild(front); inner.appendChild(back); flip.appendChild(inner);
     flip.addEventListener('click', function () { flip.classList.toggle('open'); });
     return flip;
   }
+  function todayIso() { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
 
   // Keep the card turned over after a re-render, so the steps show at once.
   function reopen(id) { var el = document.querySelector('.flip[data-id="' + id + '"]'); if (el) el.classList.add('open'); }
@@ -289,35 +319,70 @@
     writeList(key, list);
   }
 
-  function passes(r, s) {
+  function passes(r) {
     if (filter === 'fav') return fav.indexOf(r.id) !== -1;
-    if (filter === 'have') return s.most;
-    if (filter === 'soon') return s.soon;
     if (filter === 'started') return started.indexOf(r.id) !== -1;
     return true;
   }
+  function family(c) { return String(c || '').split(':')[0].replace(/\s*\(.*\)/, ''); }
+
+  function shelf(book, key, title, list, openDefault) {
+    if (!list.length) return;
+    var d = document.createElement('details'); d.className = 'shelf'; d.dataset.key = key;
+    d.open = shelfOpen[key] === undefined ? openDefault : !!shelfOpen[key];
+    var sm = el('summary', '', title + ' '); sm.appendChild(el('span', 'count', '(' + list.length + ')')); d.appendChild(sm);
+    var strip = el('div', 'strip');
+    list.forEach(function (x) { strip.appendChild(card(x.r, x.i, x.sum)); });
+    d.appendChild(strip);
+    d.addEventListener('toggle', function () { shelfOpen[key] = d.open; WTCStore.write(KEY_SHELF, shelfOpen); });
+    book.appendChild(d);
+  }
+
+  function renderList(book, rows) {
+    book.classList.add('list');
+    rows.sort(function (a, b) { return a.r.name < b.r.name ? -1 : 1; });
+    rows.forEach(function (x) {
+      var wrap = document.createElement('div');
+      var b = el('button', 'lrow'); b.type = 'button';
+      b.appendChild(el('span', 'grow', x.r.name));
+      b.appendChild(el('span', 'meta', (x.r.total_min || x.r.minutes) + ' min'));
+      b.appendChild(el('span', 'dots', R.dots(x.diff.level)));
+      b.appendChild(el('span', 'meta', x.sum.matched + '/' + x.sum.n));
+      var open = null;
+      b.addEventListener('click', function () {
+        if (open) { open.remove(); open = null; return; }
+        open = card(x.r, x.i, x.sum); open.classList.add('open'); wrap.appendChild(open);
+      });
+      wrap.appendChild(b); book.appendChild(wrap);
+    });
+  }
 
   function render() {
-    var book = $('book'); book.textContent = '';
-    var sums = {}, counts = { all: 0, fav: 0, have: 0, soon: 0, started: 0 };
-    recipes.forEach(function (r) {
-      var s = summary(r); sums[r.id] = s;
-      counts.all++;
-      if (fav.indexOf(r.id) !== -1) counts.fav++;
-      if (s.most) counts.have++;
-      if (s.soon) counts.soon++;
-      if (started.indexOf(r.id) !== -1) counts.started++;
+    var book = $('book'); book.textContent = ''; book.classList.remove('list');
+    var stock = inStock();
+    var all = recipes.map(function (r, i) {
+      var sum = R.summary(r, stock), diff = R.difficulty(r, R.personalOf(trials, r.id));
+      return { r: r, i: i, sum: sum, diff: diff };
     });
-    $('cAll').textContent = counts.all; $('cFav').textContent = counts.fav; $('cHave').textContent = counts.have;
-    $('cSoon').textContent = counts.soon; $('cStart').textContent = counts.started;
-    var shown = 0;
-    recipes.forEach(function (r, i) {
-      var s = sums[r.id];
-      if (!passes(r, s)) return;
-      book.appendChild(card(r, i, s)); shown++;
-    });
-    $('empty').hidden = shown > 0;
-    $('statusPill').textContent = items.length ? 'pantry: ' + inStock().length + ' in stock' : 'no pantry on this device';
+    $('cAll').textContent = all.length;
+    $('cFav').textContent = all.filter(function (x) { return fav.indexOf(x.r.id) !== -1; }).length;
+    $('cStart').textContent = all.filter(function (x) { return started.indexOf(x.r.id) !== -1; }).length;
+    var shown = all.filter(function (x) { return passes(x.r); });
+    if (view === 'list') renderList(book, shown.slice());
+    else {
+      var by = function (f) { return shown.filter(f).sort(function (a, b) { return R.byShelf(a, b); }); };
+      shelf(book, 'ready', '✅ Ready now', by(function (x) { return x.sum.ready; }), true);
+      shelf(book, 'one', 'Missing one thing', by(function (x) { return !x.sum.ready && x.sum.missing.length === 1; }), true);
+      shelf(book, 'soon', '⏰ Use-soon rescues', by(function (x) { return x.sum.soon; }), false);
+      shelf(book, 'quick', 'Quick (30 min or less)', by(function (x) { return (x.r.total_min || x.r.minutes) <= 30; }), false);
+      var fams = {};
+      shown.forEach(function (x) { var f = family(x.r.cuisine); (fams[f] = fams[f] || []).push(x); });
+      var names = Object.keys(fams).sort();
+      if (names.length) book.appendChild(el('p', 'shelflabel', 'By cuisine'));
+      names.forEach(function (f) { shelf(book, 'c:' + f, f, fams[f].sort(function (a, b) { return R.byShelf(a, b); }), false); });
+    }
+    $('empty').hidden = shown.length > 0;
+    $('statusPill').textContent = items.length ? 'pantry: ' + stock.length + ' in stock' : 'no pantry on this device';
   }
 
   document.querySelectorAll('.chip[data-filter]').forEach(function (b) {
@@ -327,13 +392,42 @@
       render();
     });
   });
+  document.querySelectorAll('.chip[data-view]').forEach(function (b) {
+    b.addEventListener('click', function () { setView(b.dataset.view); render(); });
+  });
+  function setView(v) {
+    view = v; WTCStore.write(KEY_VIEW, v);
+    document.querySelectorAll('.chip[data-view]').forEach(function (x) { x.classList.toggle('on', x.dataset.view === v); });
+  }
+
+  // A link like recipes.html#chicken-adobo opens that card, turned over.
+  function openHash() {
+    var id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+    var f = document.querySelector('.flip[data-id="' + id + '"]');
+    if (!f && (view === 'list' || filter !== 'all')) {
+      // The card is hidden by the list view or a filter: show everything as shelves so it can open.
+      filter = 'all'; setView('shelves');
+      document.querySelectorAll('.chip[data-filter]').forEach(function (x) { x.classList.toggle('on', x.dataset.filter === 'all'); });
+      render(); f = document.querySelector('.flip[data-id="' + id + '"]');
+    }
+    if (!f) return;
+    var d = f.closest('details'); if (d) d.open = true;
+    f.classList.add('open'); f.scrollIntoView({ block: 'center', inline: 'center' });
+  }
 
   fetch('recipes_explore.json').then(function (res) { return res.json(); }).then(function (data) {
     recipes = data.recipes || [];
     items = readList(KEY_ITEMS);
     fav = readList(KEY_FAV);
     started = readList(KEY_START);
+    trials = readList(KEY_TRIALS);
+    var sh = WTCStore.read(KEY_SHELF, {}); shelfOpen = sh && typeof sh === 'object' ? sh : {};
+    var hashId = decodeURIComponent(location.hash.slice(1));
+    if (hashId) shelfOpen.__hash = true;
+    setView(WTCStore.read(KEY_VIEW, 'shelves') === 'list' ? 'list' : 'shelves');
     render();
+    openHash();
     loadRemote();
   }).catch(function () {
     $('empty').hidden = false;
