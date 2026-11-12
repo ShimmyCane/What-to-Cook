@@ -115,3 +115,22 @@ button.warm { background: var(--peach); }
   position: fixed; left: 0; right: 0; bottom: 0; max-height: 30vh; overflow: auto; z-index: 40;
   background: #ffe1dc; color: var(--surface-ink); border-top: 3px solid var(--ink); padding: 10px 16px; font-size: 14px; white-space: pre-wrap;
 }
+
+/* Meal prep and ideas for the week: spacing and underlines, few boxes */
+.chips { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 10px 0 4px; }
+.chip { min-height: 44px; padding: 4px 2px; font-size: 16px; background: none; border: 0; border-bottom: 3px solid transparent; border-radius: 0; box-shadow: none; }
+.chip.on { border-bottom-color: var(--ink); }
+.picks { display: flex; flex-wrap: wrap; gap: 6px; }
+.pick { min-height: 44px; padding: 4px 10px; font-size: 15px; font-weight: 500; background: none; border: 2px solid color-mix(in srgb, var(--ink) 30%, transparent); border-radius: 999px; box-shadow: none; color: var(--ink); }
+.pick.on { background: var(--mint); color: var(--surface-ink); border-color: var(--ink); font-weight: 700; }
+.seg { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .7; margin: 16px 0 6px; font-weight: 700; }
+.rwrap { border-bottom: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); padding: 4px 0; }
+.rrow { display: flex; align-items: center; gap: 10px; min-height: 44px; color: var(--ink); text-decoration: none; font-weight: 700; }
+.rrow .grow { overflow-wrap: anywhere; }
+.rsub { margin: 0 0 4px; }
+.meta { font-size: 13px; opacity: .85; }
+.dots { letter-spacing: 2px; }
+.slots { list-style: none; padding: 0; margin: 0; }
+.slot { display: flex; align-items: center; gap: 10px; min-height: 56px; padding: 6px 0; border-bottom: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); }
+.sname { font-weight: 700; font-size: 18px; color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
+.shuffle { min-width: 48px; font-size: 22px; padding: 4px; }

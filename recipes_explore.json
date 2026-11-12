@@ -1,7 +1,7 @@
 {
   "title": "Recipe book: exploring (starter 50)",
-  "updated": "2026-11-07",
-  "note": "Starter ideas from what the family buys. Each card is a version to explore: Family is the starting point. Not started until someone taps 'start'. Steps are short starters, shown once a recipe is started; look up versions for more.",
+  "updated": "2026-11-12",
+  "note": "Starter ideas from what the family buys. Each card is a version to explore: Family is the starting point. Not started until someone taps 'start'. Steps are short starters, shown once a recipe is started; look up versions for more. Each recipe also carries prep, wait and cook minutes, methods, equipment, a technique score (1-5), a main protein, a kind (dinner, breakfast, dessert, side, snack) and suggested flourishes with a role.",
   "recipes": [
     {
       "id": "kimchi-fried-rice",
@@ -31,6 +31,46 @@
         "Fry chopped kimchi in a little oil for 2 minutes.",
         "Add cold cooked rice and a splash of soy sauce; stir-fry until hot and a little crisp.",
         "Top with a fried egg."
+      ],
+      "prep_min": 8,
+      "wait_min": 0,
+      "cook_min": 12,
+      "total_min": 20,
+      "methods": [
+        "stir-fry",
+        "fry"
+      ],
+      "equipment": [
+        "wok or pan"
+      ],
+      "technique": 2,
+      "protein": "egg",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "sesame seeds",
+          "match": "sesame",
+          "role": "garnish",
+          "tip": "Toast in a dry pan for a minute first."
+        },
+        {
+          "name": "sesame oil",
+          "match": "sesame oil",
+          "role": "depth",
+          "tip": "A few drops off the heat; it burns easily."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        }
       ]
     },
     {
@@ -66,6 +106,48 @@
         "Fry an egg.",
         "Put rice in a bowl, arrange the vegetables and the egg on top.",
         "Add gochujang to taste and mix at the table."
+      ],
+      "prep_min": 15,
+      "wait_min": 0,
+      "cook_min": 15,
+      "total_min": 30,
+      "methods": [
+        "blanch",
+        "sauté",
+        "fry"
+      ],
+      "equipment": [
+        "pot",
+        "pan"
+      ],
+      "technique": 3,
+      "protein": "egg",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "sesame seeds",
+          "match": "sesame",
+          "role": "garnish",
+          "tip": "Toast in a dry pan for a minute first."
+        },
+        {
+          "name": "sesame oil",
+          "match": "sesame oil",
+          "role": "depth",
+          "tip": "A few drops off the heat; it burns easily."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        }
       ]
     },
     {
@@ -96,6 +178,45 @@
         "Slice the beef thinly and soak it in the bulgogi marinade for 15 minutes.",
         "Cook it in a very hot pan for 2 to 3 minutes, in batches.",
         "Serve over rice, with lettuce leaves to wrap."
+      ],
+      "prep_min": 10,
+      "wait_min": 10,
+      "cook_min": 5,
+      "total_min": 25,
+      "methods": [
+        "stir-fry"
+      ],
+      "equipment": [
+        "wok or pan"
+      ],
+      "technique": 2,
+      "protein": "beef",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "sesame seeds",
+          "match": "sesame",
+          "role": "garnish",
+          "tip": "Toast in a dry pan for a minute first."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        }
       ]
     },
     {
@@ -126,6 +247,45 @@
         "Mix gochujang with a little soy sauce and water.",
         "Brown bite-size chicken in a hot pan.",
         "Add cabbage and carrots, then the sauce; cook until the chicken is cooked through."
+      ],
+      "prep_min": 10,
+      "wait_min": 0,
+      "cook_min": 15,
+      "total_min": 25,
+      "methods": [
+        "stir-fry"
+      ],
+      "equipment": [
+        "wok or pan"
+      ],
+      "technique": 2,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        },
+        {
+          "name": "sesame seeds",
+          "match": "sesame",
+          "role": "garnish",
+          "tip": "Toast in a dry pan for a minute first."
+        },
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        }
       ]
     },
     {
@@ -157,6 +317,45 @@
         "Add sliced chicken and cook until done.",
         "Pour beaten egg over, cover, and cook until just set.",
         "Slide onto a bowl of rice."
+      ],
+      "prep_min": 8,
+      "wait_min": 0,
+      "cook_min": 12,
+      "total_min": 20,
+      "methods": [
+        "simmer"
+      ],
+      "equipment": [
+        "small pan"
+      ],
+      "technique": 3,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "nori",
+          "match": "nori",
+          "role": "garnish",
+          "tip": "Cut in strips and scatter on."
+        },
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        },
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        }
       ]
     },
     {
@@ -183,6 +382,46 @@
         "Mix soy sauce with a little sugar and water.",
         "Pan-fry the chicken until browned and cooked through.",
         "Add the sauce and let it bubble until glossy. Serve with rice."
+      ],
+      "prep_min": 8,
+      "wait_min": 0,
+      "cook_min": 17,
+      "total_min": 25,
+      "methods": [
+        "sear",
+        "glaze"
+      ],
+      "equipment": [
+        "pan"
+      ],
+      "technique": 2,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "sesame seeds",
+          "match": "sesame",
+          "role": "garnish",
+          "tip": "Toast in a dry pan for a minute first."
+        },
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        }
       ]
     },
     {
@@ -214,6 +453,39 @@
         "Stir in finely shredded cabbage.",
         "Fry as thick pancakes, about 4 minutes a side.",
         "Top with mayonnaise and a sweet sauce."
+      ],
+      "prep_min": 10,
+      "wait_min": 0,
+      "cook_min": 15,
+      "total_min": 25,
+      "methods": [
+        "pan-fry"
+      ],
+      "equipment": [
+        "pan"
+      ],
+      "technique": 3,
+      "protein": "egg",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "nori",
+          "match": "nori",
+          "role": "garnish",
+          "tip": "Cut in strips and scatter on."
+        },
+        {
+          "name": "sesame seeds",
+          "match": "sesame",
+          "role": "garnish",
+          "tip": "Toast in a dry pan for a minute first."
+        }
       ]
     },
     {
@@ -244,6 +516,45 @@
         "Cook the ramen as the packet says.",
         "Add spinach for the last minute.",
         "Drop in an egg, or add a soft-boiled egg, and a splash of soy sauce."
+      ],
+      "prep_min": 3,
+      "wait_min": 0,
+      "cook_min": 9,
+      "total_min": 12,
+      "methods": [
+        "boil"
+      ],
+      "equipment": [
+        "pot"
+      ],
+      "technique": 1,
+      "protein": "egg",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "sesame seeds",
+          "match": "sesame",
+          "role": "garnish",
+          "tip": "Toast in a dry pan for a minute first."
+        },
+        {
+          "name": "chili flakes",
+          "match": "chili",
+          "role": "heat",
+          "tip": "Add a pinch at a time."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        }
       ]
     },
     {
@@ -270,6 +581,45 @@
         "Make the pho cup with boiling water.",
         "Add a handful of spinach.",
         "Top with a soft-boiled egg."
+      ],
+      "prep_min": 4,
+      "wait_min": 0,
+      "cook_min": 11,
+      "total_min": 15,
+      "methods": [
+        "simmer"
+      ],
+      "equipment": [
+        "pot"
+      ],
+      "technique": 2,
+      "protein": "egg",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        },
+        {
+          "name": "cilantro",
+          "match": "cilantro",
+          "role": "garnish",
+          "tip": "Chop the leaves and stems; add at the end."
+        },
+        {
+          "name": "lime",
+          "match": "lime",
+          "role": "acid",
+          "tip": "Squeeze over at the table."
+        },
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        }
       ]
     },
     {
@@ -304,6 +654,45 @@
         "Soak or cook the noodles.",
         "Stir-fry broccoli in a hot pan, then push it aside and scramble an egg.",
         "Add the noodles, soy sauce and a little oyster sauce; toss until coated."
+      ],
+      "prep_min": 10,
+      "wait_min": 0,
+      "cook_min": 10,
+      "total_min": 20,
+      "methods": [
+        "stir-fry"
+      ],
+      "equipment": [
+        "wok or pan"
+      ],
+      "technique": 3,
+      "protein": "egg",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "chili flakes",
+          "match": "chili",
+          "role": "heat",
+          "tip": "Add a pinch at a time."
+        },
+        {
+          "name": "lime",
+          "match": "lime",
+          "role": "acid",
+          "tip": "Squeeze over at the table."
+        },
+        {
+          "name": "rice vinegar",
+          "match": "rice vinegar",
+          "role": "acid",
+          "tip": "A splash brightens rich dishes."
+        }
       ]
     },
     {
@@ -334,6 +723,52 @@
         "Fry the yellow curry paste in a little oil for a minute.",
         "Add chicken, potato chunks and carrots, and enough water or coconut milk to cover.",
         "Simmer until the potatoes are soft and the chicken is cooked through."
+      ],
+      "prep_min": 12,
+      "wait_min": 0,
+      "cook_min": 23,
+      "total_min": 35,
+      "methods": [
+        "sauté",
+        "simmer"
+      ],
+      "equipment": [
+        "pot"
+      ],
+      "technique": 2,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "cilantro",
+          "match": "cilantro",
+          "role": "garnish",
+          "tip": "Chop the leaves and stems; add at the end."
+        },
+        {
+          "name": "lime",
+          "match": "lime",
+          "role": "acid",
+          "tip": "Squeeze over at the table."
+        },
+        {
+          "name": "fish sauce",
+          "match": "fish sauce",
+          "role": "depth",
+          "tip": "A teaspoon late in cooking adds depth, not fishiness."
+        }
       ]
     },
     {
@@ -364,6 +799,45 @@
         "Scramble the eggs in a hot pan and set them aside.",
         "Stir-fry the frozen veg until hot.",
         "Add cold rice and soy sauce, then the eggs; toss until hot."
+      ],
+      "prep_min": 5,
+      "wait_min": 0,
+      "cook_min": 10,
+      "total_min": 15,
+      "methods": [
+        "stir-fry"
+      ],
+      "equipment": [
+        "wok or pan"
+      ],
+      "technique": 1,
+      "protein": "egg",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "sesame oil",
+          "match": "sesame oil",
+          "role": "depth",
+          "tip": "A few drops off the heat; it burns easily."
+        },
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        }
       ]
     },
     {
@@ -394,6 +868,45 @@
         "Brown sliced chicken in a hot pan until cooked through.",
         "Add broccoli and a splash of water; cover for 2 minutes.",
         "Stir in oyster sauce and soy sauce. Serve with rice."
+      ],
+      "prep_min": 8,
+      "wait_min": 0,
+      "cook_min": 12,
+      "total_min": 20,
+      "methods": [
+        "stir-fry"
+      ],
+      "equipment": [
+        "wok or pan"
+      ],
+      "technique": 2,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        },
+        {
+          "name": "sesame seeds",
+          "match": "sesame",
+          "role": "garnish",
+          "tip": "Toast in a dry pan for a minute first."
+        },
+        {
+          "name": "Shaoxing wine",
+          "match": "shaoxing",
+          "role": "depth",
+          "tip": "A splash around the edge of the hot pan."
+        }
       ]
     },
     {
@@ -420,6 +933,39 @@
         "Scramble the eggs softly and set them aside.",
         "Cook tomato wedges until they start to break down.",
         "Add a little soy sauce, return the eggs, and fold together."
+      ],
+      "prep_min": 4,
+      "wait_min": 0,
+      "cook_min": 8,
+      "total_min": 12,
+      "methods": [
+        "stir-fry"
+      ],
+      "equipment": [
+        "wok or pan"
+      ],
+      "technique": 1,
+      "protein": "egg",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "sesame oil",
+          "match": "sesame oil",
+          "role": "depth",
+          "tip": "A few drops off the heat; it burns easily."
+        }
       ]
     },
     {
@@ -446,6 +992,45 @@
         "Brown bite-size chicken.",
         "Stir in chunjang and a splash of Shaoxing wine and water.",
         "Simmer until the chicken is cooked and the sauce is thick."
+      ],
+      "prep_min": 10,
+      "wait_min": 0,
+      "cook_min": 10,
+      "total_min": 20,
+      "methods": [
+        "stir-fry"
+      ],
+      "equipment": [
+        "wok or pan"
+      ],
+      "technique": 2,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        },
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        }
       ]
     },
     {
@@ -480,6 +1065,51 @@
         "Mix soy sauce, Shaoxing wine and a little sweet chili sauce.",
         "Stir-fry diced chicken until cooked through.",
         "Add the sauce and the peanuts; toss for a minute."
+      ],
+      "prep_min": 12,
+      "wait_min": 0,
+      "cook_min": 13,
+      "total_min": 25,
+      "methods": [
+        "stir-fry"
+      ],
+      "equipment": [
+        "wok or pan"
+      ],
+      "technique": 3,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        },
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "chili flakes",
+          "match": "chili",
+          "role": "heat",
+          "tip": "Add a pinch at a time."
+        },
+        {
+          "name": "rice vinegar",
+          "match": "rice vinegar",
+          "role": "acid",
+          "tip": "A splash brightens rich dishes."
+        }
       ]
     },
     {
@@ -506,6 +1136,39 @@
         "Fry sliced garlic in oil for 30 seconds.",
         "Add shredded cabbage and stir-fry on high heat.",
         "Season with oyster sauce and soy sauce."
+      ],
+      "prep_min": 4,
+      "wait_min": 0,
+      "cook_min": 8,
+      "total_min": 12,
+      "methods": [
+        "stir-fry"
+      ],
+      "equipment": [
+        "wok or pan"
+      ],
+      "technique": 1,
+      "protein": "none",
+      "kind": "side",
+      "flourishes": [
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "chili flakes",
+          "match": "chili",
+          "role": "heat",
+          "tip": "Add a pinch at a time."
+        },
+        {
+          "name": "sesame oil",
+          "match": "sesame oil",
+          "role": "depth",
+          "tip": "A few drops off the heat; it burns easily."
+        }
       ]
     },
     {
@@ -536,6 +1199,51 @@
         "Stir-fry finely chopped chicken until cooked through.",
         "Season with soy sauce and oyster sauce.",
         "Spoon into crisp lettuce cups."
+      ],
+      "prep_min": 10,
+      "wait_min": 0,
+      "cook_min": 10,
+      "total_min": 20,
+      "methods": [
+        "stir-fry"
+      ],
+      "equipment": [
+        "wok or pan"
+      ],
+      "technique": 2,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "peanuts",
+          "match": "peanut",
+          "role": "crunch",
+          "tip": "Crush roughly and sprinkle on."
+        },
+        {
+          "name": "lime",
+          "match": "lime",
+          "role": "acid",
+          "tip": "Squeeze over at the table."
+        }
       ]
     },
     {
@@ -562,6 +1270,45 @@
         "Simmer 1 part rice in about 8 parts water, stirring now and then, for about an hour.",
         "Chop the century egg.",
         "Stir it in at the end, season with soy sauce."
+      ],
+      "prep_min": 5,
+      "wait_min": 0,
+      "cook_min": 55,
+      "total_min": 60,
+      "methods": [
+        "simmer"
+      ],
+      "equipment": [
+        "pot"
+      ],
+      "technique": 2,
+      "protein": "egg",
+      "kind": "breakfast",
+      "flourishes": [
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        },
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "sesame oil",
+          "match": "sesame oil",
+          "role": "depth",
+          "tip": "A few drops off the heat; it burns easily."
+        },
+        {
+          "name": "fried onion",
+          "match": "fried onion",
+          "role": "crunch",
+          "tip": "Scatter on top for crunch."
+        }
       ]
     },
     {
@@ -592,6 +1339,52 @@
         "Coat chicken pieces lightly in flour and pan-fry until cooked through.",
         "Simmer orange juice, soy sauce and sweet chili sauce until syrupy.",
         "Toss the chicken in the sauce."
+      ],
+      "prep_min": 10,
+      "wait_min": 0,
+      "cook_min": 20,
+      "total_min": 30,
+      "methods": [
+        "fry",
+        "glaze"
+      ],
+      "equipment": [
+        "pan"
+      ],
+      "technique": 3,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "orange zest",
+          "match": "orange",
+          "role": "garnish",
+          "tip": "Zest the peel before juicing."
+        },
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "chili flakes",
+          "match": "chili",
+          "role": "heat",
+          "tip": "Add a pinch at a time."
+        }
       ]
     },
     {
@@ -626,6 +1419,46 @@
         "Soak or cook the noodles.",
         "Stir-fry chicken until cooked, then add cabbage and carrots.",
         "Add the noodles and soy sauce; toss until coated."
+      ],
+      "prep_min": 12,
+      "wait_min": 0,
+      "cook_min": 23,
+      "total_min": 35,
+      "methods": [
+        "stir-fry",
+        "simmer"
+      ],
+      "equipment": [
+        "wok or large pan"
+      ],
+      "technique": 3,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        },
+        {
+          "name": "lemon",
+          "match": "lemon",
+          "role": "acid",
+          "tip": "Squeeze over just before serving."
+        },
+        {
+          "name": "celery",
+          "match": "celery",
+          "role": "aromatic",
+          "tip": "Dice small with the onion and carrot for a classic base."
+        }
       ]
     },
     {
@@ -652,6 +1485,45 @@
         "Put chicken, vinegar, soy sauce, garlic and a bay leaf in a pan.",
         "Simmer covered for 30 minutes.",
         "Uncover and reduce the sauce; serve with rice."
+      ],
+      "prep_min": 5,
+      "wait_min": 0,
+      "cook_min": 35,
+      "total_min": 40,
+      "methods": [
+        "braise"
+      ],
+      "equipment": [
+        "pot"
+      ],
+      "technique": 2,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "black pepper",
+          "match": "pepper",
+          "role": "heat",
+          "tip": "Grind fresh at the end."
+        },
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        },
+        {
+          "name": "honey",
+          "match": "honey",
+          "role": "depth",
+          "tip": "A small spoon rounds off salty or sour."
+        }
       ]
     },
     {
@@ -678,6 +1550,52 @@
         "Fry potato cubes in oil until golden.",
         "Add cauliflower, carrots and your spices, with a splash of water.",
         "Cover and cook until everything is tender."
+      ],
+      "prep_min": 12,
+      "wait_min": 0,
+      "cook_min": 23,
+      "total_min": 35,
+      "methods": [
+        "sauté",
+        "steam"
+      ],
+      "equipment": [
+        "pan with lid"
+      ],
+      "technique": 2,
+      "protein": "veg",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "cumin",
+          "match": "cumin",
+          "role": "depth",
+          "tip": "Toast the seeds a minute in the oil first."
+        },
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        },
+        {
+          "name": "cilantro",
+          "match": "cilantro",
+          "role": "garnish",
+          "tip": "Chop the leaves and stems; add at the end."
+        }
       ]
     },
     {
@@ -708,6 +1626,52 @@
         "Marinate chicken in yogurt for 30 minutes, then brown it.",
         "Cook chopped tomatoes with butter and spices into a sauce.",
         "Add the chicken and simmer until cooked through."
+      ],
+      "prep_min": 12,
+      "wait_min": 0,
+      "cook_min": 28,
+      "total_min": 40,
+      "methods": [
+        "sear",
+        "simmer"
+      ],
+      "equipment": [
+        "pan"
+      ],
+      "technique": 3,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        },
+        {
+          "name": "cilantro",
+          "match": "cilantro",
+          "role": "garnish",
+          "tip": "Chop the leaves and stems; add at the end."
+        },
+        {
+          "name": "cumin",
+          "match": "cumin",
+          "role": "depth",
+          "tip": "Toast the seeds a minute in the oil first."
+        },
+        {
+          "name": "honey",
+          "match": "honey",
+          "role": "depth",
+          "tip": "A small spoon rounds off salty or sour."
+        }
       ]
     },
     {
@@ -734,6 +1698,47 @@
         "Cook the pasta.",
         "Warm the pumpkin sauce with sliced salami.",
         "Toss with the pasta and a little pasta water."
+      ],
+      "prep_min": 5,
+      "wait_min": 0,
+      "cook_min": 20,
+      "total_min": 25,
+      "methods": [
+        "boil",
+        "sauté"
+      ],
+      "equipment": [
+        "pot",
+        "pan"
+      ],
+      "technique": 1,
+      "protein": "pork",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "parmesan",
+          "match": "parmesan",
+          "role": "depth",
+          "tip": "Grate over at the end."
+        },
+        {
+          "name": "basil",
+          "match": "basil",
+          "role": "garnish",
+          "tip": "Tear it in last."
+        },
+        {
+          "name": "chili flakes",
+          "match": "chili",
+          "role": "heat",
+          "tip": "Add a pinch at a time."
+        }
       ]
     },
     {
@@ -764,6 +1769,47 @@
         "Cook the pasta.",
         "Pan-fry chicken until cooked through, then slice.",
         "Toss pasta with pesto, chicken and halved tomatoes."
+      ],
+      "prep_min": 8,
+      "wait_min": 0,
+      "cook_min": 17,
+      "total_min": 25,
+      "methods": [
+        "boil",
+        "sear"
+      ],
+      "equipment": [
+        "pot",
+        "pan"
+      ],
+      "technique": 2,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "parmesan",
+          "match": "parmesan",
+          "role": "depth",
+          "tip": "Grate over at the end."
+        },
+        {
+          "name": "lemon",
+          "match": "lemon",
+          "role": "acid",
+          "tip": "Squeeze over just before serving."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "toasted nuts",
+          "match": "nuts",
+          "role": "crunch",
+          "tip": "Toast in a dry pan until fragrant."
+        }
       ]
     },
     {
@@ -798,6 +1844,46 @@
         "Soften spinach in butter in an ovenproof pan.",
         "Pour in beaten eggs, add tomatoes and grated cheddar.",
         "Cook on low until the edges set, then finish under the grill."
+      ],
+      "prep_min": 8,
+      "wait_min": 0,
+      "cook_min": 17,
+      "total_min": 25,
+      "methods": [
+        "sauté",
+        "bake"
+      ],
+      "equipment": [
+        "oven-safe pan"
+      ],
+      "technique": 3,
+      "protein": "egg",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        },
+        {
+          "name": "parmesan",
+          "match": "parmesan",
+          "role": "depth",
+          "tip": "Grate over at the end."
+        },
+        {
+          "name": "basil",
+          "match": "basil",
+          "role": "garnish",
+          "tip": "Tear it in last."
+        },
+        {
+          "name": "black pepper",
+          "match": "pepper",
+          "role": "heat",
+          "tip": "Grind fresh at the end."
+        }
       ]
     },
     {
@@ -824,6 +1910,45 @@
         "Warm chopped tomatoes with a spoon of pesto in a small pan.",
         "Make wells and crack in the eggs.",
         "Cover and cook until the whites are set."
+      ],
+      "prep_min": 5,
+      "wait_min": 0,
+      "cook_min": 15,
+      "total_min": 20,
+      "methods": [
+        "bake"
+      ],
+      "equipment": [
+        "oven-safe dish"
+      ],
+      "technique": 2,
+      "protein": "egg",
+      "kind": "breakfast",
+      "flourishes": [
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "chili flakes",
+          "match": "chili",
+          "role": "heat",
+          "tip": "Add a pinch at a time."
+        },
+        {
+          "name": "parmesan",
+          "match": "parmesan",
+          "role": "depth",
+          "tip": "Grate over at the end."
+        },
+        {
+          "name": "olive oil",
+          "match": "olive oil",
+          "role": "depth",
+          "tip": "A drizzle at the end, not for cooking."
+        }
       ]
     },
     {
@@ -854,6 +1979,46 @@
         "Spread crushed tomato on sliced bread or a flatbread.",
         "Add salami and grated cheddar.",
         "Bake at 220°C (425°F) until bubbling."
+      ],
+      "prep_min": 15,
+      "wait_min": 0,
+      "cook_min": 20,
+      "total_min": 35,
+      "methods": [
+        "bake"
+      ],
+      "equipment": [
+        "oven",
+        "baking tray"
+      ],
+      "technique": 2,
+      "protein": "pork",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "basil",
+          "match": "basil",
+          "role": "garnish",
+          "tip": "Tear it in last."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "chili flakes",
+          "match": "chili",
+          "role": "heat",
+          "tip": "Add a pinch at a time."
+        },
+        {
+          "name": "olive oil",
+          "match": "olive oil",
+          "role": "depth",
+          "tip": "A drizzle at the end, not for cooking."
+        }
       ]
     },
     {
@@ -880,6 +2045,47 @@
         "Cook the pasta.",
         "Warm olive oil with garlic and the anchovies until they melt.",
         "Toss the pasta in the oil with a little pasta water."
+      ],
+      "prep_min": 5,
+      "wait_min": 0,
+      "cook_min": 15,
+      "total_min": 20,
+      "methods": [
+        "boil",
+        "sauté"
+      ],
+      "equipment": [
+        "pot",
+        "pan"
+      ],
+      "technique": 2,
+      "protein": "fish",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "chili flakes",
+          "match": "chili",
+          "role": "heat",
+          "tip": "Add a pinch at a time."
+        },
+        {
+          "name": "lemon",
+          "match": "lemon",
+          "role": "acid",
+          "tip": "Squeeze over just before serving."
+        },
+        {
+          "name": "parsley",
+          "match": "parsley",
+          "role": "garnish",
+          "tip": "Chop and add at the end for a fresh note."
+        }
       ]
     },
     {
@@ -910,6 +2116,46 @@
         "Cook the pasta.",
         "Melt butter, stir in a spoon of flour, then whisk in milk until thick.",
         "Stir in grated cheddar, mix with the pasta, and bake until golden."
+      ],
+      "prep_min": 5,
+      "wait_min": 0,
+      "cook_min": 25,
+      "total_min": 30,
+      "methods": [
+        "boil",
+        "sauce"
+      ],
+      "equipment": [
+        "pot"
+      ],
+      "technique": 2,
+      "protein": "none",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "black pepper",
+          "match": "pepper",
+          "role": "heat",
+          "tip": "Grind fresh at the end."
+        },
+        {
+          "name": "fried onion",
+          "match": "fried onion",
+          "role": "crunch",
+          "tip": "Scatter on top for crunch."
+        },
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        }
       ]
     },
     {
@@ -940,6 +2186,54 @@
         "Simmer potato chunks in water until soft.",
         "Mash or blend with butter and milk.",
         "Stir in grated cheddar until melted."
+      ],
+      "prep_min": 10,
+      "wait_min": 0,
+      "cook_min": 30,
+      "total_min": 40,
+      "methods": [
+        "sauté",
+        "simmer",
+        "blend"
+      ],
+      "equipment": [
+        "pot",
+        "blender"
+      ],
+      "technique": 2,
+      "protein": "none",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        },
+        {
+          "name": "celery",
+          "match": "celery",
+          "role": "aromatic",
+          "tip": "Dice small with the onion and carrot for a classic base."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "black pepper",
+          "match": "pepper",
+          "role": "heat",
+          "tip": "Grind fresh at the end."
+        }
       ]
     },
     {
@@ -970,6 +2264,46 @@
         "Toss chicken, potato and carrot pieces with melted butter or oil.",
         "Spread on a tray.",
         "Roast at 220°C (425°F) for about 40 minutes, until the chicken is cooked through."
+      ],
+      "prep_min": 12,
+      "wait_min": 0,
+      "cook_min": 33,
+      "total_min": 45,
+      "methods": [
+        "roast"
+      ],
+      "equipment": [
+        "oven",
+        "baking tray"
+      ],
+      "technique": 2,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "thyme",
+          "match": "thyme",
+          "role": "aromatic",
+          "tip": "Strip the leaves onto the roast."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "lemon",
+          "match": "lemon",
+          "role": "acid",
+          "tip": "Squeeze over just before serving."
+        },
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        }
       ]
     },
     {
@@ -996,6 +2330,58 @@
         "Brown the turkey.",
         "Add chopped tomatoes, chili spices and beans if you have them.",
         "Simmer 30 minutes. Top with cheddar."
+      ],
+      "prep_min": 12,
+      "wait_min": 0,
+      "cook_min": 33,
+      "total_min": 45,
+      "methods": [
+        "brown",
+        "simmer"
+      ],
+      "equipment": [
+        "pot"
+      ],
+      "technique": 2,
+      "protein": "turkey",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "cumin",
+          "match": "cumin",
+          "role": "depth",
+          "tip": "Toast the seeds a minute in the oil first."
+        },
+        {
+          "name": "tomato paste",
+          "match": "tomato paste",
+          "role": "depth",
+          "tip": "Fry a spoonful until brick red before adding liquid."
+        },
+        {
+          "name": "cilantro",
+          "match": "cilantro",
+          "role": "garnish",
+          "tip": "Chop the leaves and stems; add at the end."
+        },
+        {
+          "name": "lime",
+          "match": "lime",
+          "role": "acid",
+          "tip": "Squeeze over at the table."
+        }
       ]
     },
     {
@@ -1030,6 +2416,46 @@
         "Season the turkey and shape into patties.",
         "Cook in a pan until cooked through, about 5 minutes a side.",
         "Add cheddar to melt; serve with lettuce, tomato and ketchup."
+      ],
+      "prep_min": 10,
+      "wait_min": 0,
+      "cook_min": 15,
+      "total_min": 25,
+      "methods": [
+        "shape",
+        "pan-fry"
+      ],
+      "equipment": [
+        "pan"
+      ],
+      "technique": 2,
+      "protein": "turkey",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        },
+        {
+          "name": "pickles",
+          "match": "pickle",
+          "role": "acid",
+          "tip": "A few pickles cut through rich food."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "black pepper",
+          "match": "pepper",
+          "role": "heat",
+          "tip": "Grind fresh at the end."
+        }
       ]
     },
     {
@@ -1056,6 +2482,54 @@
         "Shape seasoned turkey into small balls and brown them.",
         "Add the pumpkin sauce and simmer until the meatballs are cooked through.",
         "Serve over pasta with cheddar."
+      ],
+      "prep_min": 15,
+      "wait_min": 0,
+      "cook_min": 20,
+      "total_min": 35,
+      "methods": [
+        "shape",
+        "bake",
+        "simmer"
+      ],
+      "equipment": [
+        "oven",
+        "pot"
+      ],
+      "technique": 3,
+      "protein": "turkey",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        },
+        {
+          "name": "parmesan",
+          "match": "parmesan",
+          "role": "depth",
+          "tip": "Grate over at the end."
+        },
+        {
+          "name": "basil",
+          "match": "basil",
+          "role": "garnish",
+          "tip": "Tear it in last."
+        },
+        {
+          "name": "parsley",
+          "match": "parsley",
+          "role": "garnish",
+          "tip": "Chop and add at the end for a fresh note."
+        }
       ]
     },
     {
@@ -1082,6 +2556,45 @@
         "Fill tortillas with cooked chicken and grated cheddar.",
         "Toast in a dry pan until crisp and the cheese melts.",
         "Serve with salsa."
+      ],
+      "prep_min": 8,
+      "wait_min": 0,
+      "cook_min": 12,
+      "total_min": 20,
+      "methods": [
+        "pan-fry"
+      ],
+      "equipment": [
+        "pan"
+      ],
+      "technique": 2,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "cumin",
+          "match": "cumin",
+          "role": "depth",
+          "tip": "Toast the seeds a minute in the oil first."
+        },
+        {
+          "name": "cilantro",
+          "match": "cilantro",
+          "role": "garnish",
+          "tip": "Chop the leaves and stems; add at the end."
+        },
+        {
+          "name": "lime",
+          "match": "lime",
+          "role": "acid",
+          "tip": "Squeeze over at the table."
+        },
+        {
+          "name": "chili flakes",
+          "match": "chili",
+          "role": "heat",
+          "tip": "Add a pinch at a time."
+        }
       ]
     },
     {
@@ -1108,13 +2621,53 @@
         "Cook and slice the chicken.",
         "Toss chopped lettuce with dressing.",
         "Top with chicken and grated cheese."
+      ],
+      "prep_min": 10,
+      "wait_min": 0,
+      "cook_min": 10,
+      "total_min": 20,
+      "methods": [
+        "sear",
+        "toss"
+      ],
+      "equipment": [
+        "pan"
+      ],
+      "technique": 2,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "parmesan",
+          "match": "parmesan",
+          "role": "depth",
+          "tip": "Grate over at the end."
+        },
+        {
+          "name": "lemon",
+          "match": "lemon",
+          "role": "acid",
+          "tip": "Squeeze over just before serving."
+        },
+        {
+          "name": "garlic",
+          "match": "garlic",
+          "role": "aromatic",
+          "tip": "Fry a minute in the oil before the main ingredients."
+        },
+        {
+          "name": "black pepper",
+          "match": "pepper",
+          "role": "heat",
+          "tip": "Grind fresh at the end."
+        }
       ]
     },
     {
       "id": "apple-spinach-salad",
       "name": "Spinach and apple salad",
       "cuisine": "American (everyday)",
-      "minutes": 10,
+      "minutes": 11,
       "description": "Spinach, apple and crunchy seeds.",
       "ingredients": [
         {
@@ -1134,6 +2687,45 @@
         "Slice the apple thinly.",
         "Toss with spinach and a simple dressing.",
         "Sprinkle the salad topper over."
+      ],
+      "prep_min": 8,
+      "wait_min": 0,
+      "cook_min": 3,
+      "total_min": 11,
+      "methods": [
+        "toss"
+      ],
+      "equipment": [
+        "bowl"
+      ],
+      "technique": 1,
+      "protein": "none",
+      "kind": "side",
+      "flourishes": [
+        {
+          "name": "toasted nuts",
+          "match": "nuts",
+          "role": "crunch",
+          "tip": "Toast in a dry pan until fragrant."
+        },
+        {
+          "name": "lemon",
+          "match": "lemon",
+          "role": "acid",
+          "tip": "Squeeze over just before serving."
+        },
+        {
+          "name": "honey",
+          "match": "honey",
+          "role": "depth",
+          "tip": "A small spoon rounds off salty or sour."
+        },
+        {
+          "name": "flaky salt",
+          "match": "flaky salt",
+          "role": "crunch",
+          "tip": "A pinch on top just before serving."
+        }
       ]
     },
     {
@@ -1164,6 +2756,45 @@
         "Open the salad kit into a bowl.",
         "Add sliced cooked chicken, tomatoes and cheese.",
         "Toss with the kit dressing."
+      ],
+      "prep_min": 8,
+      "wait_min": 0,
+      "cook_min": 7,
+      "total_min": 15,
+      "methods": [
+        "toss"
+      ],
+      "equipment": [
+        "bowl"
+      ],
+      "technique": 1,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "lemon",
+          "match": "lemon",
+          "role": "acid",
+          "tip": "Squeeze over just before serving."
+        },
+        {
+          "name": "olive oil",
+          "match": "olive oil",
+          "role": "depth",
+          "tip": "A drizzle at the end, not for cooking."
+        },
+        {
+          "name": "parmesan",
+          "match": "parmesan",
+          "role": "depth",
+          "tip": "Grate over at the end."
+        },
+        {
+          "name": "black pepper",
+          "match": "pepper",
+          "role": "heat",
+          "tip": "Grind fresh at the end."
+        }
       ]
     },
     {
@@ -1190,13 +2821,54 @@
         "Toast the bread.",
         "Mash avocado with salt and spread it on.",
         "Top with a fried or poached egg."
+      ],
+      "prep_min": 4,
+      "wait_min": 0,
+      "cook_min": 6,
+      "total_min": 10,
+      "methods": [
+        "toast",
+        "fry"
+      ],
+      "equipment": [
+        "pan",
+        "toaster"
+      ],
+      "technique": 1,
+      "protein": "egg",
+      "kind": "breakfast",
+      "flourishes": [
+        {
+          "name": "chili flakes",
+          "match": "chili",
+          "role": "heat",
+          "tip": "Add a pinch at a time."
+        },
+        {
+          "name": "lemon",
+          "match": "lemon",
+          "role": "acid",
+          "tip": "Squeeze over just before serving."
+        },
+        {
+          "name": "flaky salt",
+          "match": "flaky salt",
+          "role": "crunch",
+          "tip": "A pinch on top just before serving."
+        },
+        {
+          "name": "sesame seeds",
+          "match": "sesame",
+          "role": "garnish",
+          "tip": "Toast in a dry pan for a minute first."
+        }
       ]
     },
     {
       "id": "avocado-salsa",
       "name": "Avocado and tomato salsa",
       "cuisine": "Mexican",
-      "minutes": 10,
+      "minutes": 11,
       "description": "Fresh salsa for chips.",
       "ingredients": [
         {
@@ -1216,6 +2888,45 @@
         "Dice avocado and tomatoes.",
         "Season with salt and a squeeze of lime.",
         "Serve with chips."
+      ],
+      "prep_min": 8,
+      "wait_min": 0,
+      "cook_min": 3,
+      "total_min": 11,
+      "methods": [
+        "chop"
+      ],
+      "equipment": [
+        "bowl"
+      ],
+      "technique": 1,
+      "protein": "none",
+      "kind": "snack",
+      "flourishes": [
+        {
+          "name": "lime",
+          "match": "lime",
+          "role": "acid",
+          "tip": "Squeeze over at the table."
+        },
+        {
+          "name": "cilantro",
+          "match": "cilantro",
+          "role": "garnish",
+          "tip": "Chop the leaves and stems; add at the end."
+        },
+        {
+          "name": "onion",
+          "match": "onion",
+          "role": "aromatic",
+          "tip": "Soften slowly first; it builds the base."
+        },
+        {
+          "name": "chili flakes",
+          "match": "chili",
+          "role": "heat",
+          "tip": "Add a pinch at a time."
+        }
       ]
     },
     {
@@ -1242,6 +2953,46 @@
         "Halve and stone the plums and put them in a dish.",
         "Rub butter into flour (and sugar) until crumbly; scatter over.",
         "Bake at 180°C (350°F) for 35 to 40 minutes."
+      ],
+      "prep_min": 15,
+      "wait_min": 0,
+      "cook_min": 30,
+      "total_min": 45,
+      "methods": [
+        "bake"
+      ],
+      "equipment": [
+        "oven",
+        "baking dish"
+      ],
+      "technique": 2,
+      "protein": "none",
+      "kind": "dessert",
+      "flourishes": [
+        {
+          "name": "cinnamon",
+          "match": "cinnamon",
+          "role": "depth",
+          "tip": "A pinch warms sweet dishes."
+        },
+        {
+          "name": "vanilla",
+          "match": "vanilla",
+          "role": "depth",
+          "tip": "A splash makes baking taste richer."
+        },
+        {
+          "name": "toasted nuts",
+          "match": "nuts",
+          "role": "crunch",
+          "tip": "Toast in a dry pan until fragrant."
+        },
+        {
+          "name": "flaky salt",
+          "match": "flaky salt",
+          "role": "crunch",
+          "tip": "A pinch on top just before serving."
+        }
       ]
     },
     {
@@ -1272,13 +3023,54 @@
         "Mash ripe persimmon.",
         "Beat butter and sugar, add egg and the persimmon, then flour and spices.",
         "Drop spoonfuls on a tray and bake at 175°C (350°F) for 12 to 14 minutes."
+      ],
+      "prep_min": 15,
+      "wait_min": 0,
+      "cook_min": 15,
+      "total_min": 30,
+      "methods": [
+        "mix",
+        "bake"
+      ],
+      "equipment": [
+        "oven",
+        "baking tray"
+      ],
+      "technique": 3,
+      "protein": "none",
+      "kind": "dessert",
+      "flourishes": [
+        {
+          "name": "cinnamon",
+          "match": "cinnamon",
+          "role": "depth",
+          "tip": "A pinch warms sweet dishes."
+        },
+        {
+          "name": "vanilla",
+          "match": "vanilla",
+          "role": "depth",
+          "tip": "A splash makes baking taste richer."
+        },
+        {
+          "name": "toasted nuts",
+          "match": "nuts",
+          "role": "crunch",
+          "tip": "Toast in a dry pan until fragrant."
+        },
+        {
+          "name": "flaky salt",
+          "match": "flaky salt",
+          "role": "crunch",
+          "tip": "A pinch on top just before serving."
+        }
       ]
     },
     {
       "id": "mango-yogurt-bowl",
       "name": "Mango yogurt bowl",
       "cuisine": "American (everyday)",
-      "minutes": 5,
+      "minutes": 8,
       "description": "Yogurt, dried mango and chia.",
       "ingredients": [
         {
@@ -1298,6 +3090,45 @@
         "Spoon yogurt into a bowl.",
         "Chop dried mango and scatter over.",
         "Add a spoon of chia seeds."
+      ],
+      "prep_min": 5,
+      "wait_min": 0,
+      "cook_min": 3,
+      "total_min": 8,
+      "methods": [
+        "assemble"
+      ],
+      "equipment": [
+        "bowl"
+      ],
+      "technique": 1,
+      "protein": "none",
+      "kind": "breakfast",
+      "flourishes": [
+        {
+          "name": "honey",
+          "match": "honey",
+          "role": "depth",
+          "tip": "A small spoon rounds off salty or sour."
+        },
+        {
+          "name": "toasted nuts",
+          "match": "nuts",
+          "role": "crunch",
+          "tip": "Toast in a dry pan until fragrant."
+        },
+        {
+          "name": "lime",
+          "match": "lime",
+          "role": "acid",
+          "tip": "Squeeze over at the table."
+        },
+        {
+          "name": "mint",
+          "match": "mint",
+          "role": "garnish",
+          "tip": "Tear it in last."
+        }
       ]
     },
     {
@@ -1324,6 +3155,41 @@
         "Press crushed graham crackers into a lined tin.",
         "Spread Nutella, then top with marshmallows.",
         "Bake briefly until the marshmallows puff and brown."
+      ],
+      "prep_min": 8,
+      "wait_min": 0,
+      "cook_min": 22,
+      "total_min": 30,
+      "methods": [
+        "layer",
+        "bake"
+      ],
+      "equipment": [
+        "oven",
+        "baking dish"
+      ],
+      "technique": 2,
+      "protein": "none",
+      "kind": "dessert",
+      "flourishes": [
+        {
+          "name": "flaky salt",
+          "match": "flaky salt",
+          "role": "crunch",
+          "tip": "A pinch on top just before serving."
+        },
+        {
+          "name": "vanilla",
+          "match": "vanilla",
+          "role": "depth",
+          "tip": "A splash makes baking taste richer."
+        },
+        {
+          "name": "toasted nuts",
+          "match": "nuts",
+          "role": "crunch",
+          "tip": "Toast in a dry pan until fragrant."
+        }
       ]
     },
     {
@@ -1354,6 +3220,41 @@
         "Mix Nutella, eggs, melted butter and flour.",
         "Pour into a lined tin.",
         "Bake at 175°C (350°F) for about 20 minutes."
+      ],
+      "prep_min": 10,
+      "wait_min": 0,
+      "cook_min": 25,
+      "total_min": 35,
+      "methods": [
+        "mix",
+        "bake"
+      ],
+      "equipment": [
+        "oven",
+        "baking dish"
+      ],
+      "technique": 2,
+      "protein": "none",
+      "kind": "dessert",
+      "flourishes": [
+        {
+          "name": "flaky salt",
+          "match": "flaky salt",
+          "role": "crunch",
+          "tip": "A pinch on top just before serving."
+        },
+        {
+          "name": "vanilla",
+          "match": "vanilla",
+          "role": "depth",
+          "tip": "A splash makes baking taste richer."
+        },
+        {
+          "name": "toasted nuts",
+          "match": "nuts",
+          "role": "crunch",
+          "tip": "Toast in a dry pan until fragrant."
+        }
       ]
     },
     {
@@ -1380,6 +3281,35 @@
         "Mix peanut butter, egg, butter and sugar.",
         "Roll into balls and press with a fork.",
         "Bake at 175°C (350°F) for 10 to 12 minutes."
+      ],
+      "prep_min": 8,
+      "wait_min": 0,
+      "cook_min": 12,
+      "total_min": 20,
+      "methods": [
+        "mix",
+        "bake"
+      ],
+      "equipment": [
+        "oven",
+        "baking tray"
+      ],
+      "technique": 2,
+      "protein": "none",
+      "kind": "dessert",
+      "flourishes": [
+        {
+          "name": "flaky salt",
+          "match": "flaky salt",
+          "role": "crunch",
+          "tip": "A pinch on top just before serving."
+        },
+        {
+          "name": "vanilla",
+          "match": "vanilla",
+          "role": "depth",
+          "tip": "A splash makes baking taste richer."
+        }
       ]
     },
     {
@@ -1410,6 +3340,53 @@
         "Cook the brown rice.",
         "Roast cauliflower and carrots at 220°C (425°F) for 25 minutes.",
         "Add sliced cooked chicken and a dressing."
+      ],
+      "prep_min": 10,
+      "wait_min": 0,
+      "cook_min": 25,
+      "total_min": 35,
+      "methods": [
+        "roast",
+        "simmer"
+      ],
+      "equipment": [
+        "oven",
+        "pot"
+      ],
+      "technique": 2,
+      "protein": "chicken",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "sesame seeds",
+          "match": "sesame",
+          "role": "garnish",
+          "tip": "Toast in a dry pan for a minute first."
+        },
+        {
+          "name": "lime",
+          "match": "lime",
+          "role": "acid",
+          "tip": "Squeeze over at the table."
+        },
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "ginger",
+          "match": "ginger",
+          "role": "aromatic",
+          "tip": "Grate in with the garlic."
+        },
+        {
+          "name": "honey",
+          "match": "honey",
+          "role": "depth",
+          "tip": "A small spoon rounds off salty or sour."
+        }
       ]
     },
     {
@@ -1440,6 +3417,51 @@
         "Cut corn from the cob.",
         "Mix with eggs, flour and grated cheddar into a thick batter.",
         "Fry spoonfuls until golden on both sides."
+      ],
+      "prep_min": 8,
+      "wait_min": 0,
+      "cook_min": 12,
+      "total_min": 20,
+      "methods": [
+        "pan-fry"
+      ],
+      "equipment": [
+        "pan"
+      ],
+      "technique": 2,
+      "protein": "none",
+      "kind": "dinner",
+      "flourishes": [
+        {
+          "name": "scallion",
+          "match": "scallion",
+          "role": "garnish",
+          "tip": "Slice thin and scatter on at the end."
+        },
+        {
+          "name": "lime",
+          "match": "lime",
+          "role": "acid",
+          "tip": "Squeeze over at the table."
+        },
+        {
+          "name": "chili flakes",
+          "match": "chili",
+          "role": "heat",
+          "tip": "Add a pinch at a time."
+        },
+        {
+          "name": "cilantro",
+          "match": "cilantro",
+          "role": "garnish",
+          "tip": "Chop the leaves and stems; add at the end."
+        },
+        {
+          "name": "yogurt",
+          "match": "yogurt",
+          "role": "acid",
+          "tip": "A spoonful cools heat and adds tang."
+        }
       ]
     }
   ]

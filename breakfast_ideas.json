@@ -1,0 +1,19 @@
+{
+  "title": "Breakfast ideas (staples)",
+  "updated": "2026-11-12",
+  "note": "Names and one line only. 'needs' are staples matched against the pantry; breakfasts are ranked by variety and taste more than by pantry fit.",
+  "ideas": [
+    { "id": "scrambled-eggs-toast", "name": "Scrambled eggs on toast", "line": "Soft eggs, buttered toast.", "needs": ["egg", "bread"] },
+    { "id": "fried-egg-rice", "name": "Fried egg over rice", "line": "Runny yolk, soy sauce, scallion if there is some.", "needs": ["egg", "rice"] },
+    { "id": "avocado-toast", "name": "Avocado toast", "line": "Mashed avocado, salt, chili flakes.", "needs": ["avocado", "bread"] },
+    { "id": "yogurt-fruit-chia", "name": "Yogurt, fruit and chia", "line": "Whatever fruit is ripest.", "needs": ["yogurt", "chia"] },
+    { "id": "oatmeal-fruit", "name": "Oatmeal with fruit", "line": "Warm oats, sliced fruit, a little honey.", "needs": ["oat"] },
+    { "id": "cheese-omelette", "name": "Cheese omelette", "line": "Two eggs, a handful of cheddar.", "needs": ["egg", "cheddar"] },
+    { "id": "pb-banana-toast", "name": "Peanut butter toast", "line": "Peanut butter and banana or apple slices.", "needs": ["peanut butter", "bread"] },
+    { "id": "congee-egg", "name": "Rice porridge (congee)", "line": "Leftover rice simmered soft, egg and soy.", "needs": ["rice", "egg"] },
+    { "id": "french-toast", "name": "French toast", "line": "Bread dipped in egg and milk, pan-fried.", "needs": ["bread", "egg", "milk"] },
+    { "id": "pancakes", "name": "Pancakes", "line": "Flour, egg, milk; fruit or Nutella on top.", "needs": ["flour", "egg", "milk"] },
+    { "id": "egg-cheese-quesadilla", "name": "Egg and cheese quesadilla", "line": "Scrambled egg and cheddar in a tortilla.", "needs": ["egg", "cheddar", "tortilla"] },
+    { "id": "ramen-egg", "name": "Ramen with a soft egg", "line": "Quick noodles, an egg, spinach.", "needs": ["ramen", "egg"] }
+  ]
+}
