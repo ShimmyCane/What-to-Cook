@@ -1,6 +1,6 @@
 # What to Cook — To do
 
-One current list (consolidated 2026-11-07). The history lives in the convo files; `convo/convo v0.5.md` to `v0.8.md` hold the decisions. Notes are marked done only after Jimmy confirms (`02 Refs/Skills/read_notes_and_update.md`).
+One current list (consolidated 2026-11-07). The history lives in the convo files; `convo/convo v0.5.md` to `v0.9.md` hold the decisions. Notes are marked done only after Jimmy confirms (`02 Refs/Skills/read_notes_and_update.md`).
 
 ## Waiting on Jimmy (paste, check, decide)
 
@@ -10,6 +10,8 @@ One current list (consolidated 2026-11-07). The history lives in the convo files
 - [ ] **Merge the drafts** when ready: PR #121 (tracking priority), PR #122 (pantry follow-ups), PR #124 (recipe book, with the explore page), PR #116 (nursery task tracker). Say "merge" for each.
 - [ ] **Test the recipe book** on a phone or iPad (Settings → Pages → Recipe book): the flip, the filters, and whether the starter recipes fit the family.
 - [ ] **Recipe book questions** (convo v0.8): should Athena and Felix edit recipes and add scores, or only read and tap a score? Which small logo for each person? Show me a flip-card example you like.
+- [ ] **Recipe display, flourishes, difficulty, meal prep, ideas for the week** (convo v0.9): pick a layout (A grouped shelves, B list, C photo wall) and answer the six open questions there. Then Claude builds in this order: recipe data fields, grouped display, meal prep tab, ideas for the week.
+- [ ] **Substitutions file** (`substitutions.json`): research later; yellow check on recipes after that.
 - [ ] **Choose the first cuisines** to start from the cuisine library, and move them to "in the book".
 - [ ] **Food journal** (convo v0.3, questions 4–8): app name, cuisine list or free tags, restaurant fields, brand links to pantry items, kids' access.
 - [ ] **Owner-only calorie log:** decide first. It needs `04 AI/Supabase/platform_owner.sql` pasted before any owner-only rule.
