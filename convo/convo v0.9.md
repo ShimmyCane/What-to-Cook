@@ -139,3 +139,10 @@ Notes on the build:
 - Aromatics are written as flourishes with role `aromatic` (no separate field on ingredients); the card back shows them under their own heading.
 - Trials are in the device's local storage (`wtc.recipeTrials`). Moving them to `wtc_recipe_trials` (with a `difficulty` column) needs a SQL paste, left for Jimmy.
 - Checked headless at 390 px: shelves, flip, list view, link to a card from Prep, prep results, week plan, shuffle, sort toggle; no JS errors, no sideways scroll. Not checked on a real phone.
+
+## Notes round (2026-11-12, app 0.9.3)
+
+From `wtc_notes` (read only; left open until Jimmy confirms):
+- *Recipe book right after Kitchen, same setup as the other pages:* now a tab (`js/recipes.js`); `recipes.html` redirects to it. Prep and Week open recipes in the tab.
+- *Prep and Week panels need a background:* both sides are solid soft panels; Week now shows dinners and breakfasts side by side on a wide screen.
+- *"I don't see my pantry anymore, even after signing in":* not reproduced. The live data (100 in-stock lines) renders correctly. Most likely a browser holding an old `pantry.js` against the new page, since the note says version 0.9.1 while the tab was already named Kitchen. Fix: scripts and style now carry a version in the URL, and Kitchen shows an "N in stock" line. Groups still start folded as asked. If it happens again, say what the screen shows.
