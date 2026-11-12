@@ -90,14 +90,24 @@
   </section>
   <section id="tab-prep" class="view" hidden>
     <h2>Meal prep</h2>
-    <p class="hint">Tick what you want to use up. Recipes use only what is in the pantry; ones missing something come after, with the gap named.</p>
-    <div class="row wrap">
-      <label class="grow">Find in the pantry<input type="text" id="prepSearch" placeholder="e.g. chicken"></label>
-      <span id="prepCount" class="hint">none picked</span>
-      <button id="prepClear" type="button">Clear</button>
+    <p class="hint">Everything in stock is ticked. Untick what you cannot or will not use; recipes on the left use only the ticked items.</p>
+    <div class="prepgrid">
+      <div class="prepleft">
+        <div id="prepOut"></div>
+      </div>
+      <aside class="prepright" aria-label="Ingredients to use">
+        <div class="row wrap">
+          <label class="grow">Find<input type="text" id="prepSearch" placeholder="e.g. chicken"></label>
+        </div>
+        <div class="chips">
+          <button id="prepAll" class="chip" type="button">Select all</button>
+          <button id="prepNone" class="chip" type="button">Deselect all</button>
+          <button id="prepSoon" class="chip" type="button">Only use soon</button>
+          <span id="prepCount" class="meta"></span>
+        </div>
+        <div id="prepPick"></div>
+      </aside>
     </div>
-    <div id="prepPick"></div>
-    <div id="prepOut"></div>
   </section>
 
   <section id="tab-week" class="view" hidden>

@@ -3,8 +3,8 @@
 (function (root) {
   'use strict';
   var WTC = root.WTC, R = root.WTCRecipes, $ = WTC.$;
-  var KEY_PICK = 'wtc.prepPick', KEY_WEEK = 'wtc.week', KEY_TRIALS = 'wtc.recipeTrials', KEY_FAV = 'wtc.recipeFav', KEY_START = 'wtc.recipeStart';
-  var recipes = [], breakfasts = [], loaded = false, picks = [], search = '';
+  var KEY_OFF = 'wtc.prepOff', KEY_WEEK = 'wtc.week', KEY_TRIALS = 'wtc.recipeTrials', KEY_FAV = 'wtc.recipeFav', KEY_START = 'wtc.recipeStart';
+  var recipes = [], breakfasts = [], loaded = false, off = [], search = '';
   var PLACES = [['fridge', 'Fridge'], ['freezer', 'Freezer'], ['pantry', 'Pantry'], ['other', 'Other']];
 
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
@@ -16,28 +16,40 @@
   }
 
   // ---------- meal prep ----------
-  function pickChip(it) {
-    var b = el('button', 'pick' + (picks.indexOf(it.id) !== -1 ? ' on' : ''), (picks.indexOf(it.id) !== -1 ? '✓ ' : '') + it.name);
-    b.type = 'button';
-    b.addEventListener('click', function () {
-      var at = picks.indexOf(it.id);
-      if (at === -1) picks.push(it.id); else picks.splice(at, 1);
-      WTCStore.write(KEY_PICK, picks); renderPrep();
+  // Every in-stock item starts ticked. Unticked ids are kept in "off", so new stock is ticked on arrival.
+  function isOn(it) { return off.indexOf(it.id) === -1; }
+  function saveOff() { WTCStore.write(KEY_OFF, off); renderPrep(); }
+  function setOn(arr, on) {
+    arr.forEach(function (it) {
+      var at = off.indexOf(it.id);
+      if (on && at !== -1) off.splice(at, 1);
+      if (!on && at === -1) off.push(it.id);
     });
+    saveOff();
+  }
+  function shortName(n) { return String(n || '').replace(/\s*\(.*?\)/g, '').split(',')[0].trim() || n; }
+  function pickChip(it) {
+    var on = isOn(it);
+    var b = el('button', 'pick' + (on ? ' on' : ''), (on ? '✓ ' : '') + shortName(it.name));
+    b.type = 'button'; b.title = it.name; b.setAttribute('aria-pressed', String(on));
+    b.addEventListener('click', function () { setOn([it], !on); });
     return b;
   }
   function renderPicker() {
     var box = $('prepPick'); box.textContent = '';
     var q = search.toLowerCase();
-    var st = stock().filter(function (it) { return !q || String(it.name || '').toLowerCase().indexOf(q) !== -1; });
-    var soon = st.filter(function (it) { return R.isSoon(it); });
+    var all = stock(), st = all.filter(function (it) { return !q || String(it.name || '').toLowerCase().indexOf(q) !== -1; });
+    $('prepCount').textContent = all.filter(isOn).length + ' of ' + all.length + ' ticked';
     function group(title, arr) {
       if (!arr.length) return;
-      box.appendChild(el('h4', 'seg', title));
-      var row = el('div', 'picks'); arr.sort(function (a, b) { return a.name < b.name ? -1 : 1; }).forEach(function (it) { row.appendChild(pickChip(it)); });
+      var h = el('div', 'seghead'); h.appendChild(el('h4', 'seg', title + ' (' + arr.length + ')'));
+      var a = el('button', 'chip', 'all'), n = el('button', 'chip', 'none'); a.type = n.type = 'button';
+      a.addEventListener('click', function () { setOn(arr, true); }); n.addEventListener('click', function () { setOn(arr, false); });
+      h.appendChild(a); h.appendChild(n); box.appendChild(h);
+      var row = el('div', 'picks'); arr.sort(function (x, y) { return x.name < y.name ? -1 : 1; }).forEach(function (it) { row.appendChild(pickChip(it)); });
       box.appendChild(row);
     }
-    group('⏰ Use soon', soon);
+    group('⏰ Use soon', st.filter(function (it) { return R.isSoon(it); }));
     PLACES.forEach(function (p) {
       group(p[1], st.filter(function (it) { return !R.isSoon(it) && (it.stored_location === p[0] || (p[0] === 'other' && ['fridge', 'freezer', 'pantry'].indexOf(it.stored_location) === -1)); }));
     });
@@ -56,15 +68,14 @@
   function renderPrep() {
     renderPicker();
     var out = $('prepOut'); out.textContent = '';
-    $('prepCount').textContent = picks.length ? picks.length + ' picked' : 'none picked';
-    if (!picks.length) { out.appendChild(el('p', 'hint', 'Tick what you want to use up. Recipes appear here, using only what you have.')); return; }
     if (!loaded) { out.appendChild(el('p', 'hint', 'Loading recipes…')); return; }
-    var names = {}; WTC.state.items.forEach(function (it) { names[it.id] = it.name; });
-    var cand = summaries().map(function (x) {
-      x.picked = x.sum.used.filter(function (id) { return picks.indexOf(id) !== -1; });
-      return x;
-    }).filter(function (x) { return x.picked.length; });
-    cand.sort(function (a, b) { return (b.picked.length - a.picked.length) || (a.diff.score - b.diff.score) || (b.sum.flourishes - a.sum.flourishes); });
+    var all = stock(), on = all.filter(isOn);
+    if (!on.length) { out.appendChild(el('p', 'empty', all.length ? 'Nothing is ticked. Tick some items on the right.' : 'Nothing in stock yet. Add food with 🎙️ Add.')); return; }
+    var cand = recipes.map(function (r) {
+      return { r: r, sum: R.summary(r, on), diff: R.difficulty(r, R.personalOf(list(KEY_TRIALS), r.id)) };
+    }).filter(function (x) { return x.sum.matched > 0; });
+    // use-soon food first, then more flourishes, then easier
+    cand.sort(function (a, b) { return (b.sum.soon - a.sum.soon) || (b.sum.flourishes - a.sum.flourishes) || (a.diff.score - b.diff.score); });
     var full = cand.filter(function (x) { return x.sum.ready; });
     var part = cand.filter(function (x) { return !x.sum.ready; });
     function section(title, arr, sub) {
@@ -72,14 +83,13 @@
       out.appendChild(el('h3', '', title + ' (' + arr.length + ')'));
       arr.forEach(function (x) { out.appendChild(row(x, sub(x))); });
     }
-    section('✅ Fully covered', full, function (x) { return 'Uses ' + x.picked.map(function (id) { return names[id]; }).join(', '); });
-    var p1 = part.filter(function (x) { return x.sum.missing.length === 1; });
-    var p2 = part.filter(function (x) { return x.sum.missing.length === 2; });
-    var p3 = part.filter(function (x) { return x.sum.missing.length >= 3; });
+    section('✅ Fully covered', full, function (x) { return x.sum.soon ? '⏰ uses food that is about to expire' : ''; });
     var miss = function (x) { return 'Missing: ' + x.sum.missing.join(', '); };
-    out.appendChild(el('p', 'hint', full.length ? 'Partial recipes follow. Swap in your own substitutes.' : 'Nothing is fully covered. Partial recipes follow; swap in your own substitutes.'));
-    section('Missing one', p1, miss); section('Missing two', p2, miss); section('Missing three or more', p3, miss);
-    if (!cand.length) out.appendChild(el('p', 'empty', 'No recipe in the book uses those. Try fewer picks.'));
+    if (part.length) out.appendChild(el('p', 'hint', full.length ? 'Partial recipes follow. Swap in your own substitutes.' : 'Nothing is fully covered. Partial recipes follow; swap in your own substitutes.'));
+    section('Missing one', part.filter(function (x) { return x.sum.missing.length === 1; }), miss);
+    section('Missing two', part.filter(function (x) { return x.sum.missing.length === 2; }), miss);
+    section('Missing three or more', part.filter(function (x) { return x.sum.missing.length >= 3; }), miss);
+    if (!cand.length) out.appendChild(el('p', 'empty', 'No recipe in the book uses the ticked items.'));
   }
 
   // ---------- ideas for the week ----------
@@ -190,7 +200,9 @@
 
   // ---------- wiring ----------
   $('prepSearch').addEventListener('input', function () { search = this.value; renderPicker(); });
-  $('prepClear').addEventListener('click', function () { picks.length = 0; WTCStore.write(KEY_PICK, picks); renderPrep(); });
+  $('prepAll').addEventListener('click', function () { setOn(stock(), true); });
+  $('prepNone').addEventListener('click', function () { setOn(stock(), false); });
+  $('prepSoon').addEventListener('click', function () { var st = stock(); setOn(st.filter(function (it) { return !R.isSoon(it); }), false); setOn(st.filter(function (it) { return R.isSoon(it); }), true); });
   $('weekAgain').addEventListener('click', function () { plan(); });
   document.querySelectorAll('[data-wsort]').forEach(function (b) { b.addEventListener('click', function () { plan(b.dataset.wsort); }); });
   document.querySelectorAll('.tab').forEach(function (b) {
@@ -198,7 +210,7 @@
   });
   WTC.on('pantry', function () { if (!$('tab-prep').hidden) renderPrep(); });
 
-  picks = list(KEY_PICK);
+  off = list(KEY_OFF);
   Promise.all([fetch('recipes_explore.json').then(function (r) { return r.json(); }),
                fetch('breakfast_ideas.json').then(function (r) { return r.json(); })]).then(function (res) {
     recipes = res[0].recipes || []; breakfasts = res[1].ideas || []; loaded = true;

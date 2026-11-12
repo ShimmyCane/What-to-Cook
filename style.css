@@ -134,3 +134,18 @@ button.warm { background: var(--peach); }
 .slot { display: flex; align-items: center; gap: 10px; min-height: 56px; padding: 6px 0; border-bottom: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); }
 .sname { font-weight: 700; font-size: 18px; color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
 .shuffle { min-width: 48px; font-size: 22px; padding: 4px; }
+
+/* Meal prep: recipes on the left, ingredients on the right (stacked on a phone) */
+main:has(#tab-prep:not([hidden])) { max-width: 1100px; }
+.prepgrid { display: grid; gap: 18px; }
+@media (min-width: 760px) {
+  .prepgrid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: start; }
+  .prepright { position: sticky; top: 8px; max-height: calc(100vh - 24px); overflow-y: auto; padding-right: 6px; }
+}
+.prepright .row { margin: 0 0 4px; }
+.pick { max-width: 100%; }
+.pick:not(.on) { opacity: .6; text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--ink) 40%, transparent); }
+.seghead { display: flex; align-items: center; gap: 4px 12px; margin: 16px 0 6px; flex-wrap: wrap; }
+.seghead .seg { margin: 0; flex: 1; }
+.seghead .chip { font-size: 14px; min-height: 36px; }
+#prepOut h3:first-child { margin-top: 0; }
