@@ -2,8 +2,9 @@
  * Data only. Add a page or a to-do here, not in the code. */
 (function (root) {
   'use strict';
-  var VERSION = '0.9.3';
+  var VERSION = '0.9.4';
   var VERSIONS = [
+    { v: '0.9.4', date: '2026-11-12', text: 'Dark mode: the header title, the filter toggles (All, Favourites, Select all and so on) and plain links no longer show dark text on a dark background.' },
     { v: '0.9.3', date: '2026-11-12', text: 'Recipe book is now a tab right after Kitchen (recipes.html redirects here). Prep and Week have solid side panels; Week shows dinners and breakfasts side by side on a wide screen. Kitchen shows an in-stock count. Scripts carry a version so a stale copy in the browser cannot mix with the new page.' },
     { v: '0.9.2', date: '2026-11-12', text: 'Pantry is now Kitchen: everything shows, grouped as Fridge, Freezer, Pantry, Kitchen and Unsorted, each folded until opened, with lower-priority items inside their place and headings by category. Search field. Add: pick which place you are reviewing (or let it guess). Done notes show 🔒✅. A soft panel sits behind the content so the dotted background no longer cuts across text.' },
     { v: '0.9.1', date: '2026-11-12', text: 'Prep tab: recipes on the left, ingredients on the right (stacked on a phone). Everything in stock starts ticked; untick items, or use Select all, Deselect all, Only use soon, and all/none per place. Shorter item names.' },
