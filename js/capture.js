@@ -45,8 +45,11 @@
   $('parse').addEventListener('click', function () {
     var source = $('source').value;
     var parsed = window.WTCParse.parseTranscript($('transcript').value);
+    var chosen = $('placePick').value;   // a place picked by hand beats the guess
     draft = parsed.map(function (d) {
-      return Object.assign({ keep: true, expires_on: null, source: source }, d);
+      var row = Object.assign({ keep: true, expires_on: null, source: source }, d);
+      if (chosen) row.stored_location = chosen;
+      return row;
     });
     if (!draft.length) { reportError('Nothing to sort. Paste or type something first.'); $('review').hidden = true; return; }
     renderDraft();
@@ -66,7 +69,7 @@
           '<input type="number" step="any" inputmode="decimal" class="dqty" aria-label="Quantity">' +
           '<select class="dunit" aria-label="Unit"></select>' +
           '<select class="dkind" aria-label="Kind"><option>dry</option><option>wet</option><option>tool</option><option>space</option></select>' +
-          '<select class="dplace" aria-label="Place"><option>fridge</option><option>pantry</option><option>freezer</option><option>other</option></select>' +
+          '<select class="dplace" aria-label="Place"><option value="fridge">fridge</option><option value="pantry">pantry</option><option value="freezer">freezer</option><option value="kitchen">kitchen</option><option value="other">unsorted</option></select>' +
           '<input type="date" class="dexp" aria-label="Expiry date">' +
         '</div><div class="meta"></div>';
       li.querySelector('.keep').checked = d.keep;

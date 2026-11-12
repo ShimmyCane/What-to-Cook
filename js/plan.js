@@ -9,7 +9,7 @@
 
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function list(key) { var v = WTCStore.read(key, []); return Array.isArray(v) ? v : []; }
-  function stock() { return R.inStock(WTC.state.items); }
+  function stock() { return R.inStock(WTC.state.items).filter(function (it) { return it.kind !== 'tool' && it.kind !== 'space'; }); }
   function summaries() {
     var st = stock();
     return recipes.map(function (r) { return { r: r, sum: R.summary(r, st), diff: R.difficulty(r, R.personalOf(list(KEY_TRIALS), r.id)) }; });
