@@ -2,8 +2,9 @@
  * Data only. Add a page or a to-do here, not in the code. */
 (function (root) {
   'use strict';
-  var VERSION = '0.9.0';
+  var VERSION = '0.9.1';
   var VERSIONS = [
+    { v: '0.9.1', date: '2026-11-12', text: 'Prep tab: recipes on the left, ingredients on the right (stacked on a phone). Everything in stock starts ticked; untick items, or use Select all, Deselect all, Only use soon, and all/none per place. Shorter item names.' },
     { v: '0.9.0', date: '2026-11-12', text: 'Recipe book: grouped shelves (ready now, missing one, use soon, quick, by cuisine) with a list view and fewer outlines. Each recipe has prep, wait, cook and total time, a difficulty score, flourishes by role, and a Cooked it button that records how hard it was. New tabs: Prep (pick what to use up, then fully covered recipes first, partial after) and Week (five dinners and five breakfasts; new-to-us or favourites first).' },
     { v: '0.8.0', date: '2026-11-08', text: 'Tracking: choose Priority or Lower priority in each card\'s Details; it saves to the family database. Eggs, bread and wines are on the lower list. Recipe versions: once a recipe is started, add Jimmy\'s, Ying\'s, Athena\'s or Felix\'s tweak; each version shows that person\'s letter on the card. Starting a recipe saves its ingredients, linked to the food list.' },
     { v: '0.7.0', date: '2026-11-07', text: 'Fridge life on entry: new items are stamped with the day they went in, and fridge items without a date get one from the food list (marked ?). Pantry list ordered by favourites, then by how often a food is used; eggs, bread and wines move to a Lower priority list. Recipe book: favourites and starts saved to the family database, and short steps on the back once a recipe is started. Code split by feature.' },
