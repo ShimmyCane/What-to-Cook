@@ -81,7 +81,7 @@
     ul.textContent = '';
     notes.slice().reverse().forEach(function (n) {
       var li = document.createElement('li');
-      li.textContent = (n.status === 'done' ? '✅ ' : '') + new Date(n.at).toLocaleString() + ' · ' + n.where + ' · v' + n.version + '\n' + n.text;
+      li.textContent = (n.status === 'done' ? '🔒✅ ' : '') + new Date(n.at).toLocaleString() + ' · ' + n.where + ' · v' + n.version + '\n' + n.text;
       ul.appendChild(li);
     });
   }

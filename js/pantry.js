@@ -54,7 +54,6 @@
     checks.forEach(function (c) { var k = keyOf[c.item_id]; if (k) counts[k] = (counts[k] || 0) + 1; });
     return counts;
   }
-  function placeOk(it) { var place = $('placeFilter').value; return !place || it.stored_location === place; }
   function byPriority(counts) {
     return function (a, b) {
       return (b.fav ? 1 : 0) - (a.fav ? 1 : 0) ||
@@ -62,18 +61,30 @@
         a.name.localeCompare(b.name);
     };
   }
-  function listed(low) {
-    var counts = useCounts();
-    return items.filter(function (it) {
-      return it.status === 'in_stock' && !inCleanup(it) && isLow(it) === low && placeOk(it);
-    }).sort(byPriority(counts));
+  // Kitchen groups: one per place. Lower-priority items sit inside their place, after the priority ones.
+  var GROUPS = [['fridge', '🧊', 'Fridge'], ['freezer', '❄️', 'Freezer'], ['pantry', '🥫', 'Pantry'],
+                ['kitchen', '🍳', 'Kitchen (tools, space)'], ['other', '📦', 'Unsorted']];
+  var groupOpen = {};
+  function placeOf(it) { return ['fridge', 'freezer', 'pantry', 'kitchen'].indexOf(it.stored_location) !== -1 ? it.stored_location : 'other'; }
+  function matches(it, q) {
+    if (!q) return true;
+    return [it.name, it.category, it.notes].join(' ').toLowerCase().indexOf(q) !== -1;
   }
-  function stockItems() { return listed(false); }
-  function lowItems() { return listed(true); }
+  function inGroups(q) {
+    return items.filter(function (it) { return it.status === 'in_stock' && !inCleanup(it) && matches(it, q); });
+  }
+  function byGroup(counts) {
+    var pri = byPriority(counts);
+    return function (a, b) {
+      var ca = a.category || '~', cb = b.category || '~';
+      return ca.localeCompare(cb) || (isLow(a) ? 1 : 0) - (isLow(b) ? 1 : 0) || pri(a, b);
+    };
+  }
   function describe(item) {
     var bits = [];
     if (item.quantity != null) bits.push(round1(item.quantity) + (item.unit ? ' ' + item.unit : ''));
-    if (item.stored_location) bits.push(item.stored_location);
+    if (item.stored_location) bits.push(item.stored_location === 'other' ? 'unsorted' : item.stored_location);
+    if (isLow(item)) bits.push('lower priority');
     var p = predict(item);
     if (p) bits.push('about ' + p.left + ' left (' + p.pct + '%, a guess)');
     var d = daysUntilExpiry(item);
@@ -83,8 +94,7 @@
   // ---- rendering ----
   function renderAll(openId) {
     renderCleanup();
-    renderStock();
-    renderLow();
+    renderGroups();
     if (openId) openCard(openId);
   }
 
@@ -99,22 +109,37 @@
     $('cleanupPanel').querySelector('.mark').textContent = list.length ? '▾' : '▸';
   }
 
-  function renderStock() {
-    var ul = $('stock');
-    ul.textContent = '';
-    var shown = stockItems();
-    shown.forEach(function (it) { ul.appendChild(card(it, false)); });
-    $('stockEmpty').hidden = shown.length > 0;
-  }
-
-  function renderLow() {
-    var ul = $('lowStock');
-    if (!ul) return;
-    ul.textContent = '';
-    var shown = lowItems();
-    shown.forEach(function (it) { ul.appendChild(card(it, false)); });
-    $('lowCount').textContent = String(shown.length);
-    $('lowEmpty').hidden = shown.length > 0;
+  function renderGroups() {
+    var box = $('groups'), q = ($('kitchenSearch').value || '').trim().toLowerCase();
+    box.textContent = '';
+    var pool = inGroups(q), counts = useCounts(), any = false;
+    GROUPS.forEach(function (g) {
+      var list = pool.filter(function (it) { return placeOf(it) === g[0]; }).sort(byGroup(counts));
+      if (!list.length) return;
+      any = true;
+      var open = q ? true : !!groupOpen[g[0]];
+      var sec = document.createElement('section');
+      sec.className = 'panel'; sec.dataset.panel = 'g-' + g[0]; sec.dataset.collapsed = String(!open);
+      sec.innerHTML = '<button class="panelHead" type="button"><span></span><span class="grow"></span><span class="mark"></span></button><div class="panelBody"><ul class="cards"></ul></div>';
+      var head = sec.querySelector('.panelHead');
+      head.setAttribute('aria-expanded', String(open));
+      head.children[0].textContent = g[1]; head.children[1].textContent = g[2] + ' (' + list.length + ')';
+      head.children[2].textContent = open ? '▾' : '▸';
+      head.addEventListener('click', function () {
+        var now = sec.dataset.collapsed === 'true';   // opening
+        groupOpen[g[0]] = now; sec.dataset.collapsed = String(!now);
+        head.setAttribute('aria-expanded', String(now)); head.children[2].textContent = now ? '▾' : '▸';
+      });
+      var ul = sec.querySelector('.cards'), last = null;
+      list.forEach(function (it) {
+        var cat = it.category || 'Uncategorised';
+        if (cat !== last) { var h = document.createElement('li'); h.className = 'catHead'; h.textContent = cat; ul.appendChild(h); last = cat; }
+        ul.appendChild(card(it, false));
+      });
+      box.appendChild(sec);
+    });
+    $('groupsEmpty').hidden = any;
+    $('groupsEmpty').textContent = q ? 'Nothing matches that search.' : 'Nothing in stock here. Use 🎙️ Add.';
   }
 
   function card(it, cleanup) {
@@ -161,7 +186,7 @@
         '<label>Eats per day<input type="number" step="any" inputmode="decimal" class="fr" placeholder="e.g. 5"></label>' +
         '<label>Expiry date<input type="date" class="fe"></label>' +
       '</div>' +
-      '<label>Place<select class="fp"><option value="fridge">Fridge</option><option value="pantry">Pantry</option><option value="freezer">Freezer</option><option value="other">Other</option></select></label>' +
+      '<label>Place<select class="fp"><option value="fridge">Fridge</option><option value="pantry">Pantry</option><option value="freezer">Freezer</option><option value="kitchen">Kitchen</option><option value="other">Unsorted</option></select></label>' +
       '<label>Tracking<select class="ft"><option value="priority">Priority</option><option value="low">Lower priority (revisit now and then)</option></select></label>' +
       '<label>Notes<textarea class="fn" rows="2"></textarea></label>' +
       '<div class="row wrap">' +
@@ -172,7 +197,7 @@
     f.querySelector('.fu').value = it.unit || '';
     f.querySelector('.fr').value = it.daily_rate == null ? '' : String(it.daily_rate);
     f.querySelector('.fe').value = it.expires_on || '';
-    f.querySelector('.fp').value = ['fridge', 'pantry', 'freezer', 'other'].indexOf(it.stored_location) !== -1 ? it.stored_location : 'other';
+    f.querySelector('.fp').value = ['fridge', 'pantry', 'freezer', 'kitchen', 'other'].indexOf(it.stored_location) !== -1 ? it.stored_location : 'other';
     f.querySelector('.fn').value = it.notes || '';
     f.querySelector('.ft').value = isLow(it) ? 'low' : 'priority';
 
@@ -183,6 +208,8 @@
   function openCard(id) {
     var el = document.querySelector('.card[data-id="' + id + '"]');
     if (!el) return;
+    var grp = el.closest('.panel');   // open its group if it is folded
+    if (grp && grp.dataset.collapsed === 'true') { var h = grp.querySelector('.panelHead'); if (h) h.click(); }
     el.querySelector('details').open = true;
     el.scrollIntoView({ block: 'center', behavior: 'smooth' });
     var fq = el.querySelector('.fq');
@@ -301,6 +328,6 @@
     }
   });
 
-  $('placeFilter').addEventListener('change', function () { renderAll(); });
+  $('kitchenSearch').addEventListener('input', function () { renderGroups(); });
   WTC.on('pantry', function () { renderAll(); });
 })(window);

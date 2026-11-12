@@ -13,7 +13,7 @@
 </header>
 
 <nav class="tabs" aria-label="Sections">
-  <button class="tab on" data-tab="pantry" type="button">🥫 Pantry</button>
+  <button class="tab on" data-tab="pantry" type="button">🏠 Kitchen</button>
   <button class="tab" data-tab="capture" type="button">🎙️ Add</button>
   <button class="tab" data-tab="prep" type="button">🍱 Prep</button>
   <button class="tab" data-tab="week" type="button">💡 Week</button>
@@ -25,17 +25,11 @@
       <label class="grow">Who is checking?
         <select id="member"></select>
       </label>
-      <label>Show
-        <select id="placeFilter">
-          <option value="">All places</option>
-          <option value="fridge">Fridge</option>
-          <option value="pantry">Pantry</option>
-          <option value="freezer">Freezer</option>
-          <option value="other">Other</option>
-        </select>
+      <label class="grow">Search
+        <input type="text" id="kitchenSearch" placeholder="e.g. soy, tea, wok">
       </label>
     </div>
-    <p class="hint">Swipe left: ate or tossed. Swipe right: remain. Tap: ⭐ favourite. Open <em>Details</em> to change the quantity.</p>
+    <p class="hint">Swipe left: ate or tossed. Swipe right: remain. Tap: ⭐ favourite. Open <em>Details</em> to change the quantity or place.</p>
 
     <section class="panel" data-panel="cleanup" id="cleanupPanel">
       <button class="panelHead" type="button" aria-expanded="true"><span>🧹</span><span class="grow">Use soon (<span id="cleanCount">0</span>)</span><span class="mark">▾</span></button>
@@ -47,22 +41,8 @@
       </div>
     </section>
 
-    <section class="panel" data-panel="stock">
-      <button class="panelHead" type="button" aria-expanded="true"><span>🥫</span><span class="grow">Pantry, fridge and freezer</span><span class="mark">▾</span></button>
-      <div class="panelBody">
-        <ul id="stock" class="cards" aria-live="polite"></ul>
-        <p id="stockEmpty" class="empty" hidden>Nothing else in stock here. Use 🎙️ Add.</p>
-      </div>
-    </section>
-
-    <section class="panel" data-panel="low" data-open="false">
-      <button class="panelHead" type="button" aria-expanded="false"><span>🗂️</span><span class="grow">Lower priority (<span id="lowCount">0</span>)</span><span class="mark">▸</span></button>
-      <div class="panelBody">
-        <p class="hint">Tracked loosely, like eggs, bread and wines. Revisit now and then.</p>
-        <ul id="lowStock" class="cards"></ul>
-        <p id="lowEmpty" class="empty" hidden>Nothing on the lower list.</p>
-      </div>
-    </section>
+    <div id="groups" aria-live="polite"></div>
+    <p id="groupsEmpty" class="empty" hidden>Nothing in stock here. Use 🎙️ Add.</p>
   </section>
 
   <section id="tab-capture" class="view" hidden>
@@ -71,6 +51,16 @@
       <select id="source">
         <option value="apple_memo">🍎 Apple Voice Memo transcript</option>
         <option value="raw">Typed or spoken here</option>
+      </select>
+    </label>
+    <label>Which place are you reviewing?
+      <select id="placePick">
+        <option value="">Sort it for me (guess)</option>
+        <option value="fridge">Fridge</option>
+        <option value="freezer">Freezer</option>
+        <option value="pantry">Pantry</option>
+        <option value="kitchen">Kitchen (tools, space)</option>
+        <option value="other">Unsorted</option>
       </select>
     </label>
     <p class="hint">Paste the memo's transcript, one item per line or separated by commas. The full text is archived in ⚙️ → Transcript archive.</p>

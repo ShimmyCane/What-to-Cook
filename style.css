@@ -149,3 +149,8 @@ main:has(#tab-prep:not([hidden])) { max-width: 1100px; }
 .seghead .seg { margin: 0; flex: 1; }
 .seghead .chip { font-size: 14px; min-height: 36px; }
 #prepOut h3:first-child { margin-top: 0; }
+
+/* A midground panel so the dotted background never cuts across text */
+main { background: color-mix(in srgb, var(--paper) 95%, transparent); border-radius: var(--r) var(--r) 0 0; margin-top: 10px; min-height: 70vh; box-shadow: 0 0 0 2px color-mix(in srgb, var(--ink) 12%, transparent); }
+.catHead { list-style: none; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .7; font-weight: 700; margin: 8px 0 -4px; }
+.catHead:first-child { margin-top: 0; }
