@@ -56,7 +56,8 @@
     if (!st.length) box.appendChild(el('p', 'empty', 'Nothing in stock matches. Add food with 🎙️ Add.'));
   }
   function row(x, extra) {
-    var a = el('a', 'rrow'); a.href = 'recipes.html#' + encodeURIComponent(x.r.id);
+    var a = el('a', 'rrow'); a.href = '#recipe-' + x.r.id;
+    a.addEventListener('click', function (e) { e.preventDefault(); WTC.openRecipe(x.r.id); });
     a.appendChild(el('span', 'grow', x.r.name));
     a.appendChild(el('span', 'meta', (x.r.total_min || x.r.minutes) + ' min'));
     a.appendChild(el('span', 'dots', R.dots(x.diff.level)));
@@ -171,14 +172,14 @@
     if (kind === 'dinner') {
       var r = recipes.filter(function (x) { return x.id === id; })[0];
       if (!r) return null;
-      info = [r.name, r.cuisine + ' · ' + r.protein]; link = 'recipes.html#' + encodeURIComponent(r.id);
+      info = [r.name, r.cuisine + ' · ' + r.protein]; link = r.id;
     } else {
       var b = breakfasts.filter(function (x) { return x.id === id; })[0];
       if (!b) return null;
       info = [b.name, b.line];
     }
     var main = link ? el('a', 'sname', info[0]) : el('span', 'sname', info[0]);
-    if (link) main.href = link;
+    if (link) { main.href = '#recipe-' + link; main.addEventListener('click', function (e) { e.preventDefault(); WTC.openRecipe(link); }); }
     var txt = el('div', 'grow'); txt.appendChild(main); txt.appendChild(el('div', 'meta', info[1]));
     var sh = el('button', 'shuffle', '↻'); sh.type = 'button'; sh.setAttribute('aria-label', 'Another idea for ' + info[0]);
     sh.addEventListener('click', function () { shuffleOne(kind, at); });

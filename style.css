@@ -151,6 +151,70 @@ main:has(#tab-prep:not([hidden])) { max-width: 1100px; }
 #prepOut h3:first-child { margin-top: 0; }
 
 /* A midground panel so the dotted background never cuts across text */
-main { background: color-mix(in srgb, var(--paper) 95%, transparent); border-radius: var(--r) var(--r) 0 0; margin-top: 10px; min-height: 70vh; box-shadow: 0 0 0 2px color-mix(in srgb, var(--ink) 12%, transparent); }
+main { background: var(--paper); border-radius: var(--r) var(--r) 0 0; margin-top: 10px; min-height: 70vh; box-shadow: 0 0 0 2px color-mix(in srgb, var(--ink) 12%, transparent); }
 .catHead { list-style: none; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .7; font-weight: 700; margin: 8px 0 -4px; }
 .catHead:first-child { margin-top: 0; }
+
+/* Recipe book tab (scoped so its names never clash with the other tabs) */
+#tab-recipes .chips { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 10px 0 4px; align-items: center; }
+#tab-recipes .chip { min-height: 44px; padding: 4px 2px; font-size: 16px; background: none; border: 0; border-bottom: 3px solid transparent; border-radius: 0; box-shadow: none; }
+#tab-recipes .chip.on { border-bottom-color: var(--ink); }
+#tab-recipes .chips .sp { flex: 1; }
+#tab-recipes details.shelf { margin: 14px 0 6px; }
+#tab-recipes details.shelf > summary { list-style: none; cursor: pointer; min-height: 44px; display: flex; align-items: center; gap: 8px; font: 700 18px Quicksand, system-ui, sans-serif; padding: 4px 0; border-bottom: 2px solid color-mix(in srgb, var(--ink) 25%, transparent); }
+#tab-recipes details.shelf > summary::-webkit-details-marker { display: none; }
+#tab-recipes details.shelf > summary::before { content: "▸"; }
+#tab-recipes details.shelf[open] > summary::before { content: "▾"; }
+#tab-recipes .count { font-weight: 500; font-size: 14px; opacity: .7; }
+#tab-recipes .strip { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x proximity; padding: 14px 4px 18px; margin: 0 -4px; }
+#tab-recipes .strip .flip { flex: 0 0 min(280px, 82vw); scroll-snap-align: start; }
+#tab-recipes .shelflabel { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; opacity: .7; margin: 22px 0 0; }
+#tab-recipes .flip { perspective: 1200px; height: 330px; }
+#tab-recipes .flip-inner { position: relative; width: 100%; height: 100%; transition: transform .5s; transform-style: preserve-3d; }
+#tab-recipes .flip.open .flip-inner { transform: rotateY(180deg); }
+#tab-recipes .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+          border: 3px solid var(--ink); border-radius: var(--r); box-shadow: var(--shadow); padding: 14px; overflow: hidden; }
+#tab-recipes .front { background: var(--surface); color: var(--surface-ink); cursor: pointer; display: flex; flex-direction: column; }
+#tab-recipes .back { transform: rotateY(180deg); background: var(--paper); color: var(--ink); overflow-y: auto; }
+#tab-recipes .flip:not(.open) .back { visibility: hidden; }
+#tab-recipes .flip.open .front { visibility: hidden; }
+#tab-recipes .tag { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .75; }
+#tab-recipes .name { font: 700 20px Quicksand, system-ui, sans-serif; margin: 6px 0 6px; overflow-wrap: anywhere; }
+#tab-recipes .desc { font-size: 15px; margin: 0 0 10px; flex: 1; }
+#tab-recipes .meta { font-size: 13px; opacity: .85; margin: 2px 0; }
+#tab-recipes .dots { letter-spacing: 2px; }
+#tab-recipes .have { font-size: 13px; }
+#tab-recipes h4 { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .7; margin: 12px 0 2px; font-weight: 700; }
+#tab-recipes .ing { list-style: none; padding: 0; margin: 0; font-size: 15px; display: flex; flex-wrap: wrap; gap: 2px 14px; }
+#tab-recipes .ing li.yes::before { content: "✅ "; }
+#tab-recipes .ing li.no::before { content: "◻️ "; }
+#tab-recipes .ing li.dim { opacity: .55; }
+#tab-recipes .tipline { font-size: 13px; margin: 4px 0 0; opacity: .85; }
+#tab-recipes .btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+#tab-recipes .btns button,
+#tab-recipes .btns a { min-height: 44px; font-size: 15px; padding: 6px 12px; }
+#tab-recipes .btns a { display: inline-flex; align-items: center; color: var(--ink); text-decoration: none; background: #fff; color: var(--surface-ink); border: 3px solid var(--ink); border-radius: var(--r); box-shadow: var(--shadow); font-weight: 700; }
+#tab-recipes .rmark { position: absolute; top: 10px; right: 12px; font-size: 20px; }
+#tab-recipes .steps { margin: 6px 0 4px 18px; padding: 0; font-size: 14px; }
+#tab-recipes .steps li { padding: 2px 0; }
+#tab-recipes .logos { position: absolute; bottom: 10px; right: 12px; display: flex; gap: 4px; }
+#tab-recipes .logo { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--ink); display: inline-flex; align-items: center; justify-content: center; font: 700 13px Quicksand, system-ui, sans-serif; color: var(--surface-ink); flex: 0 0 auto; }
+#tab-recipes .versions { list-style: none; padding: 0; margin: 8px 0; font-size: 14px; }
+#tab-recipes .versions li { display: flex; gap: 6px; align-items: center; padding: 3px 0; }
+#tab-recipes .vform,
+#tab-recipes .cform { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+#tab-recipes .vform select,
+#tab-recipes .vform input,
+#tab-recipes .cform select { min-height: 44px; flex: 1 1 120px; min-width: 0; }
+#tab-recipes .list .lrow { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 48px; text-align: left; background: none; color: var(--ink); border: 0; border-bottom: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); border-radius: 0; box-shadow: none; font-weight: 500; font-size: 16px; padding: 6px 2px; }
+#tab-recipes .list .lrow .grow { flex: 1; overflow-wrap: anywhere; }
+#tab-recipes .list .flip { height: 360px; margin: 10px 0; }
+#tab-recipes .list .seg { margin-top: 18px; }
+
+#tab-recipes .book { display: block; }
+/* Side panels (Prep, Week): a solid soft surface so nothing shows through */
+.panelcol { background: color-mix(in srgb, var(--ink) 5%, var(--paper)); border: 2px solid color-mix(in srgb, var(--ink) 14%, transparent); border-radius: var(--r); padding: 12px 14px; }
+.panelcol h3:first-child { margin-top: 0; }
+.weekgrid { display: grid; gap: 16px; margin-top: 8px; }
+@media (min-width: 760px) { .weekgrid { grid-template-columns: 1fr 1fr; align-items: start; } main:has(#tab-week:not([hidden])) { max-width: 1100px; } }
+@media (max-width: 480px) { .tabs { gap: 4px; padding: 12px 8px 0; } .tab { font-size: 13px; min-height: 56px; padding: 4px 0; } }

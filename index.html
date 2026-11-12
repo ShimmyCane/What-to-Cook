@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What to Cook</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=0.9.3">
 </head>
 <body>
 <header class="top">
@@ -14,6 +14,7 @@
 
 <nav class="tabs" aria-label="Sections">
   <button class="tab on" data-tab="pantry" type="button">🏠 Kitchen</button>
+  <button class="tab" data-tab="recipes" type="button">📖 Recipes</button>
   <button class="tab" data-tab="capture" type="button">🎙️ Add</button>
   <button class="tab" data-tab="prep" type="button">🍱 Prep</button>
   <button class="tab" data-tab="week" type="button">💡 Week</button>
@@ -29,6 +30,7 @@
         <input type="text" id="kitchenSearch" placeholder="e.g. soy, tea, wok">
       </label>
     </div>
+    <p id="kitchenTotal" class="hint"></p>
     <p class="hint">Swipe left: ate or tossed. Swipe right: remain. Tap: ⭐ favourite. Open <em>Details</em> to change the quantity or place.</p>
 
     <section class="panel" data-panel="cleanup" id="cleanupPanel">
@@ -43,6 +45,22 @@
 
     <div id="groups" aria-live="polite"></div>
     <p id="groupsEmpty" class="empty" hidden>Nothing in stock here. Use 🎙️ Add.</p>
+  </section>
+
+  <section id="tab-recipes" class="view" hidden>
+    <h2>Recipe book</h2>
+    <p class="hint">Tap a card to turn it over. Pantry matches come from this device's pantry.</p>
+    <div class="chips" role="group" aria-label="Filter and view">
+      <button class="chip on" data-filter="all" type="button">All <span id="cAll"></span></button>
+      <button class="chip" data-filter="fav" type="button">⭐ Favourites <span id="cFav"></span></button>
+      <button class="chip" data-filter="started" type="button">▶ Started <span id="cStart"></span></button>
+      <span class="sp"></span>
+      <button class="chip on" data-view="shelves" type="button">Shelves</button>
+      <button class="chip" data-view="list" type="button">List</button>
+    </div>
+    <p id="saveState" class="hint" role="status"></p>
+    <div id="book" class="book"></div>
+    <div id="empty" class="empty" hidden>Nothing here yet.</div>
   </section>
 
   <section id="tab-capture" class="view" hidden>
@@ -82,10 +100,10 @@
     <h2>Meal prep</h2>
     <p class="hint">Everything in stock is ticked. Untick what you cannot or will not use; recipes on the left use only the ticked items.</p>
     <div class="prepgrid">
-      <div class="prepleft">
+      <div class="prepleft panelcol">
         <div id="prepOut"></div>
       </div>
-      <aside class="prepright" aria-label="Ingredients to use">
+      <aside class="prepright panelcol" aria-label="Ingredients to use">
         <div class="row wrap">
           <label class="grow">Find<input type="text" id="prepSearch" placeholder="e.g. chicken"></label>
         </div>
@@ -106,10 +124,16 @@
       <button class="chip on" data-wsort="new" type="button">✨ New to us first</button>
       <button class="chip" data-wsort="fav" type="button">⭐ Favourites first</button>
     </div>
-    <h3>Five dinners</h3>
-    <ul id="weekDinners" class="slots"></ul>
-    <h3>Five breakfasts</h3>
-    <ul id="weekBreakfasts" class="slots"></ul>
+    <div class="weekgrid">
+      <div class="panelcol">
+        <h3>Five dinners</h3>
+        <ul id="weekDinners" class="slots"></ul>
+      </div>
+      <div class="panelcol">
+        <h3>Five breakfasts</h3>
+        <ul id="weekBreakfasts" class="slots"></ul>
+      </div>
+    </div>
     <p id="weekNote" class="hint" role="status"></p>
     <button id="weekAgain" type="button" class="big">↻ Plan again</button>
     <p class="hint">Dinners skip anything cooked in the last 7 days, and use different proteins. Tap a dinner to see its recipe.</p>
@@ -208,20 +232,21 @@
   <option value="cup"></option>
 </datalist>
 
-<script src="js/config.js"></script>
-<script src="js/store.js"></script>
-<script src="js/util.js"></script>
-<script src="js/errors.js"></script>
-<script src="js/db.js"></script>
-<script src="js/parse.js"></script>
-<script src="js/recipelib.js"></script>
-<script src="js/core.js"></script>
-<script src="js/content.js"></script>
-<script src="js/sync.js"></script>
-<script src="js/pantry.js"></script>
-<script src="js/capture.js"></script>
-<script src="js/plan.js"></script>
-<script src="js/settings.js"></script>
-<script src="js/app.js"></script>
+<script src="js/config.js?v=0.9.3"></script>
+<script src="js/store.js?v=0.9.3"></script>
+<script src="js/util.js?v=0.9.3"></script>
+<script src="js/errors.js?v=0.9.3"></script>
+<script src="js/db.js?v=0.9.3"></script>
+<script src="js/parse.js?v=0.9.3"></script>
+<script src="js/recipelib.js?v=0.9.3"></script>
+<script src="js/core.js?v=0.9.3"></script>
+<script src="js/content.js?v=0.9.3"></script>
+<script src="js/sync.js?v=0.9.3"></script>
+<script src="js/pantry.js?v=0.9.3"></script>
+<script src="js/capture.js?v=0.9.3"></script>
+<script src="js/recipes.js?v=0.9.3"></script>
+<script src="js/plan.js?v=0.9.3"></script>
+<script src="js/settings.js?v=0.9.3"></script>
+<script src="js/app.js?v=0.9.3"></script>
 </body>
 </html>

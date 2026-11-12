@@ -138,6 +138,8 @@
       });
       box.appendChild(sec);
     });
+    var inStockAll = items.filter(function (it) { return it.status === 'in_stock'; }).length;
+    $('kitchenTotal').textContent = inStockAll + ' in stock' + (q ? ' · ' + pool.length + ' match' : '') + '. Tap a place to open it.';
     $('groupsEmpty').hidden = any;
     $('groupsEmpty').textContent = q ? 'Nothing matches that search.' : 'Nothing in stock here. Use 🎙️ Add.';
   }

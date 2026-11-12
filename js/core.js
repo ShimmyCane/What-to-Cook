@@ -76,6 +76,8 @@
     btn.addEventListener('click', function () { showTab(btn.dataset.tab); });
   });
   WTC.showTab = showTab;
+  // index.html#recipes or #recipes:<id> opens the recipe book (used by the old recipes.html link)
+  WTC.startHash = (location.hash || '').replace('#', '');
 
   // the page shell: the settings drawer and the collapsible panels
   $('gear').addEventListener('click', function () {
